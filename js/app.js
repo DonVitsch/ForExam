@@ -556,59 +556,24 @@ function getTotalCount(subject) {
 }
 
 async function renderIndexPage() {
-    const subjectList = $("#subjectList");
-    const subjectCount = $("#subjectCount");
-    const mistakeCount = $("#mistakeCount");
-    const mistakeBookBtn = $("#mistakeBookBtn");
+    const subjectCount = document.querySelector("#subjectCount");
+    const mistakeCount = document.querySelector("#mistakeCount");
+    const mistakeBookBtn = document.querySelector("#mistakeBookBtn");
 
-    if (!subjectList || !subjectCount || !mistakeCount || !mistakeBookBtn) return;
-
-    subjectList.innerHTML = `<div class="empty-state">正在加载科目...</div>`;
-
-    const subjects = await getSubjects();
-    subjectCount.textContent = String(subjects.length);
-    subjectList.innerHTML = "";
-
-    for (const subjectMeta of subjects) {
-        const card = document.createElement("a");
-        card.className = "subject-card";
-        card.href = `subject.html?subj=${encodeURIComponent(subjectMeta.id)}`;
-        card.innerHTML = `
-      <div>
-        <h3>📘 ${escapeHTML(subjectMeta.name || subjectMeta.id)}</h3>
-        <p>正在读取题目...</p>
-      </div>
-      <p>开始学习 →</p>
-    `;
-        subjectList.appendChild(card);
-
-        try {
-            const subject = await getSubjectById(subjectMeta.id);
-            const total = subject ? getTotalCount(subject) : 0;
-            card.href = `subject.html?subj=${encodeURIComponent(subjectMeta.id)}`;
-            card.innerHTML = `
-      <div>
-        <h3>📘 ${escapeHTML(subject?.name || subjectMeta.name || subjectMeta.id)}</h3>
-        <p>共 ${total} 道题</p>
-      </div>
-      <p>${total > 0 ? "开始学习 →" : "暂无题目 →"}</p>
-    `;
-        } catch (error) {
-            console.warn(`首页无法读取科目题库：${subjectMeta.id}`, error);
-            card.innerHTML = `
-      <div>
-        <h3>📘 ${escapeHTML(subjectMeta.name || subjectMeta.id)}</h3>
-        <p>题库读取失败，请检查 JSON。</p>
-      </div>
-      <p>查看详情 →</p>
-    `;
-        }
+    if (subjectCount) {
+        subjectCount.textContent = "2";
     }
 
-    mistakeCount.textContent = String(countAllMistakes());
-    mistakeBookBtn.addEventListener("click", () => {
-        window.location.href = `exam.html?subj=${encodeURIComponent(RETRY_KEY)}&type=mistakes`;
-    });
+    if (mistakeCount) {
+        mistakeCount.textContent = String(countAllMistakes());
+    }
+
+    if (mistakeBookBtn && !mistakeBookBtn.dataset.bound) {
+        mistakeBookBtn.dataset.bound = "true";
+        mistakeBookBtn.addEventListener("click", () => {
+            window.location.href = `exam.html?subj=${encodeURIComponent(RETRY_KEY)}&type=mistakes`;
+        });
+    }
 }
 
 async function renderSubjectPage() {
@@ -1204,64 +1169,3 @@ function escapeHTML(value) {
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
 }
-
-function forceRenderSubjectCards() {
-    const subjectList = document.querySelector("#subjectList");
-    const subjectCount = document.querySelector("#subjectCount");
-    const mistakeCount = document.querySelector("#mistakeCount");
-    const mistakeBookBtn = document.querySelector("#mistakeBookBtn");
-
-    if (!subjectList || !subjectCount) return;
-
-    fetch("/data/subjects.json?v=" + Date.now(), { cache: "no-store" })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`读取 /data/subjects.json 失败，状态码：${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const subjects = Array.isArray(data.subjects) ? data.subjects : [];
-            subjectCount.textContent = String(subjects.length);
-            subjectList.innerHTML = "";
-
-            subjects.forEach(subject => {
-                const card = document.createElement("a");
-                card.className = "subject-card";
-                card.href = `subject.html?subj=${encodeURIComponent(subject.id)}`;
-                card.innerHTML = `
-                    <div>
-                        <h3>📘 ${escapeHTML(subject.name || subject.id)}</h3>
-                        <p>点击进入科目</p>
-                    </div>
-                    <p>开始学习 →</p>
-                `;
-                subjectList.appendChild(card);
-            });
-
-            if (mistakeCount) {
-                mistakeCount.textContent = String(countAllMistakes());
-            }
-
-            if (mistakeBookBtn && !mistakeBookBtn.dataset.bound) {
-                mistakeBookBtn.dataset.bound = "true";
-                mistakeBookBtn.addEventListener("click", () => {
-                    window.location.href = `exam.html?subj=${encodeURIComponent(RETRY_KEY)}&type=mistakes`;
-                });
-            }
-        })
-        .catch(error => {
-            console.error("强制科目渲染失败：", error);
-            subjectList.innerHTML = `<div class="empty-state">科目加载失败，请检查 subjects.json。</div>`;
-        });
-}
-
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", forceRenderSubjectCards);
-} else {
-    forceRenderSubjectCards();
-}
-
-window.addEventListener("load", forceRenderSubjectCards);
-setTimeout(forceRenderSubjectCards, 300);
-setTimeout(forceRenderSubjectCards, 1000);
