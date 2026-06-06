@@ -396,22 +396,25 @@ const $ = (selector, root = document) => root.querySelector(selector);
 document.addEventListener("DOMContentLoaded", initApp);
 
 function initApp() {
-    const page = getCurrentPage();
-
-    if (page === "index.html" || page === "index" || page === "") {
+    if ($("#subjectList") && $("#subjectCount") && $("#mistakeCount") && $("#mistakeBookBtn")) {
         renderIndexPage();
         return;
     }
 
-    if (page === "subject.html" || page === "subject") {
+    if ($("#subjectName") && $("#subjectMeta") && $("#typeList") && $("#finalTestBtn")) {
         renderSubjectPage();
         return;
     }
 
-    if (page === "exam.html" || page === "exam") {
+    if ($("#examStage") && $("#progress") && $("#examBackLink")) {
         renderExamPage();
         return;
     }
+
+    console.warn("未识别当前页面，请检查 HTML 中的 id 是否正确。", {
+        path: window.location.pathname,
+        page: getCurrentPage()
+    });
 }
 
 function getCurrentPage() {
@@ -434,7 +437,7 @@ function getSubjectById(id) {
 }
 
 function getTypeCount(subject, type) {
-    return Array.isArray(subject.types[type]) ? subject.types[type].length : 0;
+    return Array.isArray(subject.types?.[type]) ? subject.types[type].length : 0;
 }
 
 function getTotalCount(subject) {
@@ -572,7 +575,7 @@ function collectQuestions(subject, type) {
     const result = [];
 
     selectedTypes.forEach(questionType => {
-        const list = Array.isArray(subject.types[questionType]) ? subject.types[questionType] : [];
+        const list = Array.isArray(subject.types?.[questionType]) ? subject.types[questionType] : [];
         list.forEach((item, index) => {
             result.push({
                 ...deepClone(item),
