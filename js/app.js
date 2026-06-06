@@ -393,7 +393,19 @@ const RETRY_KEY = "__mistake_retry__";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 
-document.addEventListener("DOMContentLoaded", initApp);
+function bootApp() {
+    initApp();
+
+    window.setTimeout(initApp, 50);
+    window.setTimeout(initApp, 300);
+    window.setTimeout(initApp, 1000);
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootApp);
+} else {
+    bootApp();
+}
 
 function initApp() {
     if ($("#subjectList") && $("#subjectCount") && $("#mistakeCount") && $("#mistakeBookBtn")) {
@@ -486,7 +498,22 @@ function renderSubjectPage() {
     const typeList = $("#typeList");
     const finalTestBtn = $("#finalTestBtn");
 
-    if (!subjectName || !subjectMeta || !typeList || !finalTestBtn) return;
+    if (!subjectName || !subjectMeta || !typeList || !finalTestBtn) {
+        console.error("科目详情页缺少必要元素", {
+            subjectName: Boolean(subjectName),
+            subjectMeta: Boolean(subjectMeta),
+            typeList: Boolean(typeList),
+            finalTestBtn: Boolean(finalTestBtn)
+        });
+        return;
+    }
+
+    console.log("renderSubjectPage", {
+        subjectId,
+        subjectFound: Boolean(subject),
+        path: window.location.pathname,
+        search: window.location.search
+    });
 
     if (!subject) {
         subjectName.textContent = "未找到科目";
@@ -499,6 +526,12 @@ function renderSubjectPage() {
     subjectName.textContent = subject.name;
     subjectMeta.textContent = `当前题库共 ${getTotalCount(subject)} 道题`;
     typeList.innerHTML = "";
+
+    console.log("开始渲染题型入口", {
+        subjectName: subject.name,
+        total: getTotalCount(subject),
+        types: subject.types
+    });
 
     TYPE_ORDER.forEach(type => {
         const count = getTypeCount(subject, type);
@@ -1044,7 +1077,8 @@ function getTypeEmoji(type) {
         multiple: "☑️",
         tf: "✅",
         short: "✍️",
-        code: "💻"
+        code: "💻",
+        all: "🔥"
     };
 
     return emojis[type] || "📌";
