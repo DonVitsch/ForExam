@@ -396,7 +396,333 @@
     ],
     "multiple": [],
     "tf": [],
-    "short": [],
+    "short": [
+      {
+        "question": "在（ ）方面，Spring 框架提供了对 Spring MVC、Struts2 等框架的整合。",
+        "answer": "表现层",
+        "explanation": "经典的三层架构包括表现层（Web 层）、业务逻辑层（Service 层）和数据访问层（DAO 层）。Spring 作为一个全栈（一站式）框架，在表现层可以无缝集成 Spring MVC、Struts2 等 Web 框架。"
+      },
+      {
+        "question": "（ ）是指框架或工具的使用不会对被应用程序的核心逻辑产生侵入性的影响。",
+        "answer": "非侵入式",
+        "explanation": "“非侵入式”是 Spring 的重要设计理念。这意味着你在编写业务代码时，不需要继承 Spring 的类或实现 Spring 的接口，代码可以脱离 Spring 独立运行，对业务逻辑没有强制约束。"
+      },
+      {
+        "question": "Spring 的核心容器主要由（ ）模块、Core 模块、Contex 模块和 SpEL 模块组成。",
+        "answer": "Beans",
+        "explanation": "Spring 的 Core Container（核心容器）是整个框架的基础，包含四大核心模块：Core（核心工具类）、Beans（Bean 工厂与装配）、Context（上下文环境）和 SpEL（表达式语言）。"
+      },
+      {
+        "question": "Spring 的（ ）模块提供了对面向切面编程的支持，允许开发者定义切面来截取应用程序的流程。",
+        "answer": "AOP",
+        "explanation": "AOP（Aspect-Oriented Programming，面向切面编程）可以将散落在各处的公共行为（如日志、事务、安全检查）封装成“切面”，在不改动原有业务代码的前提下，动态地“织入”到程序流程中。"
+      },
+      {
+        "question": "Spring 框架的（ ）容器主要包括 BeanFactory 和 ApplicationContext。",
+        "answer": "loC",
+        "explanation": "IoC（Inversion of Control，控制反转）容器是 Spring 管理对象生命周期和依赖关系的核心。最基础的容器接口是 BeanFactory，而 ApplicationContext 是它的高级子接口，提供了更丰富的功能。"
+      },
+      {
+        "question": "常见的 IoC 容器有 BeanFactory 和（ ）。",
+        "answer": "ApplicationContext",
+        "explanation": "这是 Spring 提供的两种核心 IoC 容器。BeanFactory 采用延迟加载（懒加载），第一次获取对象时才创建；ApplicationContext 则在容器启动时就一次性创建好所有单例 Bean，更适合 Web 应用。"
+      },
+      {
+        "question": "<bean>标签的（ ）属性用于指定 Bean 的具体类型。",
+        "answer": "class",
+        "explanation": "在 XML 配置方式中，<bean> 标签的 id 或 name 用于定义唯一标识，而 class 属性必须填写该 Bean 对应的 Java 类的全限定名（包名+类名），方便 Spring 通过反射实例化它。"
+      },
+      {
+        "question": "Spring 框架提供了（ ）注解，该注解用于指定 Bean 的作用域。",
+        "answer": "@Scope",
+        "explanation": "@Scope 注解用来控制 Bean 的实例在容器中存在几个。常见的取值有 singleton（全局单例，默认值）和 prototype（每次获取都创建一个新实例）。"
+      },
+      {
+        "question": "在 Spring 的 XML 配置文件中，可以通过<bean>标签的（ ）属性指定初始化方法的名称。",
+        "answer": "init-method",
+        "explanation": "当 Bean 的属性注入完成后，如果需要执行一些特定的初始化操作，可以用 init-method 属性指定类中的某个方法作为初始化方法。"
+      },
+      {
+        "question": "Spring 的（ ）注解用于指定要自动装配的对象。",
+        "answer": "@Autowired",
+        "explanation": "@Autowired 是 Spring 极其常用的注解，默认按照“类型”（byType）在容器中寻找匹配的 Bean，并自动注入到声明的属性或构造方法中。"
+      },
+      {
+        "question": "AOP 中的（ ）动态代理是一种基于接口的代理方式。",
+        "answer": "JDK",
+        "explanation": "Spring AOP 默认的底层实现之一。JDK 动态代理利用反射机制在运行时生成代理类，但它有一个硬性要求：目标类必须实现至少一个接口。"
+      },
+      {
+        "question": "使用（ ）动态代理时，代理类需要实现 MethodInterceptor 接口。",
+        "answer": "CGLIB",
+        "explanation": "如果目标类没有实现任何接口，Spring 就会切换到 CGLIB 代理。CGLIB 是通过生成目标类的子类来做拦截的，在重写方法时需要实现 MethodInterceptor 接口来定义增强逻辑。"
+      },
+      {
+        "question": "AOP 中的（ ）是指程序执行过程中满足预先指定条件的连接点。",
+        "answer": "切入点",
+        "explanation": "“连接点”（Joinpoint）是程序中所有可以织入切面的位置（比如所有的方法执行）。而“切入点”（Pointcut）则是通过表达式进行筛选，选出我们真正想要去增强的那部分特定连接点。"
+      },
+      {
+        "question": "（ ）标签是 Spring AOP 配置的根标签。",
+        "answer": "<aop:config>",
+        "explanation": "在使用 XML 方式配置 AOP 时，所有的切面配置（如切入点、通知器、切面声明）都必须包裹在 <aop:config> 标签内部。"
+      },
+      {
+        "question": "（ ）注解用于将一个类标记为切面。",
+        "answer": "AspectJ",
+        "explanation": "在基于注解的 AOP 开发中，我们会使用 @Aspect（即原文档中所填的 AspectJ 注解系列）来将一个普通的 Java 类声明为一个“切面类”，里面可以继续定义前置、后置、环绕等通知。"
+      },
+      {
+        "question": "Spring JDBC 模块主要由（ ）、dataSource、object、support 四个包组成。",
+        "answer": "core",
+        "explanation": "Spring 对 JDBC 进行了良好的封装，其中 core 包是核心，包含了著名的 JdbcTemplate 核心操作类；dataSource 负责数据源获取；object 将关系表转化为对象；support 提供辅助支持。"
+      },
+      {
+        "question": "Spring 提供了（ ）注解来实现声明式事务管理。",
+        "answer": "@Transactional",
+        "explanation": "声明式事务是 Spring 最惊艳的功能之一。只要在类或方法上点缀一个 @Transactional 注解，底层的 AOP 就会自动帮你开启、提交或回滚事务，完全不需要手写连接和提交代码。"
+      },
+      {
+        "question": "（ ）标签主要用于配置每个方法具体的事务属性。",
+        "answer": "<tx:method>",
+        "explanation": "在 XML 配置声明式事务时，<tx:advice> 内部会嵌套 <tx:attributes>，而具体的每个方法名匹配规则（如隔离级别、传播行为、是否只读等）都是在 <tx:method> 标签里详细指定的。"
+      },
+      {
+        "question": "在 Spring 框架中，提供了两种主要的事务管理方式：（ ）事务管理和声明式事务管理。",
+        "answer": "编程式",
+        "explanation": "编程式事务需要你在代码里硬编码 commit() 和 rollback()，比较繁琐；声明式事务则是通过配置或注解（AOP 拦截）来实现，对业务代码无污染，是实际开发的主流。"
+      },
+      {
+        "question": "<tx:advice>的 transaction-manager 属性用于指定（ ）。",
+        "answer": "事务管理器",
+        "explanation": "事务通知（<tx:advice>）需要知道具体由谁来处理事务（比如 DataSourceTransactionManager）。transaction-manager 属性就是用来绑定容器中配置的那个特定的事务管理器 Bean 的。"
+      },
+      {
+        "question": "MVC 模式将应用程序分为三个核心部分：Model、View 和（ ）。",
+        "answer": "Controller",
+        "explanation": "MVC 是一种经典的设计模式。M（Model，模型）封装数据和业务；V（View，视图）负责向用户展示界面；C（Controller，控制器）负责接收用户请求并协调 M 和 V。"
+      },
+      {
+        "question": "Spring 提供了（ ）注解用于标识 Spring MVC 的处理器类。",
+        "answer": "@Controller",
+        "explanation": "被 @Controller 标注的类会被 Spring 容器扫描并识别为一个控制器。它负责接收来自浏览器的 HTTP 请求，处理完后通常返回一个视图名称。"
+      },
+      {
+        "question": "Spring MVC 的（ ）注解用于建立请求 URL 和处理器之间的映射关系。",
+        "answer": "@RequestMapping",
+        "explanation": "这是一个核心注解，用来把浏览器的访问路径（URL）和后端的某一个类或者具体的方法绑定在一起。只要用户访问这个路径，对应的方法就会被执行。"
+      },
+      {
+        "question": "（ ）属性是@RequestMapping 注解的默认属性。",
+        "answer": "value",
+        "explanation": "value 属性用于指定请求的实际映射路径。因为它是默认属性，所以当注解里只需要写路径时，可以省略属性名，直接写成 @RequestMapping(\"/path\")。"
+      },
+      {
+        "question": "（ ）注解用于匹配基于 HTTP 的 GET 方法的请求。",
+        "answer": "@GetMapping",
+        "explanation": "@GetMapping 是一个组合注解，它等价于 @RequestMapping(method = RequestMethod.GET)。专门用来处理查询数据的 GET 请求，让代码更加简洁易读。"
+      },
+      {
+        "question": "（ ）注解用于从请求中获取参数的值并将其传递给处理器方法的参数。",
+        "answer": "@RequestParam",
+        "explanation": "当前端传来的参数名和后端的形参名不一致，或者需要设置参数是否必填（required）、默认值（defaultValue）时，就需要用 @RequestParam 进行显式绑定。"
+      },
+      {
+        "question": "当请求的映射方式是 REST 时，可以通过（ ）注解可以将 URL 中占位符参数绑定到处理器方法的形参中。",
+        "answer": "@PathVariable",
+        "explanation": "RESTful 风格喜欢把参数直接藏在路径里（如 /users/1）。我们在映射路径里写 /users/{id}，然后用 @PathVariable(\"id\") 就可以把路径里的 1 抠出来赋给方法的形参。"
+      },
+      {
+        "question": "Spring MVC 中，当一个请求需要将请求体中的数据，可以在方法参数上使用（ ）注解。",
+        "answer": "@RequestBody",
+        "explanation": "当前端发送 JSON 格式的数据到后端（通常在 POST/PUT 请求的请求体里）时，必须在后端形参前加上 @RequestBody，Spring 才会用转换器把 JSON 字符串反序列化为 Java 对象。"
+      },
+      {
+        "question": "Model 的实现类对象和 ModelMap 对象都可以设置模型数据，模型数据会填充到（ ）域中，以供视图层使用。",
+        "answer": "Request",
+        "explanation": "尽管你在控制器里操作的是 Spring 提供的 Model 或 ModelMap，但请求转发跳转页面时，Spring MVC 最终会把这些数据全部挪到原生的 HttpServletRequest 请求域中，这样 JSP 或其他模板引擎就能拿到了。"
+      },
+      {
+        "question": "（ ）注解相当于@Controller+@ResponseBody 两个注解的结合。",
+        "answer": "@RestController",
+        "explanation": "现在流行前后端分离。如果你的控制器里所有的方法都不需要跳转页面，而是全部直接返回数据（如 JSON/XML），直接在类上用 @RestController 即可，省去了给每个方法加 @ResponseBody 的麻烦。"
+      },
+      {
+        "question": "（ ）注解是 Spring MVC 用于定义全局处理器通知的注解。",
+        "answer": "@ControllerAdvice",
+        "explanation": "这是一个“即插即用”的全局增强组件。配合 @ExceptionHandler 可以做到对整个项目中所有控制器抛出的异常进行集中捕获和统一处理。"
+      },
+      {
+        "question": "Spring MVC 程序中可以使用（ ）注解中指定需要处理的异常类型。",
+        "answer": "@ExceptionHandler",
+        "explanation": "这个注解标注在方法上。你可以通过 @ExceptionHandler(NullPointerException.class) 来指定：只要系统抛出了空指针异常，就自动交由这个方法来优雅地收尾，而不是把报错源码丢给用户。"
+      },
+      {
+        "question": "Spring MVC 的（ ）使得开发者能够在请求进入处理器之前、处理器处理完请求后以及渲染视图之后执行一些特定的操作。",
+        "answer": "拦截器",
+        "explanation": "拦截器（Interceptor）类似于 Servlet 的过滤器，但它是 Spring MVC 专属的。它能精准把控请求的生命周期，非常适合用来做登录检查、权限验证或者性能统计。"
+      },
+      {
+        "question": "自定义拦截器类可以通过实现（ ）接口实现。",
+        "answer": "HandlerInterceptor",
+        "explanation": "编写自定义拦截器的标准做法。实现该接口后，可以根据需求重写 preHandle()（前置）、postHandle()（后置）和 afterCompletion()（完成）这三个方法。"
+      },
+      {
+        "question": "在 Spring MVC 的 XML 配置文件中，可以使用（ ）标签配置拦截器的信息。",
+        "answer": "<mvc:interceptors>",
+        "explanation": "如果采用 XML 配置，需要在这个标签组内部注册你写好的拦截器 Bean，并可以通过子标签详细配置“哪些路径需要拦截，哪些路径可以放行”。"
+      },
+      {
+        "question": "MyBatis 中主要负责创建 SqlSession 对象的接口是（ ）。",
+        "answer": "SqlSessionFactory",
+        "explanation": "这是一个工厂接口（遵循工厂模式）。就像它的名字一样，它的核心职责就是作为“生产厂”，利用配置信息来创建代表着一次数据库会话的 SqlSession 对象。"
+      },
+      {
+        "question": "MyBatis 核心配置文件通过（ ）标签将所有的配置信息组织起来。",
+        "answer": "<configuration>",
+        "explanation": "MyBatis 的全局配置文件（通常叫 mybatis-config.xml）有严格的层级结构，其顶层根标签必须是 <configuration>，所有的环境配置、别名、插件等都要写在这里面。"
+      },
+      {
+        "question": "MyBatis 核心配置文件中，<properties>标签可以通过（ ）或 url 属性读取指定位置的外部属性文件。",
+        "answer": "resource",
+        "explanation": "为了避免把数据库连接密匙等死写在 XML 里，我们会把它们写在 .properties 纯文本文件里。然后在核心配置里用 <properties resource=\"db.properties\"> 把它动态引进来。"
+      },
+      {
+        "question": "MyBatis 映射文件以（ ）标签作为其根元素，用以标识一个独立的 XML 映射单元。",
+        "answer": "<mapper>",
+        "explanation": "专门用来写 SQL 语句的那些 XML 文件被称为“映射文件”。这类文件的根标签必须是 <mapper>，并且通常会配置 namespace 属性来绑定对应的 Mapper 接口。"
+      },
+      {
+        "question": "MyBatis 映射文件中，<select>标签的（ ）属性用于指定查询结果的映射类型。",
+        "answer": "resultType",
+        "explanation": "当你执行一条查询单条或多条记录的 SQL 后，MyBatis 需要知道把结果自动封装进哪个 Java 实体类中。resultType 填的就是这个实体类的全限定名或别名。"
+      },
+      {
+        "question": "（ ）标签可以根据指定的条件表达式的结果动态生成 SQL 语句。",
+        "answer": "<if>",
+        "explanation": "动态 SQL 里最常用、最简单的标签。通过 test=\"条件\" 属性进行判断，条件成立才会把标签内的 SQL 片段拼接到最终的普通 SQL 语句中（多用于多条件组合查询）。"
+      },
+      {
+        "question": "<foreach>标签的 separator 属性用于指定每次迭代之间插入的（ ）。",
+        "answer": "分隔符",
+        "explanation": "在循环遍历集合（比如拼接 IN (1, 2, 3) 里的逗号）时，separator=\",\" 告诉 MyBatis 每次循环倒腾出一个新元素时，要在它们中间自动塞入一个逗号作为分隔。"
+      },
+      {
+        "question": "MyBatis 映射文件中，通过（ ）标签可以根据条件动态地生成 SET 子句。",
+        "answer": "<set>",
+        "explanation": "用于修改（UPDATE）操作。<set> 标签不仅能动态生成 SET 关键字，还能非常聪明地帮你自动抹去最后一个因条件不成立而多出来的多余逗号。"
+      },
+      {
+        "question": "<trim>标签的（ ）属性用于指定给 SQL 语句增加的前缀字符串。",
+        "answer": "prefix",
+        "explanation": "<trim> 是一个全能的格式化定制标签。它的 prefix 属性可以用来在包裹的 SQL 片段最前面强行加上指定的字符串（比如强行加一个 WHERE 或 SET）。"
+      },
+      {
+        "question": "<foreach>标签的（ ）属性用于指定遍历的可迭代对象。",
+        "answer": "collection",
+        "explanation": "使用循环标签时，你需要告诉 MyBatis 你要遍历的那个东东叫什么名字。如果传入的是 List，默认可以用 list；如果是数组，可以用 array；或者用 @Param 注解指定的别名。"
+      },
+      {
+        "question": "MyBatis 的（ ）注解用于标记插入操作的方法。",
+        "answer": "@Insert",
+        "explanation": "告别 XML 的一种快捷方式。直接在 Mapper 接口的方法头上顶着 @Insert(\"INSERT INTO ...\")，MyBatis 就会在方法调用时自动执行这段新增 SQL。"
+      },
+      {
+        "question": "MyBatis 的（ ）注解用于定义单个 Java 对象属性与数据表字段的映射关系。",
+        "answer": "@Result",
+        "explanation": "当数据库的列名（如 user_name）和 Java 实体类的属性名（如 userName）不一致时，可以用 @Result(column=\"user_name\", property=\"userName\") 手动拉红线牵线搭桥。"
+      },
+      {
+        "question": "MyBatis 的（ ）注解用于设置一对一关联查询时的细节信息。",
+        "answer": "@One",
+        "explanation": "在注解开发中处理复杂关联时，若一个对象内部嵌套了另一个独立对象（比如：订单 ➡️ 用户，一对一），可以通过 @Result 的 one=@One(select=\"查询方法\") 属性来实现嵌套查询。"
+      },
+      {
+        "question": "MyBatis 的（ ）注解用于描述一对多关联关系。",
+        "answer": "@Many",
+        "explanation": "与 @One ➡️ 类似，个但订它用于处理集合级的一对 单账 多关联（比如：用户多户）。它会把嵌套查询出来的多条记录自动打包成一个 List 集合塞给主对象。"
+      },
+      {
+        "question": "MyBatis 的（ ）注解用于标记方法参数在 SQL 语句中的占位符名称。",
+        "answer": "@Param",
+        "explanation": "当一个 Mapper 接口方法需要接收多个参数时，MyBatis 容易分不清谁是谁。加了 @Param(\"uid\") 后，你在 SQL 里就可以底气十足地通过 #{uid} 来精准引用这个参数了。"
+      },
+      {
+        "question": "MyBatis 的一级缓存是在（ ）级别上进行管理的。",
+        "answer": "SqlSession",
+        "explanation": "一级缓存也叫本地缓存，它是默认开启且无法关闭的。只要是在同一个 SqlSession（一次数据库会话）内执行完全相同的查询，MyBatis 都会直接从内存里拿结果，不再惊动数据库。"
+      },
+      {
+        "question": "MyBatis 二级缓存是（ ）级别的缓存。",
+        "answer": "SessionFactory",
+        "explanation": "二级缓存范围更大，基于名称空间（Namespace）划分。由于多个 SqlSession 都是由同一个 SqlSessionFactory 生产的，所以开启二级缓存后，不同的会话之间也可以共享缓存数据。"
+      },
+      {
+        "question": "从数据库表结构反向生成对应的 Java 实体类、Mapper 接口、XML 映射文件的工程化实现通常称为（ ）。",
+        "answer": "逆向工程",
+        "explanation": "程序员大解放的工具。不需要再苦哈哈地对照数据库大批手写 POJO 和简单的 CRUD 映射，通过工具直接根据现有数据库的表结构，“反向”自动生成全套基础代码。"
+      },
+      {
+        "question": "开启当前 Mapper 的 namespace 下的二级缓存，可以通过 MyBatis 映射文件中的（ ）标签完成。",
+        "answer": "<cache>",
+        "explanation": "开启二级缓存不仅要在全局配置里允许，还需要在具体的映射文件（XML）中加上一行 <cache/> 标签，表示当前这个 Namespace 的查询结果允许进入二级缓存。"
+      },
+      {
+        "question": "当 MyBatis 开启二级缓存后，首次查询数据时，缓存命中率为（ ）。",
+        "answer": "0",
+        "explanation": "逻辑很简单：因为是“首次”查询，缓存里空空如也，连一滴数据都没有，所以此时绝对不可能从缓存里命中任何东西，命中率自然为 0。"
+      },
+      {
+        "question": "MyBatis-Plus 的（ ）注解用于指定这个实体类所对应数据表的名称。",
+        "answer": "@TableName",
+        "explanation": "如果你的 Java 类名叫 User，但数据库里对应的表名叫 t_user，默认的下划线转换规则就对不上了。此时在类名上加一个 @TableName(\"t_user\") 就可以明确指定对应关系。"
+      },
+      {
+        "question": "MyBatis-Plus 的（ ）注解用于标识实体类中和数据表主键字段对应的属性。",
+        "answer": "@TableId",
+        "explanation": "MP（MyBatis-Plus）需要知道哪一个属性是代表数据库里的主键，这样才能帮你自动自动玩转 selectById、deleteById 等功能。该注解还能顺便配置主键的生成策略（如雪花算法等）。"
+      },
+      {
+        "question": "（ ）接口是 MyBatis-Plus 中定义的一个基础映射器接口。",
+        "answer": "BaseMapper",
+        "explanation": "这是 MP 的灵魂所在。让你的自定义 Mapper 接口去继承 BaseMapper<User>，你的接口瞬间就拥有了十几条不用写任何一行 XML 就能直接使用的单表增删改查神技。"
+      },
+      {
+        "question": "条件构造器的（ ）方法用于匹配字段中值等于某个值的记录。",
+        "answer": "eq()",
+        "explanation": "eq 是 equal 的缩写。在用链式写条件查询时（比如 queryWrapper.eq(\"age\", 18)），就等价于在后台帮你拼接了一句 WHERE age = 18。"
+      },
+      {
+        "question": "（ ）接口是 MyBatis-Plus 服务层的通用接口。",
+        "answer": "IService",
+        "explanation": "MP 不仅在 DAO（Mapper）层给出了 BaseMapper，还在 Service（业务层）贴心地提供了 IService<T> 接口以及它的实现类 ServiceImpl<M, T>，帮你把业务层常用的批量增删改查也封装好了。"
+      },
+      {
+        "question": "Spring Boot 通过自动配置和（ ）的原则，与 Spring 框架紧密结合。",
+        "answer": "约定优于配置",
+        "explanation": "“约定优于配置”（Convention over Configuration）是 Spring Boot 的核心哲学。它帮我们做好了各种默认约定（比如目录结构、默认端口等），大幅度减少了以往繁琐的通用 XML 配置。"
+      },
+      {
+        "question": "YAML 文件的后缀名为（ ）或.yaml。",
+        "answer": ".yml",
+        "explanation": "YAML 是一种极其直观、人性化的数据序列化格式。在 Spring Boot 中，比起老旧臃肿的 application.properties，大家更喜欢用更清爽、有层级感的 application.yml。"
+      },
+      {
+        "question": "application.properties 文件中属性通过（ ）格式进行设置。",
+        "answer": "键值对",
+        "explanation": "传统的属性配置文件格式，规则非常直接，采用 键=值（Key=Value）的平铺直叙方式来表达配置项，例如 server.port=8080。"
+      },
+      {
+        "question": "Spring Boot 将用于实现特定功能的一系列依赖及其配置封装到一个特色的组件中，这种特色的组件称为（ ）。",
+        "answer": "启动器",
+        "explanation": "也就是大名鼎鼎的 Starter（比如 spring-boot-starter-web）。你只要引入这一个启动器，它就会自动像滚雪球一样把你开发 Web 所需的全部依赖打包带进来，开箱即用。"
+      },
+      {
+        "question": "YAML 中，使用“Key: Value”的形式表示一对键值对，其中 Value 之前包含一个英文（ ）。",
+        "answer": "空格",
+        "explanation": "这是 YAML 的一个强硬语法死规定。写完冒号（:）之后，必须死死敲一个空格才能开始写后面的值（Value），否则项目启动时就会直接报错。"
+      }
+    ],
     "code": []
   }
 }
