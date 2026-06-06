@@ -47,6 +47,34 @@
   </section>
 </main>
 
-<script src="js/app.js"></script>
+<script>
+  const INDEX_MISTAKE_KEY = "exam_self_test_mistakes_v1";
+  const INDEX_RETRY_KEY = "__mistake_retry__";
+
+  function getIndexMistakeCount() {
+    try {
+      const raw = localStorage.getItem(INDEX_MISTAKE_KEY);
+      const data = raw ? JSON.parse(raw) : {};
+      return Object.values(data).reduce((sum, list) => {
+        return sum + (Array.isArray(list) ? list.length : 0);
+      }, 0);
+    } catch (error) {
+      return 0;
+    }
+  }
+
+  const mistakeCount = document.querySelector("#mistakeCount");
+  const mistakeBookBtn = document.querySelector("#mistakeBookBtn");
+
+  if (mistakeCount) {
+    mistakeCount.textContent = String(getIndexMistakeCount());
+  }
+
+  if (mistakeBookBtn) {
+    mistakeBookBtn.addEventListener("click", () => {
+      window.location.href = `exam.html?subj=${encodeURIComponent(INDEX_RETRY_KEY)}&type=mistakes`;
+    });
+  }
+</script>
 </body>
 </html>
