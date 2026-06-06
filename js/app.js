@@ -768,6 +768,7 @@ function renderChoiceQuestion(state, question) {
 function submitChoice(state, selectedIndex) {
     const question = state.questions[state.index];
     const isCorrect = selectedIndex === question.answer;
+    const explanation = question.explanation || question.analysis || "暂无解析";
     state.locked = true;
     disableInputs();
 
@@ -779,11 +780,11 @@ function submitChoice(state, selectedIndex) {
 
     if (isCorrect) {
         removeMistake(question);
-        showFeedback(true, "回答正确！");
+        showFeedback(true, buildFeedbackContent("回答正确！", "", explanation));
         autoNext(state);
     } else {
         saveMistake(question);
-        showFeedback(false, `回答错误。正确答案：${escapeHTML(question.options[question.answer])}`);
+        showFeedback(false, buildFeedbackContent("回答错误。", question.options[question.answer], explanation));
         showNextButton(state);
     }
 }
@@ -840,6 +841,7 @@ function submitMultiple(state, selectedIndexes) {
     const correctAnswers = [...question.answers].sort((a, b) => a - b);
     const selected = [...selectedIndexes].sort((a, b) => a - b);
     const isCorrect = arraysEqual(correctAnswers, selected);
+    const explanation = question.explanation || question.analysis || "暂无解析";
 
     state.locked = true;
     disableInputs();
@@ -854,12 +856,12 @@ function submitMultiple(state, selectedIndexes) {
 
     if (isCorrect) {
         removeMistake(question);
-        showFeedback(true, "回答正确！");
+        showFeedback(true, buildFeedbackContent("回答正确！", "", explanation));
         autoNext(state);
     } else {
         saveMistake(question);
         const answerText = correctAnswers.map(index => question.options[index]).join("；");
-        showFeedback(false, `回答错误。正确答案：${escapeHTML(answerText)}`);
+        showFeedback(false, buildFeedbackContent("回答错误。", answerText, explanation));
         showNextButton(state);
     }
 }
@@ -893,22 +895,52 @@ function submitTF(state, selectedValue) {
 
     if (isCorrect) {
         removeMistake(question);
-        showFeedback(true, `回答正确！解析：${escapeHTML(explanation)}`);
+        showFeedback(true, buildFeedbackContent("回答正确！", "", explanation));
         autoNext(state);
     } else {
         saveMistake(question);
-        showFeedback(false, `回答错误。正确答案：${question.answer ? "对" : "错"}。解析：${escapeHTML(explanation)}`);
+        showFeedback(false, buildFeedbackContent("回答错误。", question.answer ? "对" : "错", explanation));
         showNextButton(state);
     }
+}
+
+function buildFeedbackContent(message, answerText, explanation) {
+    const answerSection = answerText ? `
+      <div class="answer-section answer-section-main">
+        <div class="answer-section-label">正确答案</div>
+        <div class="answer-section-content">${escapeHTML(answerText)}</div>
+      </div>
+    ` : "";
+
+    return `
+      <div class="feedback-message">${escapeHTML(message)}</div>
+      <div class="answer-box show feedback-answer-box">
+        ${answerSection}
+        <div class="answer-section answer-section-explanation">
+          <div class="answer-section-label">解析</div>
+          <div class="answer-section-content">${escapeHTML(explanation || "暂无解析")}</div>
+        </div>
+      </div>
+    `;
 }
 
 function renderFillQuestion(state, question) {
     const body = $("#questionBody");
     const actions = $("#actions");
+    const explanation = question.explanation || question.analysis || "暂无解析";
 
     body.innerHTML = `
     <button id="showAnswerBtn" class="answer-btn" type="button">显示答案</button>
-    <div id="answerBox" class="answer-box">${escapeHTML(question.answer || "暂无参考答案")}</div>
+    <div id="answerBox" class="answer-box">
+      <div class="answer-section answer-section-main">
+        <div class="answer-section-label">答案</div>
+        <div class="answer-section-content">${escapeHTML(question.answer || "暂无参考答案")}</div>
+      </div>
+      <div class="answer-section answer-section-explanation">
+        <div class="answer-section-label">解析</div>
+        <div class="answer-section-content">${escapeHTML(explanation)}</div>
+      </div>
+    </div>
   `;
 
     const showAnswerBtn = $("#showAnswerBtn");
@@ -930,10 +962,20 @@ function renderFillQuestion(state, question) {
 function renderAnswerQuestion(state, question) {
     const body = $("#questionBody");
     const actions = $("#actions");
+    const explanation = question.explanation || question.analysis || "暂无解析";
 
     body.innerHTML = `
     <button id="showAnswerBtn" class="answer-btn" type="button">显示答案</button>
-    <div id="answerBox" class="answer-box">${escapeHTML(question.answer || "暂无参考答案")}</div>
+    <div id="answerBox" class="answer-box">
+      <div class="answer-section answer-section-main">
+        <div class="answer-section-label">答案</div>
+        <div class="answer-section-content">${escapeHTML(question.answer || "暂无参考答案")}</div>
+      </div>
+      <div class="answer-section answer-section-explanation">
+        <div class="answer-section-label">解析</div>
+        <div class="answer-section-content">${escapeHTML(explanation)}</div>
+      </div>
+    </div>
   `;
 
     const showAnswerBtn = $("#showAnswerBtn");

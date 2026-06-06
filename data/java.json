@@ -1049,7 +1049,133 @@
         "explanation": "这是 YAML 的一个强硬语法死规定。写完冒号（:）之后，必须死死敲一个空格才能开始写后面的值（Value），否则项目启动时就会直接报错。"
       }
     ],
-    "short": [],
+    "short": [
+      {
+        "question": "什么是框架，有什么使用好处？",
+        "answer": "框架是封装通用功能的半成品软件结构，可提高开发效率、降低耦合、便于维护和复用。",
+        "explanation": "框架预先提供基础架构和常用组件，开发者只需按规范填充业务代码，能减少重复劳动，并让项目结构更清晰。"
+      },
+      {
+        "question": "Spring 框架中的 Beans、JDBC、AOP、IOC 是什么含义？",
+        "answer": "Beans 管理对象；JDBC 简化数据库访问；AOP 面向切面；IoC 控制反转，由容器创建和管理对象。",
+        "explanation": "这四者分别对应对象管理、数据访问、横切功能增强和对象控制权转移，是 Spring 核心能力的重要组成。"
+      },
+      {
+        "question": "配置 Bean 有哪几种方式？用你最熟悉的方式举例说明。",
+        "answer": "可用 XML、注解、Java 配置类配置 Bean，如在类上加@Component，让 Spring 扫描并创建对象。",
+        "explanation": "XML 适合集中配置，注解适合简化开发，Java 配置类适合用@Bean 方法返回对象，三者都能把对象交给容器管理。"
+      },
+      {
+        "question": "Bean 的实例化有哪几种？用你最熟悉的方式举例说明。",
+        "answer": "常见有构造方法、静态工厂、实例工厂实例化，如通过无参构造方法创建 UserService Bean。",
+        "explanation": "Spring 读取配置后，会按指定方式创建对象。无参构造最常用，工厂方式适合创建逻辑较复杂的对象。"
+      },
+      {
+        "question": "什么是 AOP？使用 AOP 有什么优点？",
+        "answer": "AOP 是面向切面编程，可把日志、事务、权限等横切逻辑从业务代码中分离出来。",
+        "explanation": "AOP 通过切面统一增强目标方法，能减少重复代码，提高模块化、可维护性和代码复用性。"
+      },
+      {
+        "question": "Spring AOP 的实现机制有哪两种？简要说明如何实现。",
+        "answer": "主要有 JDK 动态代理和 CGLIB 动态代理；有接口用 JDK，无接口可用 CGLIB 生成子类代理。",
+        "explanation": "JDK 动态代理基于接口和反射创建代理对象；CGLIB 通过继承目标类生成子类，在方法调用前后织入增强。"
+      },
+      {
+        "question": "JdbcTemplate 是什么？使用的三个步骤？",
+        "answer": "JdbcTemplate 是 Spring JDBC 模板类。步骤：配置数据源、创建 JdbcTemplate、调用方法执行 SQL。",
+        "explanation": "它封装了连接获取、语句执行、结果处理和资源释放，开发者只需关注 SQL 与参数，简化 JDBC 编程。"
+      },
+      {
+        "question": "你认为 Spring 的事务管理是怎么管理的？",
+        "answer": "Spring 通过事务管理器统一管理事务，可用编程式或声明式方式控制提交、回滚和传播行为。",
+        "explanation": "声明式事务常用@Transactional 或 XML 配置，底层由 PlatformTransactionManager 根据事务属性完成开启、提交或回滚。"
+      },
+      {
+        "question": "JavaEE 开发中经典的三层结构是什么，每层主要任务是什么？",
+        "answer": "三层结构是表现层、业务层、持久层，分别负责页面交互、业务处理和数据库访问。",
+        "explanation": "表现层接收请求并返回结果，业务层处理核心逻辑，持久层负责数据增删改查，分层可降低耦合。"
+      },
+      {
+        "question": "SpringMVC 的执行流程？",
+        "answer": "请求先到 DispatcherServlet，再找 Handler，适配器调用处理器，返回模型视图，解析并渲染响应。",
+        "explanation": "核心流程包括前端控制器接收请求、处理器映射、处理器适配、控制器执行、视图解析和页面响应。"
+      },
+      {
+        "question": "简述 SpringMVC 数据绑定的过程",
+        "answer": "SpringMVC 根据请求参数名与方法形参或 POJO 属性名匹配，自动类型转换后赋值完成绑定。",
+        "explanation": "参数处理适配器会读取请求数据，使用类型转换器转换数据类型，再把值绑定到处理器方法参数或对象属性中。"
+      },
+      {
+        "question": "简述 SpringMVC 中普通字符串回写和 JSON 数据回写的实现过程",
+        "answer": "普通字符串可用@ResponseBody 直接返回；JSON 需引入转换器，返回对象后自动序列化为 JSON。",
+        "explanation": "@ResponseBody 会把返回值写入响应体。字符串直接输出，对象或集合通过 HttpMessageConverter 转成 JSON。"
+      },
+      {
+        "question": "什么是异常处理？如何进行异常处理？",
+        "answer": "异常处理是统一捕获并处理程序错误，可用 HandlerExceptionResolver、@ExceptionHandler 等方式实现。",
+        "explanation": "全局异常处理能把异常信息集中转换为错误页面或 JSON 响应，避免业务代码中大量重复 try-catch。"
+      },
+      {
+        "question": "什么是拦截器？如何使用拦截器？",
+        "answer": "拦截器用于在请求处理前后执行增强逻辑，实现 HandlerInterceptor 并在 Spring MVC 中配置即可。",
+        "explanation": "拦截器常用于登录校验、权限控制、日志记录等，通过 preHandle、postHandle、afterCompletion 分阶段处理。"
+      },
+      {
+        "question": "简述 MyBatis 的工作流程？",
+        "answer": "读取配置创建 SqlSessionFactory，获取 SqlSession，执行映射 SQL，返回结果，最后提交并关闭。",
+        "explanation": "MyBatis 通过核心配置和映射文件建立 SQL 与方法的关系，由 SqlSession 执行数据库操作并完成结果映射。"
+      },
+      {
+        "question": "MyBatis 映射文件中常见的标签有哪些？举实例说明。",
+        "answer": "常见有<select>、<insert>、<update>、<delete>、<resultMap>、<sql>、<include>等。",
+        "explanation": "例如<select id=\"findAll\" resultType=\"User\">select * from user</select>用于定义查询语句并映射结果。"
+      },
+      {
+        "question": "举实例说明条件判断标签的使用方法",
+        "answer": "可用<if test=\"name!=null\">and name=#{name}</if>，当 name 不为空时拼接该查询条件。",
+        "explanation": "<if>会根据 test 表达式结果决定是否加入内部 SQL，常与<where>配合，避免多余的 AND 或 WHERE。"
+      },
+      {
+        "question": "举实例说明循环遍历标签的使用方法",
+        "answer": "可用<foreach collection=\"ids\" item=\"id\" open=\"(\" separator=\",\" close=\")\">#{id}</foreach>。",
+        "explanation": "<foreach>适合批量查询或删除，如生成 in (...) 条件，collection 指集合，item 表示每次遍历的元素。"
+      },
+      {
+        "question": "举实例说明常见的 SQL 语句映射注解的使用方法。",
+        "answer": "如@Select(\"select * from user where id=#{id}\")用于查询，@Insert、@Update、@Delete分别对应增改删。",
+        "explanation": "注解开发把 SQL 直接写在 Mapper 接口方法上，减少 XML 配置，适合简单 SQL 的快速开发。"
+      },
+      {
+        "question": "举实例说明基于注解的多表关联查询实现一对多查询的实现过程。",
+        "answer": "用@Results 配置主表字段，用@Many(select=\"...\")调用子查询方法，查询一个对象及其集合属性。",
+        "explanation": "例如查询用户时，通过用户 id 调用订单查询方法，把多个订单封装到用户的 orders 集合中。"
+      },
+      {
+        "question": "MyBatis 的逆向工程是什么？",
+        "answer": "逆向工程是根据数据库表自动生成实体类、Mapper 接口和 XML 映射文件的开发方式。",
+        "explanation": "它常借助 MyBatis Generator 完成，可减少重复代码编写，提高持久层开发效率，但生成代码仍需检查调整。"
+      },
+      {
+        "question": "MyBatis 的缓存机制是什么？如何实现一级缓存、二级缓存？",
+        "answer": "缓存用于减少数据库访问。一级缓存默认在 SqlSession 中；二级缓存需在 Mapper 中用<cache>开启。",
+        "explanation": "同一 SqlSession 的重复查询可命中一级缓存；二级缓存基于 namespace，可在不同 SqlSession 间共享数据。"
+      },
+      {
+        "question": "MyBatis-Plus 是什么？特性？",
+        "answer": "MyBatis-Plus 是 MyBatis 增强工具，具有无侵入、通用 CRUD、条件构造器、代码生成等特性。",
+        "explanation": "它在 MyBatis 基础上只做增强不做改变，能简化单表操作，提高开发效率，同时保留原有 MyBatis 能力。"
+      },
+      {
+        "question": "举实例说明使用 MyBatis-Plus 通用接口的方法和条件构造器实现增删改查的操作过程。",
+        "answer": "继承 BaseMapper 后，可用 insert、deleteById、updateById、selectList 配合 QueryWrapper 实现 CRUD。",
+        "explanation": "例如 new QueryWrapper<User>().eq(\"name\",\"Tom\")构造查询条件，再调用 userMapper.selectList(wrapper)完成条件查询。"
+      },
+      {
+        "question": "简述 SSM 进行框架整合的思路。",
+        "answer": "SSM 整合是让 Spring 管理 Service 和 MyBatis，SpringMVC 处理请求，三层协作完成 Web 应用开发。",
+        "explanation": "整合时配置数据源、SqlSessionFactory、Mapper 扫描、事务管理和 SpringMVC 组件，使控制层、业务层、持久层连通。"
+      }
+    ],
     "code": []
   }
 }

@@ -381,7 +381,9 @@ a {
     padding: 16px;
     border-radius: 18px;
     line-height: 1.7;
-    font-weight: 800;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.01em;
 }
 
 .feedback.success {
@@ -394,20 +396,63 @@ a {
     background: var(--danger-soft);
 }
 
+.feedback strong,
+.answer-box strong,
+.feedback b,
+.answer-box b {
+    font-weight: 400;
+}
+
 .answer-box {
     display: none;
     margin-top: 16px;
-    padding: 18px;
-    border: 1px solid #bfdbfe;
-    border-radius: 18px;
-    background: #eff6ff;
-    color: #1e3a8a;
-    line-height: 1.8;
-    white-space: pre-wrap;
+    gap: 18px;
+    background: transparent;
+    border: 0;
+    padding: 0;
 }
 
 .answer-box.show {
-    display: block;
+    display: grid;
+}
+
+.answer-section {
+    padding: 22px 24px;
+    border: 1px solid #bfdbfe;
+    border-radius: 20px;
+    background: #eff6ff;
+    white-space: pre-wrap;
+}
+
+.answer-section-main {
+    color: #1e3a8a;
+}
+
+.answer-section-main .answer-section-content {
+    font-size: 24px;
+    line-height: 1.75;
+    font-weight: 500;
+}
+
+.answer-section-explanation {
+    color: #111827;
+    background: #ffffff;
+    border-color: #e5e7eb;
+}
+
+.answer-section-explanation .answer-section-content {
+    font-size: 18px;
+    line-height: 1.85;
+    font-weight: 400;
+}
+
+.answer-section-label {
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.08em;
 }
 
 .empty-state {
@@ -472,22 +517,12 @@ a {
         min-height: 64px;
         padding: 16px;
     }
-}
 
-/* Improve explanation readability */
-.feedback,
-.feedback.success,
-.feedback.error,
-.answer-box {
-    font-size: 18px;
-    line-height: 1.85;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-}
+    .answer-section {
+        padding: 18px;
+    }
 
-.feedback strong,
-.answer-box strong,
-.feedback b,
-.answer-box b {
-    font-weight: 400;
+    .answer-section-main .answer-section-content {
+        font-size: 21px;
+    }
 }
