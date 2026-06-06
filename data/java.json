@@ -395,7 +395,333 @@
       }
     ],
     "multiple": [],
-    "tf": [],
+    "tf": [
+      {
+        "question": "与 EJB 相比，Spring 框架代码简洁，并且更易于集成到不同的环境中。",
+        "answer": true,
+        "explanation": "Spring 相比 EJB 更轻量，配置和使用方式更灵活，代码侵入性更低，因此更容易在不同环境中集成。"
+      },
+      {
+        "question": "在 Spring 框架中，Bean 是指由 Spring 容器管理的对象实例。",
+        "answer": true,
+        "explanation": "Spring 容器负责创建、装配和管理 Bean，所以由容器管理的对象实例就称为 Bean。"
+      },
+      {
+        "question": "Beans 模块提供了 Spring 框架的基本组成部分，包括 IoC 和 AOP 功能。",
+        "answer": false,
+        "explanation": "Beans 模块主要负责 Bean 的创建、配置和管理；AOP 功能由 Spring AOP 模块提供。"
+      },
+      {
+        "question": "DI 是控制反转的英文缩写。",
+        "answer": false,
+        "explanation": "DI 是 Dependency Injection，即依赖注入；控制反转的英文缩写是 IoC。"
+      },
+      {
+        "question": "Spring 的 Context 模块构建于 Beans 模块和 Core 模块之上。",
+        "answer": true,
+        "explanation": "Context 模块在 Core 和 Beans 的基础上提供更高级的容器功能，如资源访问、事件传播等。"
+      },
+      {
+        "question": "BeanFactory 采用延迟加载的方式创建 Bean 的实例。",
+        "answer": true,
+        "explanation": "BeanFactory 通常在第一次获取 Bean 时才创建实例，因此属于延迟加载。"
+      },
+      {
+        "question": "<constructor-arg>标签的 index 属性用于指定构造方法的参数索引，参数索引从 0 开始依次递增 1。",
+        "answer": true,
+        "explanation": "构造方法参数按位置编号，index 从 0 开始，依次对应第一个、第二个参数。"
+      },
+      {
+        "question": "使用静态工厂方式实例化 Bean 时，需要开发者定义一个静态工厂类，并在其中编写静态方法来创建 Bean 的实例。",
+        "answer": true,
+        "explanation": "静态工厂实例化依赖工厂类中的静态方法返回目标对象，Spring 根据配置调用该方法创建 Bean。"
+      },
+      {
+        "question": "Spring 使用属性的 setter 方法注入 Bean 时，Bean 类必须为需要注入的属性提供对应的 setter 方法。",
+        "answer": true,
+        "explanation": "setter 注入本质上是调用属性对应的 setter 方法，因此类中必须存在相应方法。"
+      },
+      {
+        "question": "对于 prototype 作用域的 Bean，Spring 容器不会管理其完整的生命周期。",
+        "answer": true,
+        "explanation": "prototype Bean 创建后交给调用者使用，容器通常不负责其销毁阶段的完整管理。"
+      },
+      {
+        "question": "AOP 可以通过将业务逻辑与横切关注点，从而实现更好的代码模块化、可维护性和可复用性。",
+        "answer": true,
+        "explanation": "AOP 将日志、事务、权限等横切逻辑从业务代码中分离出来，有助于提高模块化程度。"
+      },
+      {
+        "question": "基于 AOP 的切面是一种垂直方向上的扩展。",
+        "answer": false,
+        "explanation": "切面通常是横向抽取多个模块中的公共关注点，因此不是垂直方向扩展。"
+      },
+      {
+        "question": "<aop:advisor>用于配置切点，可以指定切面在哪些连接点处起作用。",
+        "answer": false,
+        "explanation": "<aop:advisor>用于将通知和切点组合成顾问，单独配置切点通常使用<aop:pointcut>。"
+      },
+      {
+        "question": "@After 注解用于定义最终 final 通知，不管应用程序是否抛出异常，该通知都会执行。",
+        "answer": true,
+        "explanation": "@After 类似 finally 通知，目标方法正常结束或抛出异常后都会执行。"
+      },
+      {
+        "question": "<aop:advisor>标签用于配置环绕方式,在目标方法执行前后实施增强。",
+        "answer": false,
+        "explanation": "环绕通知通常使用<aop:around>配置；<aop:advisor>不是专门配置环绕增强的标签。"
+      },
+      {
+        "question": "JdbcTemplate 提供了一种模板化的方式来执行 SQL 查询、更新等操作。",
+        "answer": true,
+        "explanation": "JdbcTemplate 封装了 JDBC 常见流程，开发者主要关注 SQL 和参数即可。"
+      },
+      {
+        "question": "Spring 的事务管理主要基于 PlatformTransactionManager 接口、TransactionDefinition 接口、 TransactionStatus 接口实现。",
+        "answer": true,
+        "explanation": "这三个接口分别对应事务管理器、事务定义信息和事务运行状态，是 Spring 事务抽象的核心。"
+      },
+      {
+        "question": "Spring 通过 TransactionStatus 接口统一的事务管理机制。",
+        "answer": false,
+        "explanation": "统一事务管理机制的核心是 PlatformTransactionManager，TransactionStatus 主要表示事务状态。"
+      },
+      {
+        "question": "事务的传播行为是指处于不同事务中的方法在相互调用时，方法执行期间，事务的维护情况。",
+        "answer": true,
+        "explanation": "传播行为描述方法调用时事务如何加入、创建、挂起或要求已有事务。"
+      },
+      {
+        "question": "每个<tx:attributes>标签只能配置一个<tx:method>子标签。",
+        "answer": false,
+        "explanation": "<tx:attributes>中可以配置多个<tx:method>，分别为不同方法指定事务属性。"
+      },
+      {
+        "question": "Spring MVC 是基于 MVC 设计模式的一个轻量级的 Web 框架。",
+        "answer": true,
+        "explanation": "Spring MVC 按 MVC 模式分离模型、视图和控制器，属于 Spring 提供的轻量级 Web 框架。"
+      },
+      {
+        "question": "@RequestMapping 注解不能标注在类上。",
+        "answer": false,
+        "explanation": "@RequestMapping 既可以标注在类上，也可以标注在方法上。"
+      },
+      {
+        "question": "如果@RequestMapping 注解没有指定 method 属性的值，程序会在运行时出错。",
+        "answer": false,
+        "explanation": "未指定 method 时，通常表示该映射可以处理多种 HTTP 请求方法，并不会因此直接出错。"
+      },
+      {
+        "question": "params 属性中定义的值可以将请求映射的定位范围缩小。",
+        "answer": true,
+        "explanation": "params 可以限定请求必须包含或满足某些参数条件，从而让映射匹配更精确。"
+      },
+      {
+        "question": "@GetMapping 的作用和@RequestMapping(method = RequestMethod.GET)的作用相同。",
+        "answer": true,
+        "explanation": "@GetMapping 是组合注解，本质上等价于限定 GET 请求的@RequestMapping。"
+      },
+      {
+        "question": "在 Spring MVC 中进行简单类型的数据绑定，只需客户端请求参数的名称和处理器的形参名称一致即可。",
+        "answer": true,
+        "explanation": "简单类型参数可按名称自动匹配并完成类型转换与绑定。"
+      },
+      {
+        "question": "在 POJO 类型的数据绑定过程中，需要确保请求的参数名称与要绑定的 POJO 类中的属性名称保持一致。",
+        "answer": true,
+        "explanation": "Spring MVC 会根据请求参数名匹配 POJO 属性名，再调用 setter 或相关机制完成赋值。"
+      },
+      {
+        "question": "@ResponseBody 注解的作用是将处理器方法返回的对象通过适当的转换器转换为指定的格式之后，写入到 HttpServletResponse 对象的响应体中。",
+        "answer": true,
+        "explanation": "@ResponseBody 会跳过视图解析，将返回值通过消息转换器写入响应体。"
+      },
+      {
+        "question": "当 Spring MVC 方法的返回值为 void 时，方法执行后会跳转到项目中视图名称为 index 的页面。",
+        "answer": false,
+        "explanation": "void 返回值不会固定跳转到 index，具体结果与请求路径、视图解析器或响应处理方式有关。"
+      },
+      {
+        "question": "使用@DateTimeFormat 注解完成日期类型的格式转换无需自定义类型转换器，也无需在配置文件中定义转换器工厂或格式化工厂。",
+        "answer": true,
+        "explanation": "@DateTimeFormat 可直接声明日期格式，让 Spring MVC 按指定格式完成转换。"
+      },
+      {
+        "question": "在使用 SimpleMappingExceptionResolver 时，需要配置异常与视图之间的映射关系。",
+        "answer": true,
+        "explanation": "该解析器通过异常类型与错误视图的映射关系决定异常发生后跳转到哪个页面。"
+      },
+      {
+        "question": "HandlerExceptionResolver 接口是 Spring MVC 中用于全局异常处理的接口。",
+        "answer": true,
+        "explanation": "Spring MVC 通过 HandlerExceptionResolver 体系对处理器执行过程中的异常进行统一解析。"
+      },
+      {
+        "question": "@ControllerAdvice 注解标注的类也需要使用@Controller 或@RestController 注解进行标注。",
+        "answer": false,
+        "explanation": "@ControllerAdvice 本身就是用于声明全局控制器增强的注解，不要求再标注@Controller 或@RestController。"
+      },
+      {
+        "question": "拦截器的 preHandler()方法会在请求处理之后被调用。",
+        "answer": false,
+        "explanation": "preHandler()在处理器执行之前调用，用于预处理请求。"
+      },
+      {
+        "question": "通过实现 WebMvcConfigurer 接口，开发者可以扩展 Spring MVC 的默认配置。",
+        "answer": true,
+        "explanation": "WebMvcConfigurer 提供扩展点，可添加拦截器、格式化器、资源处理等配置。"
+      },
+      {
+        "question": "MyBatis 基于 ORM 技术实现数据的持久化操作。",
+        "answer": true,
+        "explanation": "MyBatis 支持对象与关系数据之间的映射，常用于持久层数据访问。"
+      },
+      {
+        "question": "SqlSessionFactory 类的主要职责是读取 MyBatis 的配置信息，并解析配置信息。",
+        "answer": false,
+        "explanation": "读取并解析配置通常由 SqlSessionFactoryBuilder 完成，SqlSessionFactory 主要负责创建 SqlSession。"
+      },
+      {
+        "question": "SqlSession 接口提供了一系列方法用于执行 SQL 查询、更新、插入和删除操作。",
+        "answer": true,
+        "explanation": "SqlSession 是执行映射 SQL 的主要会话接口，提供 select、insert、update、delete 等操作。"
+      },
+      {
+        "question": "<properties> 标签内定义的属性优先级低于从外部属性文件中读取到的属性。",
+        "answer": false,
+        "explanation": "MyBatis 属性优先级并不是简单地由标签内属性低于外部文件属性来概括，还与加载方式和覆盖顺序有关。"
+      },
+      {
+        "question": "MyBatis 映射文件中， <insert>标签的 useGeneratedKeys 属性用于指定是否返回生成的主键值。",
+        "answer": true,
+        "explanation": "useGeneratedKeys 可启用 JDBC 自动生成主键回填，常与 keyProperty 配合使用。"
+      },
+      {
+        "question": "<choose>标签用于从多个备选项中选择一个满足条件的选项。",
+        "answer": true,
+        "explanation": "<choose>类似 switch 结构，会在多个条件分支中选择符合条件的一个。"
+      },
+      {
+        "question": "<when>标签用于定义<choose>标签中的备选条件，它包含一个 test 属性，用于指定条件表达式。",
+        "answer": true,
+        "explanation": "<when>是<choose>中的条件分支，test 用于判断该分支是否生效。"
+      },
+      {
+        "question": "<where>标签会确保只有所有条件都成立时，才会在 SQL 语句中添加 WHERE 关键字。",
+        "answer": false,
+        "explanation": "<where>会在有条件片段时添加 WHERE，并处理开头多余的 AND 或 OR，不要求所有条件都成立。"
+      },
+      {
+        "question": "<set>标签会自动去掉最后一个字段更新后的多余逗号。",
+        "answer": true,
+        "explanation": "<set>用于动态 UPDATE 语句，可自动处理末尾多余逗号。"
+      },
+      {
+        "question": "<trim>标签可以根据条件动态地添加或者删除指定的字符。",
+        "answer": true,
+        "explanation": "<trim>可通过 prefix、suffix、prefixOverrides、suffixOverrides 控制前后缀和字符清理。"
+      },
+      {
+        "question": "@Select 注解的 SQL 语句中可以使用 #{} 语法来引用方法中的参数。",
+        "answer": true,
+        "explanation": "#{}用于安全地绑定方法参数，MyBatis 会将其处理为预编译参数。"
+      },
+      {
+        "question": "MyBatis 中的@Options 注解可以指定是否使用生成的键和设置超时时间。",
+        "answer": true,
+        "explanation": "@Options 可配置 useGeneratedKeys、keyProperty、timeout 等执行选项。"
+      },
+      {
+        "question": "@Results 注解用于定义多个结果映射规则，可以包含多个 @Result 注解。",
+        "answer": true,
+        "explanation": "@Results 是多个@Result 的集合，用于描述字段与属性的映射关系。"
+      },
+      {
+        "question": "@One 注解可以通过 select 属性指定关联查询的 SQL 语句或方法。",
+        "answer": true,
+        "explanation": "@One 常用于一对一关联映射，select 属性指定用于加载关联对象的方法。"
+      },
+      {
+        "question": "MyBatis 中的@Many 注解是直接提供多对多关联查询的注解。",
+        "answer": false,
+        "explanation": "@Many 通常描述一对多关联集合，并不是直接表示多对多关联查询的专用注解。"
+      },
+      {
+        "question": "MyBatis Generator 是 MyBatis 逆向工程的核心工具之一。",
+        "answer": true,
+        "explanation": "MyBatis Generator 可根据数据库表生成实体类、Mapper 接口和映射文件。"
+      },
+      {
+        "question": "MyBatis Generator 会默认加载名称为 generatorConfig.xml 的配置文件。",
+        "answer": true,
+        "explanation": "常规使用中，Generator 会读取 generatorConfig.xml 作为逆向工程配置文件。"
+      },
+      {
+        "question": "在 MyBatis 应用程序中执行查询时，如果缓存中没有对应的结果，程序会出错。",
+        "answer": false,
+        "explanation": "缓存未命中时会继续查询数据库，不会因为缓存没有数据而直接出错。"
+      },
+      {
+        "question": "MyBatis 的二级缓存中，同一 SqlSessionFactory 创建的 SqlSession 之间，其缓存是共享的。",
+        "answer": true,
+        "explanation": "二级缓存以 Mapper 命名空间为范围，可在同一 SqlSessionFactory 下的会话之间共享。"
+      },
+      {
+        "question": "MyBatis 的一级缓存和二级缓存都需要手动开启。",
+        "answer": false,
+        "explanation": "一级缓存默认开启，二级缓存通常需要配置开启。"
+      },
+      {
+        "question": "MyBatis-Plus 在 MyBatis 的基础上只做增强不做改变。",
+        "answer": true,
+        "explanation": "MyBatis-Plus 设计目标是在兼容 MyBatis 的基础上增强常用功能。"
+      },
+      {
+        "question": "Lombok 的@Data 注解在编译时会自动为类生成常用的方法，如 getter、setter、toString()等。",
+        "answer": true,
+        "explanation": "@Data 综合生成 getter、setter、toString、equals、hashCode 等常用方法。"
+      },
+      {
+        "question": "MyBatis-Plus 的条件构造器允许开发者以链式调用的方式构建 SQL 查询条件。",
+        "answer": true,
+        "explanation": "条件构造器提供 eq、like、between 等链式方法，便于动态拼接查询条件。"
+      },
+      {
+        "question": "@TableField 注解用于标识实体类中和数据表主键字段对应的属性。",
+        "answer": false,
+        "explanation": "主键字段通常使用@TableId 标识，@TableField 主要用于普通字段映射等配置。"
+      },
+      {
+        "question": "AbstractWrapper 是所有条件构造器的基类。",
+        "answer": true,
+        "explanation": "QueryWrapper、UpdateWrapper 等条件构造器都继承或基于 AbstractWrapper 的通用条件构建能力。"
+      },
+      {
+        "question": "Spring Boot 是替代 Spring 框架的解决方案。",
+        "answer": false,
+        "explanation": "Spring Boot 是基于 Spring 的快速开发框架，并不是取代 Spring。"
+      },
+      {
+        "question": "使用 Maven 方式构建 Spring Boot 项目必须处于联网状态，否则会创建失败。",
+        "answer": false,
+        "explanation": "如果本地仓库已有所需依赖和插件，离线情况下也可能完成构建。"
+      },
+      {
+        "question": "Spring Boot 官方针对所有场景开发的技术框架都提供了启动器。",
+        "answer": false,
+        "explanation": "Spring Boot 提供大量 starter，但并非覆盖所有技术场景。"
+      },
+      {
+        "question": "默认情况下，application.yml 文件中配置的字符串必须使用单引号或双引号进行修饰。",
+        "answer": false,
+        "explanation": "YAML 中普通字符串默认可以不加引号，只有特殊字符或特殊含义时才常使用引号。"
+      },
+      {
+        "question": "Spring Boot 直接内嵌了 Tomcat、Jetty 或 Undertow 等 Web 容器。",
+        "answer": true,
+        "explanation": "Spring Boot Web 应用可内嵌常见 Servlet 容器，便于打包后直接运行。"
+      }
+    ],
     "fill": [
       {
         "question": "在（ ）方面，Spring 框架提供了对 Spring MVC、Struts2 等框架的整合。",

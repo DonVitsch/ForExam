@@ -473,3 +473,21 @@ a {
         padding: 16px;
     }
 }
+
+/* Improve explanation readability */
+.feedback,
+.feedback.success,
+.feedback.error,
+.answer-box {
+    font-size: 18px;
+    line-height: 1.85;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+.feedback strong,
+.answer-box strong,
+.feedback b,
+.answer-box b {
+    font-weight: 400;
+}

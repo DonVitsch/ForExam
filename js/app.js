@@ -884,6 +884,7 @@ function renderTFQuestion(state, question) {
 function submitTF(state, selectedValue) {
     const question = state.questions[state.index];
     const isCorrect = selectedValue === question.answer;
+    const explanation = question.explanation || question.analysis || "暂无解析";
 
     state.locked = true;
     document.querySelectorAll(".tf-btn").forEach(btn => {
@@ -892,11 +893,11 @@ function submitTF(state, selectedValue) {
 
     if (isCorrect) {
         removeMistake(question);
-        showFeedback(true, "回答正确！");
+        showFeedback(true, `回答正确！解析：${escapeHTML(explanation)}`);
         autoNext(state);
     } else {
         saveMistake(question);
-        showFeedback(false, `回答错误。正确答案：${question.answer ? "对" : "错"}`);
+        showFeedback(false, `回答错误。正确答案：${question.answer ? "对" : "错"}。解析：${escapeHTML(explanation)}`);
         showNextButton(state);
     }
 }
