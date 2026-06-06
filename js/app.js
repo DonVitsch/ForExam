@@ -398,25 +398,31 @@ document.addEventListener("DOMContentLoaded", initApp);
 function initApp() {
     const page = getCurrentPage();
 
-    if (page === "index.html" || page === "") {
+    if (page === "index.html" || page === "index" || page === "") {
         renderIndexPage();
         return;
     }
 
-    if (page === "subject.html") {
+    if (page === "subject.html" || page === "subject") {
         renderSubjectPage();
         return;
     }
 
-    if (page === "exam.html") {
+    if (page === "exam.html" || page === "exam") {
         renderExamPage();
+        return;
     }
 }
 
 function getCurrentPage() {
     const path = window.location.pathname;
-    const page = path.substring(path.lastIndexOf("/") + 1);
-    return page || "index.html";
+    let page = path.substring(path.lastIndexOf("/") + 1);
+
+    if (!page) return "index.html";
+
+    page = page.split("?")[0].split("#")[0];
+
+    return page;
 }
 
 function getParams() {
