@@ -6,30 +6,422 @@
       "types": {
         "choice": [
           {
-            "question": "安装 Requests 库的正确 pip 命令是（ A ）",
+            "question": "安装 Requests 库的正确 pip 命令是（ ）",
             "options": [
               "pip install requests",
               "pip get requests",
               "pip install request",
               "pip add requests"
             ],
-            "answer": 0
+            "answer": 0,
+            "analysis": "Python 使用 pip 包管理器安装第三方库的 standard 命令是 `pip install 库名`。Requests 库的官方注册名称为复数形式的 'requests'，因此正确命令是 pip install requests。"
+          },
+          {
+            "question": "Requests 库中，用于获取网页数据的核心方法是（ ）",
+            "options": [
+              "post ()",
+              "get ()",
+              "put ()",
+              "delete ()"
+            ],
+            "answer": 1,
+            "analysis": "GET 请求用于从服务器请求获取数据。在 Requests 库中，`requests.get()` 是最基础、最常用的获取网页数据的方法。"
+          },
+          {
+            "question": "以下哪个属性可以获取 Response 对象的 HTTP 响应状态码（ ）",
+            "options": [
+              "response.text",
+              "response.url",
+              "response.status_code"
+            ],
+            "answer": 2,
+            "analysis": "`.status_code` 属性用于返回服务器响应的 HTTP 状态码（如 200 表示成功，404 表示未找到）。`.text` 返回文本内容，`.url` 返回请求的 URL。"
+          },
+          {
+            "question": "HTTP 协议中，patch 和 put 方法的核心区别是（ ）",
+            "options": [
+              "patch 用于完整更新资源，put 用于局部更新资源",
+              "patch 用于局部更新资源，put 用于完整更新资源",
+              "两者无区别，可随意替换使用",
+              "patch 用于删除资源，put 用于新增资源"
+            ],
+            "answer": 1,
+            "analysis": "PUT 方法通常用于对已知资源进行整体覆盖或更新，而 PATCH 方法专门用于对资源进行局部（部分）修改。"
+          },
+          {
+            "question": "Python 中捕获 Requests 库请求异常的核心语法框架是（ ）",
+            "options": [
+              "if-else",
+              "for-in",
+              "try-except",
+              "while"
+            ],
+            "answer": 2,
+            "analysis": "Python 中处理和捕获运行时异常的 standard 机制是 `try-except` 语句块，爬虫中常用来包裹网络请求以防程序因网络问题中断。"
+          },
+          {
+            "question": "Requests 库中，用于捕获 “请求连接超时” 的异常类型是（ ）",
+            "options": [
+              "requests.exceptions.HTTPError",
+              "requests.exceptions.ConnectTimeout",
+              "requests.exceptions.Timeout",
+              "requests.exceptions.ConnectionError"
+            ],
+            "answer": 1,
+            "analysis": "`ConnectTimeout` 指在建立与远程服务器连接时超时；而 `Timeout` 是一个更广泛的基类（包含连接超时和读取超时）。专门捕获连接超时应使用 ConnectTimeout。"
+          },
+          {
+            "question": "以下能正确获取 Requests 库请求响应中二进制内容的方式是（ ）",
+            "options": [
+              "response.text",
+              "response.content",
+              "response.json ()",
+              "response.encoding"
+            ],
+            "answer": 1,
+            "analysis": "`.content` 属性返回的是响应正文的二进制字节流（bytes），常用于保存图片、视频、音频或压缩包等文件。"
+          },
+          {
+            "question": "安装 Beautiful Soup4 库的正确 pip 命令是（ ）",
+            "options": [
+              "pip install beautifulsoup",
+              "pip install beautifulsoup4",
+              "pip install bs4",
+              "pip install soup"
+            ],
+            "answer": 1,
+            "analysis": "Beautiful Soup 的第四个大版本在 PyPI 上注册的包名是 `beautifulsoup4`。虽然代码中导入时使用 `import bs4`，但安装时必须使用完整包名。"
+          },
+          {
+            "question": "Beautiful Soup 库解析 HTML 文档时，用于精准定位单个指定标签的方法是（ ）",
+            "options": [
+              "find ()",
+              "find_all ()",
+              "select ()",
+              "prettify ()"
+            ],
+            "answer": 0,
+            "analysis": "`find()` 方法遍历整个文档，并只返回符合条件的**第一个**（单个）标签对象。而 `find_all()` 返回的是匹配到的所有标签列表。"
+          },
+          {
+            "question": "bs4 库中，HTML 标签树的遍历方式不包括（ ）",
+            "options": [
+              "下行遍历",
+              "上行遍历",
+              "平行遍历",
+              "随机遍历"
+            ],
+            "answer": 3,
+            "analysis": "Beautiful Soup 基于 HTML 的树状结构，提供了向上（父节点）、向下（子节点、子孙节点）和水平（兄弟节点）三种逻辑遍历方式，并不存在“随机遍历”。"
+          },
+          {
+            "question": "用于格式化 HTML 解析结果，让代码更易读的方法是（ ）",
+            "options": [
+              "get ()",
+              "prettify ()",
+              "text ()",
+              "attrs ()"
+            ],
+            "answer": 1,
+            "analysis": "`prettify()` 方法可以将 Beautiful Soup 的解析树格式化为带有缩进和换行的标准 HTML 字符串，使排版更美观、易于阅读。"
+          },
+          {
+            "question": "以下不属于信息标记三种形式的是（ ）",
+            "options": [
+              "XML",
+              "JSON",
+              "YAML",
+              "URL"
+            ],
+            "answer": 3,
+            "analysis": "现代网络结构化数据标记的三种经典形式是 XML、JSON 和 YAML。URL 是统一资源定位符，用来给网络资源定位，不属于数据标记形式。"
+          },
+          {
+            "question": "使用 Beautiful Soup 提取标签中 href 属性的值，正确的写法是（ ）",
+            "options": [
+              "soup.find ('a').href",
+              "soup.find ('a').get ('href')",
+              "soup.find ('a')['href']",
+              "B 和 C 都正确"
+            ],
+            "answer": 3,
+            "analysis": "在 bs4 中，提取标签属性有两种标准方式：一是将标签视为字典，通过键名直接访问 `tag['attr']`；二是使用 `.get('attr')` 方法。因此 B 和 C 均正确。"
+          },
+          {
+            "question": "若要提取标签内的所有文本内容（包含子标签文本），Beautiful Soup 的正确方法是（ ）",
+            "options": [
+              "tag.text",
+              "tag.name",
+              "tag.contents",
+              "tag.attrs"
+            ],
+            "answer": 0,
+            "analysis": "`.text` 属性（或 `.get_text()`）可以递归地获取当前标签及其所有子孙标签中的纯文本内容。`.name` 获取标签名，`.contents` 返回子节点列表，`.attrs` 返回属性字典。"
+          },
+          {
+            "question": "以下关于 Beautiful Soup 遍历标签树的说法，正确的是（ ）",
+            "options": [
+              " .children 属性返回标签的所有直接子节点，是列表类型",
+              " .descendants 属性返回标签的所有子孙节点，是生成器类型",
+              " .parent 属性返回标签的所有父节点，是迭代器类型",
+              " .next_sibling 属性一定能获取到下一个同级标签，不会返回 None"
+            ],
+            "answer": 1,
+            "analysis": "`.children` 返回的是迭代器而非列表；`.parent` 返回当前节点的直接父节点对象，`.parents` 才是迭代器；`.next_sibling` 可能会遇到空白文本节点，或者当其是最后一个节点时返回 None。唯有 B 表述完全正确。"
+          },
+          {
+            "question": "Python 中处理正则表达式的核心库是（ ）",
+            "options": [
+              "re",
+              "regex",
+              "regular",
+              "rexp"
+            ],
+            "answer": 0,
+            "analysis": "Python 内置的用于处理正则表达式的标准库名称是 `re`（Regular Expression 的缩写）。"
+          },
+          {
+            "question": "正则表达式中，\\d 的含义是（ ）",
+            "options": [
+              "匹配任意非数字字符",
+              "匹配任意数字字符（0-9）",
+              "匹配任意空白字符",
+              "匹配任意字母字符"
+            ],
+            "answer": 1,
+            "analysis": "在正则表达式中，`\\d` 是一个预定义字符集，等价于 `[0-9]`，代表匹配任意一个阿拉伯数字。"
+          },
+          {
+            "question": "re 库中，用于匹配字符串开头位置的元字符是（ ）",
+            "options": [
+              "$",
+              "^",
+              "*",
+              "?"
+            ],
+            "answer": 1,
+            "analysis": "`^` 匹配字符串的开头（在多行模式下匹配每一行的开头）；`$` 匹配字符串的结尾；`*` 和 `?` 是限定匹配次数的量词。"
+          },
+          {
+            "question": "以下关于正则表达式 “贪婪匹配” 的描述，正确的是（ ）",
+            "options": [
+              "尽可能少的匹配符合条件的内容",
+              "尽可能多的匹配符合条件的内容",
+              "仅匹配一次符合条件的内容",
+              "匹配所有符合条件的内容但不重复"
+            ],
+            "answer": 1,
+            "analysis": "正则表达式默认采用贪婪匹配模式，即在满足匹配条件的前提下，匹配尽可能长（尽可能多）的字符串。"
+          },
+          {
+            "question": "re 库中，Match 对象的核心作用是（ ）",
+            "options": [
+              "存储正则匹配的结果信息",
+              "编写正则表达式",
+              "执行正则替换",
+              "遍历匹配结果"
+            ],
+            "answer": 0,
+            "analysis": "当 `re.match()` 或 `re.search()` 成功匹配到内容时，会返回一个 Match 对象，该对象内部封装了匹配到的文本、位置、分组等丰富的结果信息。"
+          },
+          {
+            "question": "正则表达式 ^hello$ 中，^ 和 $ 的作用是（ ）",
+            "options": [
+              "^ 匹配换行符，$ 匹配空格符",
+              "^ 匹配字符串开头位置，$ 匹配字符串结尾位置",
+              "^ 匹配任意非数字字符，$ 匹配任意数字字符",
+              "^ 和 $ 组合表示匹配空字符串"
+            ],
+            "answer": 1,
+            "analysis": "`^` 和 `$` 分别是字符串边界锚定符。`^hello$` 要求整个字符串从头到尾必须完整地与 'hello' 匹配，不能包含其他多余字符。"
+          },
+          {
+            "question": "正则表达式 a[^bcd] 中，[^bcd] 的含义是（ ）",
+            "options": [
+              "匹配以 bcd 开头的字符",
+              "匹配除了 b、c、d 之外的任意单个字符",
+              "匹配 b、c、d 中的任意一个字符",
+              "匹配空字符"
+            ],
+            "answer": 1,
+            "analysis": "在字符集方括号 `[]` 内部，如果最前面出现 `^`，表示取反操作，即匹配不在该字符集内的任意单个字符。"
+          },
+          {
+            "question": "Scrapy 爬虫框架的核心结构被称为（ ）",
+            "options": [
+              "3+2 结构",
+              "5+2 结构",
+              "4+3 结构",
+              "6+1 结构"
+            ],
+            "answer": 1,
+            "analysis": "Scrapy 框架通常被称为 '5+2 结构'，它包含 5 个核心组件（Engine、Scheduler、Downloader、Spider、Item Pipeline）和 2 个中间件（Downloader Middlewares、Spider Middlewares）。"
+          },
+          {
+            "question": "以下不属于 Scrapy 框架核心组件的是（ ）",
+            "options": [
+              "Spider",
+              "Item Pipeline",
+              "Downloader",
+              "Requests"
+            ],
+            "answer": 3,
+            "analysis": "Requests 是第三方网络请求模块，而不是 Scrapy 框架内部的底层核心组件。Scrapy 本身有自己的引擎和请求封装。"
+          },
+          {
+            "question": "Scrapy 框架中，用于处理爬取数据的清洗、存储的组件是（ ）",
+            "options": [
+              "Spider",
+              "Item Pipeline",
+              "Engine",
+              "Scheduler"
+            ],
+            "answer": 1,
+            "analysis": "Item Pipeline（项目管道）负责接收由 Spider 解析出来的 Item（数据对象），进行后期的清洗、查重、入库或保存为本地文件等操作。"
+          },
+          {
+            "question": "用于创建 Scrapy 爬虫工程的核心命令是（ ）",
+            "options": [
+              "scrapy startproject",
+              "scrapy createproject",
+              "scrapy newproject",
+              "scrapy initproject"
+            ],
+            "answer": 0,
+            "analysis": "Scrapy CLI（命令行工具）提供的标准建项初始化命令是 `scrapy startproject <项目名称>`。"
+          },
+          {
+            "question": "Scrapy 爬虫中，yield 关键字的核心作用是（ ）",
+            "options": [
+              "终止程序运行",
+              "保存数据到本地",
+              "生成迭代器，返回爬取数据",
+              "发起网络请求"
+            ],
+            "answer": 2,
+            "analysis": "`yield` 关键字在 Python 中将函数转为生成器。在 Scrapy 中，通过 `yield` 可以非阻塞地把解析出的数据项（Item）或新请求（Request）一步一步地传递给引擎进行异步调度处理。"
           }
         ],
         "multiple": [],
         "tf": [
           {
             "question": "Requests 库仅支持 GET 和 POST 两种 HTTP 请求方法。",
-            "answer": false
+            "answer": false,
+            "analysis": "Requests 库不仅支持 GET 和 POST，还全面支持 HTTP 协议中的 PUT、DELETE、HEAD、OPTIONS、PATCH 等所有标准请求方法。"
+          },
+          {
+            "question": "爬取网页的通用代码框架中，加入异常捕获可以提升程序的稳定性。",
+            "answer": true,
+            "analysis": "网络环境充满变数，通过 `try-except` 捕获连接超时、解析错误等异常，可以防止因单个网页无法响应而导致整个爬虫程序意外退出崩溃。"
+          },
+          {
+            "question": "Response 对象的 text 属性和 content 属性获取的内容完全一致，可随意使用。",
+            "answer": false,
+            "analysis": "这两者不同。`.text` 是基于特定编码自动解码后的字符串（String 类型），适用于纯文本网页；`.content` 是原始的二进制数据（Bytes 类型），适合保存多媒体文件或由用户手动指定编码解码。"
+          },
+          {
+            "question": "Beautiful Soup 库的核心作用是解析和提取 HTML/XML 中的数据。",
+            "answer": true,
+            "analysis": "Beautiful Soup 是一个优秀的 HTML/XML 解析库，它能将杂乱的网页文本转化成易于操作的标签树，极大地方便了开发者从中查找、定位和提取特定元素。"
+          },
+          {
+            "question": "信息标记的三种形式中，JSON 仅能用于存储简单的键值对数据，无法表示复杂嵌套结构。",
+            "answer": false,
+            "analysis": "JSON 通过对象（大括号包裹的键值对）和数组（中括号包裹的列表）的无限层级相互嵌套，具有极强的数据表达能力，完全可以表达极其复杂的嵌套层级与树状结构。"
+          },
+          {
+            "question": "正则表达式中的 “.” 可以匹配包括换行符在内的任意字符。",
+            "answer": false,
+            "analysis": "在默认模式下，点号 `.` 可以匹配除换行符 `\\n` 以外的任何单个字符。如果想要让它匹配换行符，需要开启 `re.S` 或 `re.DOTALL` 标志模式。"
+          },
+          {
+            "question": "re 库的 search () 方法和 match () 方法功能一致，均可在字符串任意位置匹配。",
+            "answer": false,
+            "analysis": "这两者行为不同。`match()` 方法限定只能从字符串的**起始位置**开始匹配，若开头不满足则返回 None；而 `search()` 则会在**整个字符串中逐次检索**，找到第一个符合条件的位置。"
+          },
+          {
+            "question": "最小匹配（非贪婪匹配）可通过在限定符后加 “?” 实现，如 *?、+?。",
+            "answer": true,
+            "analysis": "在量词元字符（如 `*`、`+`、`?`、`{m,n}`）后面追加一个问号 `?`，就会将原本追求匹配最长内容的贪婪模式，转换为只要满足条件就匹配最短内容的非贪婪（最小化）模式。"
+          },
+          {
+            "question": "正则表达式中的 `.`（点）在默认模式下能匹配任意字符，包括换行符。",
+            "answer": false,
+            "analysis": "此题与前面题目重复，默认状态下 `.` 绝对无法跨越并匹配到换行符 `\\n`。"
+          },
+          {
+            "question": "正则表达式 `\\b` 是单词边界匹配符，`\\B` 是非单词边界匹配符，`\\bpython\\B` 可匹配“python123”中的“python”，但不匹配“python”单独出现的情况。",
+            "answer": true,
+            "analysis": "`\\bpython` 要求字母 'p' 的左侧必须是单词边界（如空格或开头），这在“python123”和单个“python”中都成立。而 `\\B` 要求右侧的字母 'n' 之后**不能**紧邻单词边界。“python123”中 'n' 后面接的是数字 '1'（属于英文字符类，不构成边界），所以能成功匹配；而在纯粹独立的“python”中，'n' 后面直接触碰了尾部边界，触发了 `\\B` 的否定条件，因而无法匹配。"
+          },
+          {
+            "question": "Scrapy 框架是轻量级的爬虫工具，无需安装，可直接使用。",
+            "answer": false,
+            "analysis": "Scrapy 是一个比较庞大重型的企业级、工程化爬虫框架，并非内置模块。使用前必须使用命令行通过 `pip install scrapy` 进行单独的依赖项下载和环境安装。"
+          },
+          {
+            "question": "Scrapy 框架与Requests库相比，更适合开发大型、高效的爬虫项目。",
+            "answer": true,
+            "analysis": "Scrapy 底层基于 Twisted 异步网络库构建，内置了多线程高并发、分布式、排重以及完善的数据处理链路，其性能和工程规范性远比纯手动编写的多线程 Requests 爬虫更稳健高效。"
+          },
+          {
+            "question": "Scrapy 爬虫的 Spider 组件主要负责定义爬取规则和提取目标数据。",
+            "answer": true,
+            "analysis": "在 Scrapy 里，用户编写的 Spider（爬虫类）是业务逻辑的核心。它定义了初始的 URL，规定了如何跟踪页面中的链接，并负责编写具体的解析函数来清洗、抓取网页中需要的数据段落。"
           }
         ],
         "short": [
           {
             "question": "什么是 user-agent?",
-            "answer": "User-Agent 是 HTTP 请求头中的一个字段，用于标识客户端程序的信息，例如浏览器类型、操作系统、版本等。服务器可以根据 User-Agent 判断请求来源并返回不同内容。"
+            "answer": "User-Agent 是 HTTP 请求头中的一个字段，用于标识客户端程序的信息，例如浏览器类型、操作系统、版本等。服务器可以根据 User-Agent 判断请求来源并返回不同内容。",
+            "analysis": "User-Agent（用户代理）属于网络请求的身份自白书。在编写网络爬虫时，如果不加修改，默认的 UA 往往带有 Python-requests 等字样，极易被网站拦截，通常我们会将其伪装成常见桌面浏览器的 UA。"
+          },
+          {
+            "question": "Responses 对象都有哪些属性，并说明？",
+            "answer": "Response 对象常见属性包括：1. .status_code：获取 HTTP 状态码。2. .text：获取经过自动解码后的字符串格式内容。3. .content：获取未解码的二进制字节流数据。4. .encoding：查看或手动设定响应数据的文本编码格式。5. .url：获取请求页面对应的真实目标 URL 路径。6. .headers：获取服务器返回的响应头字典信息。7. .json()：若响应为 JSON 数据，可以直接将其解析转换为 Python 字典。",
+            "analysis": "这些是编写 Requests 爬虫时高频使用的反馈调取方法。理解这些属性的内部形态，是做好数据提取和网络调试的基本功。"
+          },
+          {
+            "question": "简述 bs4 库中 find () 和 find_all () 方法的核心区别，说明各自的适用场景。",
+            "answer": "1. 核心区别：返回值不同且检索深度有区别。find() 只要在标签树中寻找到第一个完全匹配的节点就会立即停止检索并返回该 Tag 对象；而 find_all() 则会踏实地遍历整个网页文档，将所有满足匹配条件的标签打包放进一个结果列表中返回。2. 适用场景：当我们明确知道当前页面中目标元素是唯一的（例如特定的唯一 ID 容器、页面的标题标签、首个特定样式区），或者只需要拿到排在最前面的那条数据时，用 find() 速度最快。如果是提取列表页、多排表格、商品合集、链接列表等呈现大批量重复规律的数据时，必须使用 find_all() 进行批量捕捉处理。",
+            "analysis": "这是 Beautiful Soup 定位元素的两个核心板斧。理解它们的区别可以帮助我们在不同文档特征下选用更准确的提取思路。"
+          },
+          {
+            "question": "标签（Tag）的基本元素有哪些？举例说明。",
+            "answer": "标签的基本组成元素通常包含以下四个部分：1. 名称（Name）：标识标签属于什么类型，通过 `tag.name` 访问。2. 属性（Attributes）：存在于开始标签内部的键值对配置，通过 `tag.attrs` 访问。3. 纯文本内容（NavigableString）：被标签包裹住的非标记文本文字，通过 `tag.string` 访问。4. 注释（Comment）：特殊的文本类型，用来对代码做内部解释。 例如：对于 HTML 片段 `<a class=\"link\" href=\"http://example.com\">点击这里</a>`。其标签名是 'a'；属性字典是 `{'class': ['link'], 'href': 'http://example.com'}`；纯文本内容是 '点击这里'。",
+            "analysis": "每一个被解析出来的 HTML 标签在 bs4 中都是一个鲜活的对象，它的四要素共同构成了该节点在文档树中所具备的所有特征。"
+          },
+          {
+            "question": "举例信息标记 XML、JSON 和 YAML 三种形式？并进行比较说明。",
+            "answer": "1. 实例展示：\n- XML（标签对嵌套）：\n<book>\n  <title>爬虫指南</title>\n  <price>99</price>\n</book>\n- JSON（键值对与列表）：\n{\n  \"title\": \"爬虫指南\",\n  \"price\": 99\n}\n- YAML（缩进和空格表示层级）：\ntitle: 爬虫指南\nprice: 99\n\n2. 比较说明：\n- XML 诞生最早，结构严谨详尽，但带有大量的闭合双标签，导致数据冗余度较高，书写繁琐，目前常用于传统的配置文件或特定的大型数据传输。\n- JSON 精简高效，由于其格式完美对应 JavaScript 的对象和主流语言的字典映射，解析及加载效率极高，目前已经成为互联网前后端 API 数据交换事实上的主流标准。\n- YAML 抛弃了各种括号和繁杂的标记，完全依托缩进控制上下级关系，拥有极佳的人类可读性，干净利落，最常作为现代软件系统的复杂配置文件。",
+            "analysis": "这三种标记法各有千秋，在实际开发中需要培养一眼看懂并能在脑海中自动转换成逻辑对象的能力。"
+          },
+          {
+            "question": "正则表达式常用符号说明（举例）",
+            "answer": "常见的基础正则表达式符号如下：1. `.`：匹配除换行符之外的任意单个字符。如 `a.c` 可匹配 abc、axc。2. `\\d`：匹配任意数字字符。如 `\\d{3}` 可匹配 123、888。3. `*`：匹配前一个字符 0 次或多次。如 `ko*` 可匹配 k、ko、kooo。4. `+`：匹配前一个字符 1 次或多次。如 `a+` 可匹配 a、aa、aaa。5. `?`：匹配前一个字符 0 次或 1 次。如 `apples?` 可匹配 apple 或 apples。6. `[]`：字符集，匹配其中包含的任意单一字符。如 `[abc]` 匹配 a 或 b 或 c。7. `^` 和 `$`：分别固定字符串的开头与结尾边界。如 `^cat$` 仅完美匹配纯字符串 \"cat\"。",
+            "analysis": "符号是构建正则表达式这个宏大公式的砖瓦，熟练记忆并组合它们可以写出千变万化的文本检索条件。"
+          },
+          {
+            "question": "Python re 模块中，re.findall(r'\\d+', '价格：99元，折扣：8.5折')的返回结果是？",
+            "answer": "该代码的返回结果是一个包含所有匹配项字符串的列表：`['99', '8', '5']`",
+            "analysis": "由于正则表达式中的模式是 `\\d+`，代表连续匹配一个或多个数字。在文本中遇到 '99'，它是一串连续数字，被切分提取为 '99'；随后遇到点号 '.'（非数字字符，匹配中断）；接下来遇到数字 '8' 提取出来；再碰到 '折' 之前，还有一个数字 '5' 同样符合单段数字规律被提取。因此小数点被当作分隔线，返回这三个纯数字字符串。"
+          },
+          {
+            "question": "商品价格信息提取填空题：已知源码 `<span class=\"price\">¥999.99</span>`，补全正则表达式 `r'¥(\\d{      }\\.\\d{2})'` 以精准匹配和提取浮点数价格（价格范围：整数 1-5 位，小数固定 2 位）。",
+            "answer": "应当在花括号内补充表示数量范围的参数：`r'¥(\\d{1,5}\\.\\d{2})'`",
+            "analysis": "题目中明确要求了“整数部分 1-5 位”。在正则量词语法中，限制某个字符集出现的次数区间使用 `{min,max}` 的格式，因此整数部分的数字 `\\d` 后面应该跟上 `{1,5}`。"
+          },
+          {
+            "question": "商品标题信息提取填空题：已知源码 `<h3 class=\"title\">2025新款XX手机 - 旗舰版</h3>`，补全正则表达式 `r'<h3 class=\"title\">(       )</h3>'` 以完整匹配并捕获以“2025新款”开头、以“版”结尾的任意内容。",
+            "answer": "应当在括号的捕获分组内补齐：`r'<h3 class=\"title\">(2025新款.*?版)</h3>'` （或者使用非贪婪通用匹配 `2025新款.*版`）",
+            "analysis": "需要抓取的是标签夹住的全部文本。由于要求标题必须以 '2025新款' 开头、以 '版' 结尾，其中夹杂‘任意字符’，我们一般推荐使用非贪婪匹配公式 `.*?`。因此将 `2025新款.*?版` 填入小括号捕获组中，既确保了内容定位的安全，又完美提取到了目标字符串。"
+          },
+          {
+            "question": "简述 Scrapy 框架与 Requests 库的核心区别，说明各自的适用场景。",
+            "answer": "1. 核心区别：Requests 库是一个精炼而专注的‘轻量级 HTTP 请求库’，它的工作非常纯粹——只管发送网络请求并把回包拿回来，后面的数据解析、循环翻页、去重、并发、写盘等统统需要人工调用别的库来编写；而 Scrapy 则是一个工业级别的‘一站式专业爬虫开发框架’，它将网络下载（Downloader）、调度循环（Scheduler）、核心驱动（Engine）、业务爬虫（Spider）、流水线清洗存储（Item Pipeline）整套链路全部内置规范化，天生自带异步高性能。2. 适用场景：如果面对的是小规模、临时性的数据抓取，或者需要编写非常灵活多变的、只有几十行的小爬虫脚本，首选 Requests 库；如果面对的是大型电商、海量新闻站点等深层嵌套、需要持久化并发爬取、甚至需要分布式集群部署的复杂工程项目，Scrapy 则是更好的选择。",
+            "analysis": "选择工具要看面对的战场规模。一个是灵活精巧的单兵武器，一个是分工严密的机械化重型军团，根据业务体量挑选才是最佳工程实践。"
           }
-        ],
-        "code": []
+        ]
       }
     }
   ]
