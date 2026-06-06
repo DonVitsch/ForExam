@@ -396,7 +396,7 @@
     ],
     "multiple": [],
     "tf": [],
-    "short": [
+    "fill": [
       {
         "question": "在（ ）方面，Spring 框架提供了对 Spring MVC、Struts2 等框架的整合。",
         "answer": "表现层",
@@ -723,6 +723,7 @@
         "explanation": "这是 YAML 的一个强硬语法死规定。写完冒号（:）之后，必须死死敲一个空格才能开始写后面的值（Value），否则项目启动时就会直接报错。"
       }
     ],
+    "short": [],
     "code": []
   }
 }

@@ -382,12 +382,13 @@ const TYPE_LABELS = {
     choice: "单选题",
     multiple: "多选题",
     tf: "判断题",
+    fill: "填空题",
     short: "简答题",
     code: "编程题",
     all: "终极测试"
 };
 
-const TYPE_ORDER = ["choice", "multiple", "tf", "short", "code"];
+const TYPE_ORDER = ["choice", "multiple", "tf", "fill", "short", "code"];
 const STORAGE_KEY = "exam_self_test_mistakes_v1";
 const RETRY_KEY = "__mistake_retry__";
 const SUBJECT_INDEX_URL = "/data/subjects.json";
@@ -733,6 +734,7 @@ function renderCurrentQuestion(state) {
     if (question.type === "choice") renderChoiceQuestion(state, question);
     else if (question.type === "multiple") renderMultipleQuestion(state, question);
     else if (question.type === "tf") renderTFQuestion(state, question);
+    else if (question.type === "fill") renderFillQuestion(state, question);
     else if (question.type === "short" || question.type === "code") renderAnswerQuestion(state, question);
     else renderUnsupportedQuestion(state);
 }
@@ -897,6 +899,31 @@ function submitTF(state, selectedValue) {
         showFeedback(false, `回答错误。正确答案：${question.answer ? "对" : "错"}`);
         showNextButton(state);
     }
+}
+
+function renderFillQuestion(state, question) {
+    const body = $("#questionBody");
+    const actions = $("#actions");
+
+    body.innerHTML = `
+    <button id="showAnswerBtn" class="answer-btn" type="button">显示答案</button>
+    <div id="answerBox" class="answer-box">${escapeHTML(question.answer || "暂无参考答案")}</div>
+  `;
+
+    const showAnswerBtn = $("#showAnswerBtn");
+    const answerBox = $("#answerBox");
+
+    showAnswerBtn.addEventListener("click", () => {
+        answerBox.classList.add("show");
+        showAnswerBtn.disabled = true;
+
+        const nextBtn = document.createElement("button");
+        nextBtn.className = "next-btn";
+        nextBtn.type = "button";
+        nextBtn.textContent = "下一题";
+        nextBtn.addEventListener("click", () => goNext(state));
+        actions.appendChild(nextBtn);
+    });
 }
 
 function renderAnswerQuestion(state, question) {
@@ -1153,6 +1180,7 @@ function getTypeEmoji(type) {
         choice: "🔘",
         multiple: "☑️",
         tf: "✅",
+        fill: "🧩",
         short: "✍️",
         code: "💻",
         all: "🔥"
