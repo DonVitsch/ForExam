@@ -390,7 +390,7 @@ const TYPE_LABELS = {
 const TYPE_ORDER = ["choice", "multiple", "tf", "short", "code"];
 const STORAGE_KEY = "exam_self_test_mistakes_v1";
 const RETRY_KEY = "__mistake_retry__";
-const SUBJECT_INDEX_URL = "data/subjects.json";
+const SUBJECT_INDEX_URL = "/data/subjects.json";
 
 let subjectIndexCache = null;
 const subjectDataCache = new Map();
@@ -409,17 +409,23 @@ if (document.readyState === "loading") {
 
 function initApp() {
     if ($("#subjectList") && $("#subjectCount") && $("#mistakeCount") && $("#mistakeBookBtn")) {
-        renderIndexPage();
+        renderIndexPage().catch(error => {
+            console.error("首页渲染失败", error);
+        });
         return;
     }
 
     if ($("#subjectName") && $("#subjectMeta") && $("#typeList") && $("#finalTestBtn")) {
-        renderSubjectPage();
+        renderSubjectPage().catch(error => {
+            console.error("科目详情页渲染失败", error);
+        });
         return;
     }
 
     if ($("#examStage") && $("#progress") && $("#examBackLink")) {
-        renderExamPage();
+        renderExamPage().catch(error => {
+            console.error("考试页渲染失败", error);
+        });
         return;
     }
 
@@ -505,17 +511,17 @@ async function getSubjectById(id) {
     const file = meta.file || `${id}.json`;
 
     try {
-        const data = await fetchJSON(`data/${file}`);
+        const data = await fetchJSON(`/data/${file}`);
         const subject = normalizeSubjectData(data, id);
 
         if (!subject) {
-            throw new Error(`题库文件 data/${file} 中找不到科目：${id}`);
+            throw new Error(`题库文件 /data/${file} 中找不到科目：${id}`);
         }
 
         subjectDataCache.set(id, subject);
         return subject;
     } catch (error) {
-        console.warn(`未能读取外部题库 data/${file}，尝试使用 app.js 内置题库作为备用。`, error);
+        console.warn(`未能读取外部题库 /data/${file}，尝试使用 app.js 内置题库作为备用。`, error);
         const fallbackSubject = QUESTION_BANK.subjects.find(subject => subject.id === id) || null;
 
         if (fallbackSubject) {
@@ -557,29 +563,45 @@ async function renderIndexPage() {
 
     if (!subjectList || !subjectCount || !mistakeCount || !mistakeBookBtn) return;
 
+    subjectList.innerHTML = `<div class="empty-state">正在加载科目...</div>`;
+
     const subjects = await getSubjects();
     subjectCount.textContent = String(subjects.length);
     subjectList.innerHTML = "";
 
     for (const subjectMeta of subjects) {
-        try {
-            const subject = await getSubjectById(subjectMeta.id);
-            if (!subject) continue;
-
-            const total = getTotalCount(subject);
-            const card = document.createElement("a");
-            card.className = "subject-card";
-            card.href = `subject.html?subj=${encodeURIComponent(subject.id)}`;
-            card.innerHTML = `
+        const card = document.createElement("a");
+        card.className = "subject-card";
+        card.href = `subject.html?subj=${encodeURIComponent(subjectMeta.id)}`;
+        card.innerHTML = `
       <div>
-        <h3>📘 ${escapeHTML(subject.name)}</h3>
-        <p>共 ${total} 道题</p>
+        <h3>📘 ${escapeHTML(subjectMeta.name || subjectMeta.id)}</h3>
+        <p>正在读取题目...</p>
       </div>
       <p>开始学习 →</p>
     `;
-            subjectList.appendChild(card);
+        subjectList.appendChild(card);
+
+        try {
+            const subject = await getSubjectById(subjectMeta.id);
+            const total = subject ? getTotalCount(subject) : 0;
+            card.href = `subject.html?subj=${encodeURIComponent(subjectMeta.id)}`;
+            card.innerHTML = `
+      <div>
+        <h3>📘 ${escapeHTML(subject?.name || subjectMeta.name || subjectMeta.id)}</h3>
+        <p>共 ${total} 道题</p>
+      </div>
+      <p>${total > 0 ? "开始学习 →" : "暂无题目 →"}</p>
+    `;
         } catch (error) {
-            console.warn(`首页跳过无法读取的科目：${subjectMeta.id}`, error);
+            console.warn(`首页无法读取科目题库：${subjectMeta.id}`, error);
+            card.innerHTML = `
+      <div>
+        <h3>📘 ${escapeHTML(subjectMeta.name || subjectMeta.id)}</h3>
+        <p>题库读取失败，请检查 JSON。</p>
+      </div>
+      <p>查看详情 →</p>
+    `;
         }
     }
 
