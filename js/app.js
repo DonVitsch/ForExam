@@ -946,8 +946,12 @@ function renderFillQuestion(state, question) {
     const showAnswerBtn = $("#showAnswerBtn");
     const answerBox = $("#answerBox");
 
+    answerBox.classList.remove("show");
+    answerBox.style.setProperty("display", "none", "important");
+
     showAnswerBtn.addEventListener("click", () => {
         answerBox.classList.add("show");
+        answerBox.style.setProperty("display", "grid", "important");
         showAnswerBtn.disabled = true;
 
         const nextBtn = document.createElement("button");
@@ -981,17 +985,21 @@ function renderAnswerQuestion(state, question) {
     const showAnswerBtn = $("#showAnswerBtn");
     const answerBox = $("#answerBox");
 
+    answerBox.classList.remove("show");
+    answerBox.style.setProperty("display", "none", "important");
+
     showAnswerBtn.addEventListener("click", () => {
         answerBox.classList.add("show");
+        answerBox.style.setProperty("display", "grid", "important");
         showAnswerBtn.disabled = true;
-    });
 
-    const nextBtn = document.createElement("button");
-    nextBtn.className = "next-btn";
-    nextBtn.type = "button";
-    nextBtn.textContent = "下一题";
-    nextBtn.addEventListener("click", () => goNext(state));
-    actions.appendChild(nextBtn);
+        const nextBtn = document.createElement("button");
+        nextBtn.className = "next-btn";
+        nextBtn.type = "button";
+        nextBtn.textContent = "下一题";
+        nextBtn.addEventListener("click", () => goNext(state));
+        actions.appendChild(nextBtn);
+    });
 }
 
 function renderUnsupportedQuestion(state) {

@@ -526,3 +526,444 @@ a {
         font-size: 21px;
     }
 }
+
+
+/* Compact answer/explanation cards */
+.feedback .answer-box,
+.answer-box {
+    gap: 10px !important;
+}
+
+.feedback .answer-section,
+.answer-section {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+}
+
+.feedback .answer-section-label,
+.answer-section-label {
+    margin-bottom: 6px !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+}
+
+.feedback .answer-section-main .answer-section-content,
+.answer-section-main .answer-section-content {
+    font-size: 18px !important;
+    line-height: 1.45 !important;
+    font-weight: 500 !important;
+}
+
+.feedback .answer-section-explanation .answer-section-content,
+.answer-section-explanation .answer-section-content {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+}
+
+
+/* Force compact feedback answer/explanation boxes */
+.feedback {
+    padding: 12px 14px !important;
+}
+
+.feedback .feedback-message {
+    margin-bottom: 8px !important;
+    line-height: 1.35 !important;
+}
+
+.feedback .answer-box,
+.answer-box {
+    display: grid;
+    gap: 8px !important;
+    margin-top: 8px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+}
+
+.feedback .answer-section,
+.answer-section {
+    display: block !important;
+    min-height: unset !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 8px 12px !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+}
+
+.feedback .answer-section-label,
+.answer-section-label {
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+}
+
+.feedback .answer-section-content,
+.answer-section-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: unset !important;
+    height: auto !important;
+}
+
+.feedback .answer-section-main .answer-section-content,
+.answer-section-main .answer-section-content {
+    font-size: 17px !important;
+    line-height: 1.45 !important;
+}
+
+.feedback .answer-section-explanation .answer-section-content,
+.answer-section-explanation .answer-section-content {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+}
+
+
+/* Final compact answer/explanation layout */
+.feedback {
+    padding: 10px 12px !important;
+}
+
+.feedback .feedback-message {
+    margin-bottom: 8px !important;
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+}
+
+.feedback .answer-box,
+.answer-box {
+    display: grid !important;
+    gap: 6px !important;
+    margin-top: 8px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+}
+
+.feedback .answer-section,
+.answer-section {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 6px 10px !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
+}
+
+.feedback .answer-section-label,
+.answer-section-label {
+    margin: 0 0 4px 0 !important;
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+}
+
+.feedback .answer-section-main .answer-section-content,
+.answer-section-main .answer-section-content {
+    font-size: 22px !important;
+    line-height: 1.35 !important;
+    font-weight: 600 !important;
+}
+
+.feedback .answer-section-explanation .answer-section-content,
+.answer-section-explanation .answer-section-content {
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+    font-weight: 400 !important;
+    color: #111827 !important;
+}
+
+/* Ultra compact answer/explanation cards */
+.feedback {
+    padding: 8px 10px !important;
+}
+
+.feedback .feedback-message {
+    margin: 0 0 6px 0 !important;
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+}
+
+.feedback .answer-box,
+.answer-box {
+    display: grid !important;
+    gap: 6px !important;
+    margin-top: 6px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    width: 100% !important;
+}
+
+.feedback .answer-section,
+.answer-section {
+    display: block !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 4px 8px !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
+}
+
+.feedback .answer-section-label,
+.answer-section-label {
+    display: block !important;
+    margin: 0 0 3px 0 !important;
+    padding: 0 !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+}
+
+.feedback .answer-section-content,
+.answer-section-content {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+.feedback .answer-section-main .answer-section-content,
+.answer-section-main .answer-section-content {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+    font-weight: 600 !important;
+}
+
+.feedback .answer-section-explanation .answer-section-content,
+.answer-section-explanation .answer-section-content {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+    font-weight: 400 !important;
+    color: #111827 !important;
+}
+
+/* Remove visible boxes around answer and explanation */
+.feedback .answer-section,
+.answer-section,
+.feedback .answer-section-main,
+.answer-section-main,
+.feedback .answer-section-explanation,
+.answer-section-explanation {
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+.feedback .answer-box,
+.answer-box {
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    gap: 14px !important;
+}
+/* Final answer/explanation boxes: compact two cards */
+.feedback .answer-box,
+.answer-box {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    width: 100% !important;
+}
+
+.feedback .answer-section,
+.answer-section {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: 118px !important;
+    overflow-y: auto !important;
+    padding: 10px 12px !important;
+    margin: 0 !important;
+    border: 1px solid #bfdbfe !important;
+    border-radius: 12px !important;
+    background: #eff6ff !important;
+    box-shadow: none !important;
+}
+
+.feedback .answer-section-explanation,
+.answer-section-explanation {
+    background: #ffffff !important;
+    border-color: #e5e7eb !important;
+}
+
+.feedback .answer-section-label,
+.answer-section-label {
+    display: block !important;
+    margin: 0 0 5px 0 !important;
+    padding: 0 !important;
+    color: var(--muted) !important;
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+}
+
+.feedback .answer-section-content,
+.answer-section-content {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 3 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+.feedback .answer-section-main .answer-section-content,
+.answer-section-main .answer-section-content {
+    color: #1e3a8a !important;
+    font-size: 20px !important;
+    line-height: 1.35 !important;
+    font-weight: 600 !important;
+}
+
+.feedback .answer-section-explanation .answer-section-content,
+.answer-section-explanation .answer-section-content {
+    color: #111827 !important;
+    font-size: 18px !important;
+    line-height: 1.45 !important;
+    font-weight: 400 !important;
+}
+
+
+/* Inline answer/explanation label with content */
+.feedback .answer-section,
+.answer-section {
+    padding: 10px 12px !important;
+}
+
+.feedback .answer-section-label,
+.answer-section-label {
+    display: inline !important;
+    margin: 0 8px 0 0 !important;
+    padding: 0 !important;
+    font-size: 18px !important;
+    line-height: inherit !important;
+    font-weight: 900 !important;
+    letter-spacing: 0 !important;
+    vertical-align: baseline !important;
+}
+
+.feedback .answer-section-label::after,
+.answer-section-label::after {
+    content: "：";
+}
+
+.feedback .answer-section-content,
+.answer-section-content {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-line-clamp: unset !important;
+    -webkit-box-orient: unset !important;
+    overflow: visible !important;
+    vertical-align: baseline !important;
+}
+
+.feedback .answer-section-main .answer-section-content,
+.answer-section-main .answer-section-content {
+    font-size: 20px !important;
+    line-height: 1.45 !important;
+}
+
+.feedback .answer-section-explanation .answer-section-content,
+.answer-section-explanation .answer-section-content {
+    font-size: 18px !important;
+    line-height: 1.55 !important;
+}
+
+
+/* Remove vertical padding inside answer/explanation cards */
+.feedback .answer-section,
+.answer-section {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+.feedback .answer-section-label,
+.answer-section-label {
+    margin-top: 0 !important;
+    margin-bottom: 2px !important;
+    line-height: 1.1 !important;
+}
+
+.feedback .answer-section-content,
+.answer-section-content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.35 !important;
+}
+
+.feedback .answer-box,
+.answer-box {
+    gap: 6px !important;
+}
+
+/* ZERO vertical space inside answer/explanation boxes */
+.feedback .answer-section,
+.answer-section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.feedback .answer-section-label,
+.answer-section-label,
+.feedback .answer-section-content,
+.answer-section-content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1.25 !important;
+}
+
+.feedback .answer-box,
+.answer-box {
+    margin-top: 6px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    gap: 6px !important;
+}
+/* Short-answer/fill answer boxes expand with full text */
+#questionBody .answer-section,
+#answerBox .answer-section {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+}
+
+#questionBody .answer-section-content,
+#answerBox .answer-section-content {
+    display: inline !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    -webkit-line-clamp: unset !important;
+    -webkit-box-orient: unset !important;
+    white-space: pre-wrap !important;
+}
