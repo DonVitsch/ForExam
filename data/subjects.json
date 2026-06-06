@@ -1,0 +1,14 @@
+{
+  "subjects": [
+    {
+      "id": "web-crawler",
+      "name": "网络信息提取与编程",
+      "file": "web-crawler.json"
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "file": "java.json"
+    }
+  ]
+}

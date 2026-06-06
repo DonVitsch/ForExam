@@ -1,10 +1,16 @@
-/*.html
+/index.html
   Content-Type: text/html; charset=utf-8
 
-/js/*
+/subject.html
+  Content-Type: text/html; charset=utf-8
+
+/exam.html
+  Content-Type: text/html; charset=utf-8
+
+/js/app.js
   Content-Type: application/javascript; charset=utf-8
 
-/css/*
+/css/style.css
   Content-Type: text/css; charset=utf-8
 
 /data/*

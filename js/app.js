@@ -390,15 +390,15 @@ const TYPE_LABELS = {
 const TYPE_ORDER = ["choice", "multiple", "tf", "short", "code"];
 const STORAGE_KEY = "exam_self_test_mistakes_v1";
 const RETRY_KEY = "__mistake_retry__";
+const SUBJECT_INDEX_URL = "data/subjects.json";
+
+let subjectIndexCache = null;
+const subjectDataCache = new Map();
 
 const $ = (selector, root = document) => root.querySelector(selector);
 
 function bootApp() {
     initApp();
-
-    window.setTimeout(initApp, 50);
-    window.setTimeout(initApp, 300);
-    window.setTimeout(initApp, 1000);
 }
 
 if (document.readyState === "loading") {
@@ -444,8 +444,68 @@ function getParams() {
     return new URLSearchParams(window.location.search);
 }
 
-function getSubjectById(id) {
-    return QUESTION_BANK.subjects.find(subject => subject.id === id) || null;
+async function fetchJSON(url) {
+    const response = await fetch(url, { cache: "no-store" });
+
+    if (!response.ok) {
+        throw new Error(`读取 JSON 失败：${url}，状态码：${response.status}`);
+    }
+
+    return response.json();
+}
+
+async function loadSubjectIndex() {
+    if (subjectIndexCache) return subjectIndexCache;
+
+    try {
+        const data = await fetchJSON(SUBJECT_INDEX_URL);
+
+        if (!data || !Array.isArray(data.subjects)) {
+            throw new Error("subjects.json 格式错误：缺少 subjects 数组");
+        }
+
+        subjectIndexCache = data;
+        return subjectIndexCache;
+    } catch (error) {
+        console.warn("未能读取 data/subjects.json，已使用 app.js 内置题库作为备用。", error);
+        subjectIndexCache = {
+            subjects: QUESTION_BANK.subjects.map(subject => ({
+                id: subject.id,
+                name: subject.name,
+                inline: true
+            }))
+        };
+        return subjectIndexCache;
+    }
+}
+
+async function getSubjects() {
+    const index = await loadSubjectIndex();
+    return index.subjects;
+}
+
+async function getSubjectById(id) {
+    const subjects = await getSubjects();
+    const meta = subjects.find(subject => subject.id === id);
+
+    if (!meta) return null;
+
+    if (meta.inline) {
+        return QUESTION_BANK.subjects.find(subject => subject.id === id) || null;
+    }
+
+    if (meta.types) {
+        return meta;
+    }
+
+    if (subjectDataCache.has(id)) {
+        return subjectDataCache.get(id);
+    }
+
+    const file = meta.file || `${id}.json`;
+    const subject = await fetchJSON(`data/${file}`);
+    subjectDataCache.set(id, subject);
+    return subject;
 }
 
 function getTypeCount(subject, type) {
@@ -456,7 +516,7 @@ function getTotalCount(subject) {
     return TYPE_ORDER.reduce((sum, type) => sum + getTypeCount(subject, type), 0);
 }
 
-function renderIndexPage() {
+async function renderIndexPage() {
     const subjectList = $("#subjectList");
     const subjectCount = $("#subjectCount");
     const mistakeCount = $("#mistakeCount");
@@ -464,10 +524,14 @@ function renderIndexPage() {
 
     if (!subjectList || !subjectCount || !mistakeCount || !mistakeBookBtn) return;
 
-    subjectCount.textContent = String(QUESTION_BANK.subjects.length);
+    const subjects = await getSubjects();
+    subjectCount.textContent = String(subjects.length);
     subjectList.innerHTML = "";
 
-    QUESTION_BANK.subjects.forEach(subject => {
+    for (const subjectMeta of subjects) {
+        const subject = await getSubjectById(subjectMeta.id);
+        if (!subject) continue;
+
         const total = getTotalCount(subject);
         const card = document.createElement("a");
         card.className = "subject-card";
@@ -480,7 +544,7 @@ function renderIndexPage() {
       <p>开始学习 →</p>
     `;
         subjectList.appendChild(card);
-    });
+    }
 
     mistakeCount.textContent = String(countAllMistakes());
     mistakeBookBtn.addEventListener("click", () => {
@@ -488,10 +552,10 @@ function renderIndexPage() {
     });
 }
 
-function renderSubjectPage() {
+async function renderSubjectPage() {
     const params = getParams();
     const subjectId = params.get("subj") || "";
-    const subject = getSubjectById(subjectId);
+    const subject = await getSubjectById(subjectId);
 
     const subjectName = $("#subjectName");
     const subjectMeta = $("#subjectMeta");
@@ -508,12 +572,6 @@ function renderSubjectPage() {
         return;
     }
 
-    console.log("renderSubjectPage", {
-        subjectId,
-        subjectFound: Boolean(subject),
-        path: window.location.pathname,
-        search: window.location.search
-    });
 
     if (!subject) {
         subjectName.textContent = "未找到科目";
@@ -527,11 +585,6 @@ function renderSubjectPage() {
     subjectMeta.textContent = `当前题库共 ${getTotalCount(subject)} 道题`;
     typeList.innerHTML = "";
 
-    console.log("开始渲染题型入口", {
-        subjectName: subject.name,
-        total: getTotalCount(subject),
-        types: subject.types
-    });
 
     TYPE_ORDER.forEach(type => {
         const count = getTypeCount(subject, type);
@@ -558,7 +611,7 @@ function renderSubjectPage() {
     });
 }
 
-function renderExamPage() {
+async function renderExamPage() {
     const params = getParams();
     const subjectId = params.get("subj") || "";
     const type = params.get("type") || "all";
@@ -568,7 +621,7 @@ function renderExamPage() {
 
     if (!progress || !stage || !backLink) return;
 
-    let subject = getSubjectById(subjectId);
+    let subject = await getSubjectById(subjectId);
     let questions = [];
 
     if (type === "mistakes" || subjectId === RETRY_KEY) {
