@@ -1,0 +1,36 @@
+{
+  "subjects": [
+    {
+      "id": "web-crawler",
+      "name": "网络信息提取与编程",
+      "types": {
+        "choice": [
+          {
+            "question": "安装 Requests 库的正确 pip 命令是（ A ）",
+            "options": [
+              "pip install requests",
+              "pip get requests",
+              "pip install request",
+              "pip add requests"
+            ],
+            "answer": 0
+          }
+        ],
+        "multiple": [],
+        "tf": [
+          {
+            "question": "Requests 库仅支持 GET 和 POST 两种 HTTP 请求方法。",
+            "answer": false
+          }
+        ],
+        "short": [
+          {
+            "question": "什么是 user-agent?",
+            "answer": "User-Agent 是 HTTP 请求头中的一个字段，用于标识客户端程序的信息，例如浏览器类型、操作系统、版本等。服务器可以根据 User-Agent 判断请求来源并返回不同内容。"
+          }
+        ],
+        "code": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>考试自测系统</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<main class="app-shell">
+  <section class="hero-card">
+    <p class="eyebrow">📚 Exam Practice</p>
+    <h1>考试自测系统 <span class="title-emoji">✨</span></h1>
+    <p class="subtext">选择科目开始刷题，错题会自动保存到本地错题本。🌱</p>
+  </section>
+
+  <section class="panel">
+    <div class="section-title">
+      <h2>🗂️ 科目列表</h2>
+      <span id="subjectCount" class="badge">0</span>
+    </div>
+    <div id="subjectList" class="card-grid"></div>
+  </section>
+
+  <section class="panel">
+    <button id="mistakeBookBtn" class="wide-btn danger-soft" type="button">
+      🧩 错题本
+      <span id="mistakeCount" class="pill">0</span>
+    </button>
+  </section>
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
