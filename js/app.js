@@ -503,9 +503,42 @@ async function getSubjectById(id) {
     }
 
     const file = meta.file || `${id}.json`;
-    const subject = await fetchJSON(`data/${file}`);
-    subjectDataCache.set(id, subject);
-    return subject;
+
+    try {
+        const data = await fetchJSON(`data/${file}`);
+        const subject = normalizeSubjectData(data, id);
+
+        if (!subject) {
+            throw new Error(`题库文件 data/${file} 中找不到科目：${id}`);
+        }
+
+        subjectDataCache.set(id, subject);
+        return subject;
+    } catch (error) {
+        console.warn(`未能读取外部题库 data/${file}，尝试使用 app.js 内置题库作为备用。`, error);
+        const fallbackSubject = QUESTION_BANK.subjects.find(subject => subject.id === id) || null;
+
+        if (fallbackSubject) {
+            subjectDataCache.set(id, fallbackSubject);
+            return fallbackSubject;
+        }
+
+        return null;
+    }
+}
+
+function normalizeSubjectData(data, expectedId) {
+    if (!data || typeof data !== "object") return null;
+
+    if (data.id === expectedId && data.types) {
+        return data;
+    }
+
+    if (Array.isArray(data.subjects)) {
+        return data.subjects.find(subject => subject.id === expectedId) || null;
+    }
+
+    return null;
 }
 
 function getTypeCount(subject, type) {
@@ -529,21 +562,25 @@ async function renderIndexPage() {
     subjectList.innerHTML = "";
 
     for (const subjectMeta of subjects) {
-        const subject = await getSubjectById(subjectMeta.id);
-        if (!subject) continue;
+        try {
+            const subject = await getSubjectById(subjectMeta.id);
+            if (!subject) continue;
 
-        const total = getTotalCount(subject);
-        const card = document.createElement("a");
-        card.className = "subject-card";
-        card.href = `subject.html?subj=${encodeURIComponent(subject.id)}`;
-        card.innerHTML = `
+            const total = getTotalCount(subject);
+            const card = document.createElement("a");
+            card.className = "subject-card";
+            card.href = `subject.html?subj=${encodeURIComponent(subject.id)}`;
+            card.innerHTML = `
       <div>
         <h3>📘 ${escapeHTML(subject.name)}</h3>
         <p>共 ${total} 道题</p>
       </div>
       <p>开始学习 →</p>
     `;
-        subjectList.appendChild(card);
+            subjectList.appendChild(card);
+        } catch (error) {
+            console.warn(`首页跳过无法读取的科目：${subjectMeta.id}`, error);
+        }
     }
 
     mistakeCount.textContent = String(countAllMistakes());
