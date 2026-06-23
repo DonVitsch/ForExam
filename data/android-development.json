@@ -345,29 +345,36 @@
         "explanation": "C 项“setOnClickListener”能满足题干：点击事件要把监听器注册到 View 上，方法就是 setOnClickListener()。"
       },
       {
-        "question": "分析一下，下面代码在执行过程中会不会发生错误，在其它代码都正确的前提下？（ ）",
+        "question": "分析一下，下面代码在执行过程中会不会发生错误，在其它代码都正确的前提下？（ ）\n\nButton btn1 = findViewById(R.id.button1);\nbtn1.setOnClickListener(new View.OnClickListener() {\n    public void onClick(View v) {\n        TextView tv1;\n        tv1.setText(\"GOOD!\");\n    }\n});",
         "options": [
           "不会有错误",
-          "有错误，按钮变量赋值方法不对。",
+          "有错误，按钮变量赋值方法不对",
           "有错误，按钮监听器对象的创建方法不对",
-          "有错误，tv1对象没有和对应控件关联起来。 处理RadioButton的状态变化事件时，需要在监听器对象中实现对应接口中的方法，该方法首行如下： public void onCheckedChanged(RadioGroup group, int checkedId)"
+          "有错误，tv1对象没有和对应控件关联起来"
         ],
         "answer": 3,
-        "explanation": "D 项“有错误，tv1对象没有和对应控件关联起来。 处理RadioButton的状态变化事件时，需要在监听器对象中实现对应接口中的方法，该方法首行如下： public void onCheckedChanged(RadioGroup group, int checkedId)”就是题干要找的错误项：checkedId 是当前被选中的 RadioButton 的资源 id，后续分支判断靠它。"
+        "explanation": "D 项指出了真正问题：代码里只声明了 TextView tv1，却没有通过 findViewById() 等方式把它绑定到实际控件，直接调用 tv1.setText(\"GOOD!\") 会出错。"
       },
       {
-        "question": "其中参数checkedId表示（ ）",
+        "question": "处理 RadioButton 的状态变化事件时，监听器方法如下：\n\npublic void onCheckedChanged(RadioGroup group, int checkedId)\n\n其中参数 checkedId 表示（ ）",
         "options": [
-          "当前RadioGroup控件的id",
-          "变为选中状态的RadioButton控件的id",
-          "变为未选中状态的RadioButton控件的id",
-          "一个用来标记不同RadioButton进行分组后的组id 处理RadioButton控件的状态变化事件，需要对哪个控件调用setOnCheckedChangeListener方法？",
+          "当前 RadioGroup 控件的 id",
+          "变为选中状态的 RadioButton 控件的 id",
+          "变为未选中状态的 RadioButton 控件的 id",
+          "一个用来标记不同 RadioButton 进行分组后的组 id"
+        ],
+        "answer": 1,
+        "explanation": "checkedId 是当前被选中的 RadioButton 的资源 id。代码通常根据这个 id 判断用户选择了哪一个单选项。"
+      },
+      {
+        "question": "处理 RadioButton 控件的状态变化事件，需要对哪个控件调用 setOnCheckedChangeListener 方法？（ ）",
+        "options": [
           "RadioButton控件",
           "RadioGroup控件",
           "CheckBox"
         ],
         "answer": 1,
-        "explanation": "B 项“变为选中状态的RadioButton控件的id”能满足题干：checkedId 是当前被选中的 RadioButton 的资源 id，后续分支判断靠它。"
+        "explanation": "RadioButton 的互斥选择关系由 RadioGroup 管理，所以监听一组单选按钮变化时，应对 RadioGroup 调用 setOnCheckedChangeListener()。"
       },
       {
         "question": "对CheckBox控件，当其选中/未选中的状态发生变化时，使用下面哪个方法为其注册监听器对象？（ ）",
@@ -377,8 +384,8 @@
           "setOnCheckedChangeListener",
           "setOnChangeCheckedListener"
         ],
-        "answer": 1,
-        "explanation": "B 项“setOnStateChangeListener”能满足题干：CheckBox 勾选/取消勾选时触发 OnCheckedChangeListener。"
+        "answer": 2,
+        "explanation": "CheckBox 的勾选状态变化应使用 setOnCheckedChangeListener() 注册监听器；setOnClickListener() 只能处理点击，不直接表达 checked 状态变化。"
       },
       {
         "question": "从字面上理解，如要处理按钮的拖动事件，需要调用下面哪个方法注册监听器（ ）",
@@ -386,10 +393,19 @@
           "setOnClickListener",
           "setOnFocusChangeListener",
           "setOnDragListener",
-          "setOnLongClickListener 下面方法是checkbox控件状态变化事件时对应接口中要实现的方法。"
+          "setOnLongClickListener"
         ],
         "answer": 2,
-        "explanation": "C 项“setOnDragListener”能满足题干：题干关键词是“需要调用下面哪个方法注册监听器”，对应概念或固定写法就是“setOnDragListener”。"
+        "explanation": "拖动事件对应 Drag，因此注册监听器的方法是 setOnDragListener()。"
+      },
+      {
+        "question": "下面方法是 CheckBox 控件状态变化事件时对应接口中要实现的方法：\n\npublic void onCheckedChanged(CompoundButton buttonView, boolean isChecked)\n\n其中 isChecked 参数表示（ ）",
+        "options": [
+          "CheckBox控件是否被选中",
+          "CheckBox控件是否可编辑"
+        ],
+        "answer": 0,
+        "explanation": "isChecked 是布尔值，表示 CheckBox 当前是否处于选中状态；true 为选中，false 为未选中。"
       },
       {
         "question": "public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)，其中isChecked参数表示（ ）",
@@ -612,7 +628,7 @@
         "explanation": "C 项“setView()”能满足题干：题干问的是“需要调用下面哪个方法”，对应 API 方法就是 setView()。"
       },
       {
-        "question": "下面代码是为Intent对象设置（ ） intent.setAction(\"com.example.smyh006intent01.MY_ACTION\");",
+        "question": "下面代码是为 Intent 对象设置（ ）\n\nintent.setAction(\"com.example.smyh006intent01.MY_ACTION\");",
         "options": [
           "目标组件",
           "动作",
@@ -620,7 +636,7 @@
           "数据"
         ],
         "answer": 1,
-        "explanation": "B 项“动作”能满足题干：题干关键词是“下面代码是为Intent对象设置 intent.setAction(\"com.example.smyh006intent01.MY_ACTION\")”，对应概念或固定写法就是“动作”。"
+        "explanation": "setAction() 设置的是 Intent 的 action 动作字符串，用来描述这次 Intent 想执行什么操作。"
       },
       {
         "question": "用于在 Intent 中传递键值对数据的方法是（ ）",
@@ -647,12 +663,13 @@
       {
         "question": "创建Intent对象，从MainActivity跳转到SecondActivity，下面代码正确的是（ ）",
         "options": [
-          "Intent intent = new Intent(MainActivity.this,SecondActivity.this); Intent intent = new Intent(MainActivity.class,SecondActivity.class)",
-          "Intent intent = new Intent(MainActivity.this,SecondActivity.class)",
-          "Intent intent = new Intent(SecondeActivity.this,MainActivity.class)"
+          "Intent intent = new Intent(MainActivity.this, SecondActivity.this);",
+          "Intent intent = new Intent(MainActivity.class, SecondActivity.class);",
+          "Intent intent = new Intent(MainActivity.this, SecondActivity.class);",
+          "Intent intent = new Intent(SecondActivity.this, MainActivity.class);"
         ],
         "answer": 2,
-        "explanation": "C 项“Intent intent = new Intent(SecondeActivity.this,MainActivity.class)”能满足题干：题干关键词是“从MainActivity跳转到SecondActivity”，对应概念或固定写法就是“Intent intent = new Intent(SecondeActivity.this,MainActivity.class)”。"
+        "explanation": "显式 Intent 跳转要传“当前 Activity 上下文”和“目标 Activity 的 class”。MainActivity.this 是当前上下文，SecondActivity.class 是目标组件类。"
       },
       {
         "question": "隐式 Intent 的匹配规则不包括（ ）",
@@ -688,7 +705,7 @@
         "explanation": "C 项“Action”能满足题干：题干关键词是“用于指定要执行的动作（如 ACTION_VIEW”，对应概念或固定写法就是“Action”。"
       },
       {
-        "question": "以下代码的作用是（ ）。",
+        "question": "以下代码的作用是（ ）。\n\nIntent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(\"http://www.baidu.com\"));\nstartActivity(intent);",
         "options": [
           "打开拨号界面",
           "打开浏览器并访问百度",
@@ -696,7 +713,7 @@
           "打开相册"
         ],
         "answer": 1,
-        "explanation": "B 项“打开浏览器并访问百度”能满足题干：题干关键词是“以下代码的作用是”，对应概念或固定写法就是“打开浏览器并访问百度”。"
+        "explanation": "ACTION_VIEW 表示查看指定数据，Uri 是 http://www.baidu.com。系统会匹配能处理网页链接的应用，通常就是打开浏览器访问百度。"
       },
       {
         "question": "以下哪种 Service 的生命周期方法会在服务创建时调用，且仅调用一次？（ ）",
@@ -1602,7 +1619,7 @@
       },
       {
         "question": "实现一个应用设置页面：一个 SeekBar（设置字体大小，范围 12-24sp,id为skbr1）、一个 \"保存设置\" 按钮（id为btn1）。点击 \"保存设置\" 时，字体大小存储到 SharedPreferences；应用启动时。写出Java 文件中保存设置的逻辑代码。",
-        "answer": "保存逻辑代码如下：\nbtn1.setOnClickListener(new View.OnClickListener() {\n@Override\npublic void onClick(View v) {\nint size = skbr1.getProgress() + 12;  // SeekBar 进度映射到 12-24\nSharedPreferences sp = getSharedPreferences(\"settings\", MODE_PRIVATE);\nSharedPreferences.Editor editor = sp.edit();\neditor.putInt(\"fontSize\", size);\neditor.apply();\n}\n});\n// 应用启动时读取：\n// int size = sp.getInt(\"fontSize\", 16);\nSQLite 数据库",
+        "answer": "保存逻辑代码如下：\nbtn1.setOnClickListener(new View.OnClickListener() {\n@Override\npublic void onClick(View v) {\nint size = skbr1.getProgress() + 12;  // SeekBar 进度映射到 12-24\nSharedPreferences sp = getSharedPreferences(\"settings\", MODE_PRIVATE);\nSharedPreferences.Editor editor = sp.edit();\neditor.putInt(\"fontSize\", size);\neditor.apply();\n}\n});\n// 应用启动时读取：\n// int size = sp.getInt(\"fontSize\", 16);",
         "explanation": "关键代码：setOnClickListener(new View.OnClickListener() {。这些调用必须和题目给出的控件 id、目标组件、注册位置对应上。"
       }
     ]
