@@ -392,6 +392,9 @@ const TYPE_ORDER = ["choice", "multiple", "tf", "fill", "short", "code"];
 const STORAGE_KEY = "exam_self_test_mistakes_v1";
 const RETRY_KEY = "__mistake_retry__";
 const SUBJECT_INDEX_URL = "/data/subjects.json";
+const PROTECTED_SUBJECT_ID = "unknown";
+const PROTECTED_PASSWORD_PREFIX = "8864";
+const PROTECTED_AUTH_KEY_PREFIX = "exam_self_test_unknown_auth_";
 
 let subjectIndexCache = null;
 const subjectDataCache = new Map();
@@ -556,6 +559,48 @@ function getTotalCount(subject) {
     return TYPE_ORDER.reduce((sum, type) => sum + getTypeCount(subject, type), 0);
 }
 
+function getUnknownPasswordDateToken(date = new Date()) {
+    return `${date.getMonth() + 1}${date.getDate()}`;
+}
+
+function getUnknownPassword(date = new Date()) {
+    return `${PROTECTED_PASSWORD_PREFIX}${getUnknownPasswordDateToken(date)}`;
+}
+
+function getUnknownAuthKey(date = new Date()) {
+    return `${PROTECTED_AUTH_KEY_PREFIX}${getUnknownPasswordDateToken(date)}`;
+}
+
+function ensureProtectedSubjectAccess(subjectId) {
+    if (subjectId !== PROTECTED_SUBJECT_ID) return true;
+
+    const authKey = getUnknownAuthKey();
+
+    try {
+        if (localStorage.getItem(authKey) === "granted") {
+            return true;
+        }
+    } catch (error) {
+        console.warn("读取 Unknown 科目授权状态失败，将重新要求输入密码。", error);
+    }
+
+    const input = window.prompt("请输入 Unknown 科目今日密码");
+
+    if (input === getUnknownPassword()) {
+        try {
+            localStorage.setItem(authKey, "granted");
+        } catch (error) {
+            console.warn("保存 Unknown 科目授权状态失败，本次仍允许进入。", error);
+        }
+
+        return true;
+    }
+
+    window.alert("密码错误，无法进入 Unknown 科目。");
+    window.location.href = "index.html";
+    return false;
+}
+
 async function renderIndexPage() {
     const subjectCount = document.querySelector("#subjectCount");
     const subjectList = document.querySelector("#subjectList");
@@ -600,6 +645,9 @@ async function renderIndexPage() {
 async function renderSubjectPage() {
     const params = getParams();
     const subjectId = params.get("subj") || "";
+
+    if (!ensureProtectedSubjectAccess(subjectId)) return;
+
     const subject = await getSubjectById(subjectId);
 
     const subjectName = $("#subjectName");
@@ -665,6 +713,8 @@ async function renderExamPage() {
     const backLink = $("#examBackLink");
 
     if (!progress || !stage || !backLink) return;
+
+    if (!ensureProtectedSubjectAccess(subjectId)) return;
 
     let subject = await getSubjectById(subjectId);
     let questions = [];
