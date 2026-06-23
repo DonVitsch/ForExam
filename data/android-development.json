@@ -1,0 +1,1409 @@
+{
+  "id": "android-development",
+  "name": "Android开发",
+  "types": {
+    "choice": [
+      {
+        "question": "以下哪项不是 Android 系统的核心特性？（ ）",
+        "options": [
+          "开放性",
+          "碎片化",
+          "闭源内核",
+          "多任务处理"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "Dalvik虚拟机中，将class文件转换成的是（ ）文件。",
+        "options": [
+          ".so",
+          ".apk",
+          ".dex",
+          ".jar"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "搭建 Android 开发环境时，不需要安装的组件是（ ）",
+        "options": [
+          "JDK",
+          "Android Studio",
+          "Tomcat",
+          "SDK Platform"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "Android 系统的底层内核基于（ ）",
+        "options": [
+          "Windows Kernel",
+          "Linux Kernel",
+          "Mac OS Kernel",
+          "自主研发内核"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "在Android项目工程中，存放布局文件的目录是（ ）。",
+        "options": [
+          "/src",
+          "/res/layout",
+          "/assets",
+          "/bin"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "在Android Studio中，创建模拟器的管理器是（ ）。",
+        "options": [
+          "SDK Manager",
+          "AVD Manager",
+          "Gradle Scripts",
+          "Logcat"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "下面应用中，不属于android体系结构中应用程序层的是（ ）",
+        "options": [
+          "电话簿",
+          "日历",
+          "SQLite",
+          "浏览器"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "Activity 的生命周期中，首次创建时调用的方法是（ ）",
+        "options": [
+          "onStart ()",
+          "onResume ()",
+          "onCreate ()",
+          "onPause ()"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "以下哪种启动模式会确保当前 Activity 实例唯一，且位于任务栈顶端？（ ）",
+        "options": [
+          "standard",
+          "singleTop",
+          "singleTask",
+          "singleInstance"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "用于关闭当前 Activity 的方法是（ ）",
+        "options": [
+          "finish ()",
+          "close ()",
+          "destroy ()",
+          "stop ()"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "当 Activity 从可见状态变为不可见状态时，会调用的生命周期方法是（ ）",
+        "options": [
+          "onStop ()",
+          "onPause ()",
+          "onDestroy ()",
+          "onRestart ()"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "在 AndroidManifest.xml 中声明 Activity 时，必须包含的属性是（ ）",
+        "options": [
+          "android:name",
+          "android:label",
+          "android:theme",
+          "android:icon"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "关于Activity的生命周期，当用户打开新的Activity并完全遮盖住当前Activity时，当前Activity会依次执行哪些方法？（ ）",
+        "options": [
+          "onPause() -> onStop()",
+          "onStop() -> onDestroy()",
+          "onPause() -> onDestroy()",
+          "onStop() -> onPause()"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "以下哪种布局适合实现线性排列的界面元素，支持水平或垂直方向？（ ）",
+        "options": [
+          "RelativeLayout",
+          "LinearLayout",
+          "ConstraintLayout",
+          "FrameLayout"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "ConstraintLayout 的核心优势是（ ）",
+        "options": [
+          "只能线性排列",
+          "减少布局嵌套",
+          "仅支持相对定位",
+          "布局文件体积大"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "以下哪个属性用于设置 LinearLayout 的排列方向？（ ）",
+        "options": [
+          "android:orientation",
+          "android:direction",
+          "android:layout_orientation",
+          "android:layout_direction"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "在LinearLayout中，android:orientation 属性的默认值是（ ）。",
+        "options": [
+          "Horizontal",
+          "vertical",
+          "center",
+          "left"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "以下哪种布局适合实现重叠显示的界面（如图片上叠加文字）？（ ）",
+        "options": [
+          "LinearLayout",
+          "RelativeLayout",
+          "FrameLayout",
+          "GridLayout"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "如果想设置一个控件在父窗口中水平居中，应该使用的属性是（ ）。",
+        "options": [
+          "android:gravity=\"center\"",
+          "android:layout_gravity=\"center_horizontal\"",
+          "android:padding=\"center\"",
+          "android:layout_margin=\"center\""
+        ],
+        "answer": 1
+      },
+      {
+        "question": "在水平线性布局中，设置（ ）可以使控件的宽度按一定的比例显示。",
+        "options": [
+          "android:layout_width",
+          "android:layout_gravity",
+          "android:layout_margin",
+          "android:layout_margin"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "下面哪个控件可以用来显示并接受用户输入数据。（ ）",
+        "options": [
+          "TextView",
+          "ListView",
+          "EditText",
+          "Button"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "下列选项中，哪个用于设置TextView中文字显示的大小？（ ）",
+        "options": [
+          "android:textSize=\"18\"",
+          "android:fontSize=\"18sp”",
+          "android:textSize=\"18sp\"",
+          "android:textSize=18sp"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "以下哪个属性用于设置 EditText 的输入类型为密码？（ ）",
+        "options": [
+          "android:inputType=\"textPassword\"",
+          "android:password=\"true\"",
+          "android:type=\"password\"",
+          "android:inputMode=\"password\""
+        ],
+        "answer": 0
+      },
+      {
+        "question": "ImageView 中，用于设置图片资源的属性是（ ）",
+        "options": [
+          "android:srcCompat",
+          "android:background",
+          "android:image",
+          "android:resource"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "要实现 TextView 的文本换行显示，需要设置的属性是（ ）",
+        "options": [
+          "android:wrapText=\"true\"",
+          "android:singleLine=\"false\"",
+          "android:lines=\"multiple\"",
+          "android:ellipsize=\"none\""
+        ],
+        "answer": 1
+      },
+      {
+        "question": "CheckBox 的选中状态监听需要实现的接口是（ ）",
+        "options": [
+          "OnClickListener",
+          "OnCheckedChangeListener",
+          "OnTouchListener",
+          "OnFocusChangeListener"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "ImageView的 android:scaleType 属性中，哪个值会等比例放大图片直至填满整个ImageView，并可能裁剪掉图片的一部分？（ ）",
+        "options": [
+          "fitXY",
+          "centerCrop",
+          "centerInside",
+          "matrix"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "若取消单选按钮的圆形图标，设置下面哪个属性？（ ）",
+        "options": [
+          "Text",
+          "button",
+          "checked",
+          "background"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "下面哪条语句将CheckBox控件设置为选中状态（ ）",
+        "options": [
+          "android:checked=\"false\"",
+          "android:checked=\"true\"",
+          "android:isChecked=\"true\"",
+          "android:setChecked=\"true\""
+        ],
+        "answer": 1
+      },
+      {
+        "question": "处理按钮单击事件，需要实现对应接口中的onClick方法，其方法首行是（ ）",
+        "options": [
+          "public void onClick( )",
+          "public void onClick(View v)",
+          "public onClick(View v)",
+          "protected void onClick(View v)"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "下面哪个方法为按钮注册一个处理单击事件的监听器？（ ）",
+        "options": [
+          "setClickListener",
+          "addClickListener",
+          "setOnClickListener",
+          "addOnClickListener"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "分析一下，下面代码在执行过程中会不会发生错误，在其它代码都正确的前提下？（ ）",
+        "options": [
+          "不会有错误",
+          "有错误，按钮变量赋值方法不对。",
+          "有错误，按钮监听器对象的创建方法不对",
+          "有错误，tv1对象没有和对应控件关联起来。 处理RadioButton的状态变化事件时，需要在监听器对象中实现对应接口中的方法，该方法首行如下： public void onCheckedChanged(RadioGroup group, int checkedId)"
+        ],
+        "answer": 3
+      },
+      {
+        "question": "其中参数checkedId表示（ ）",
+        "options": [
+          "当前RadioGroup控件的id",
+          "变为选中状态的RadioButton控件的id",
+          "变为未选中状态的RadioButton控件的id",
+          "一个用来标记不同RadioButton进行分组后的组id 处理RadioButton控件的状态变化事件，需要对哪个控件调用setOnCheckedChangeListener方法？",
+          "RadioButton控件",
+          "RadioGroup控件",
+          "CheckBox"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "对CheckBox控件，当其选中/未选中的状态发生变化时，使用下面哪个方法为其注册监听器对象？（ ）",
+        "options": [
+          "setOnClickListener",
+          "setOnStateChangeListener",
+          "setOnCheckedChangeListener",
+          "setOnChangeCheckedListener"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "从字面上理解，如要处理按钮的拖动事件，需要调用下面哪个方法注册监听器（ ）",
+        "options": [
+          "setOnClickListener",
+          "setOnFocusChangeListener",
+          "setOnDragListener",
+          "setOnLongClickListener 下面方法是checkbox控件状态变化事件时对应接口中要实现的方法。"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)，其中isChecked参数表示（ ）",
+        "options": [
+          "CheckBox控件的是否被选中",
+          "CheckBox控件是否可编辑",
+          "CheckBox控件中的文本",
+          "CheckBox控件的id"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "以下哪种控件适合显示大量列表数据，且具有复用 Item 的特性？（ ）",
+        "options": [
+          "ListView",
+          "ScrollView",
+          "LinearLayout",
+          "GridLayout"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "下面设置控件id属性正确的表示方法为（ ）",
+        "options": [
+          "android:id=\"id/button2\"",
+          "android:id=\"@id/button2\"",
+          "android:id=\"@+id/button2\"",
+          "android:id=\"@button2\""
+        ],
+        "answer": 2
+      },
+      {
+        "question": "要实现网格状布局的列表（如图片画廊），应使用 RecyclerView 的哪种布局管理器？（ ）",
+        "options": [
+          "LinearLayoutManager",
+          "GridLayoutManager",
+          "StaggeredGridLayoutManager",
+          "RelativeLayoutManager"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "在ListView或RecyclerView中，Adapter的作用是（ ）。",
+        "options": [
+          "管理内存",
+          "控制列表的滚动速度",
+          "为每一项Item提供布局和数据",
+          "处理列表项的点击事件"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "关于RecyclerView，以下描述错误的是（ ）。",
+        "options": [
+          "它是ListView的升级版，更灵活且性能更好",
+          "必须使用LayoutManager来设置排列方式",
+          "默认支持动画效果",
+          "必须实现ItemClickListener才能处理点击事件"
+        ],
+        "answer": 3
+      },
+      {
+        "question": "用于实现下拉列表（Spinner）的适配器，如果数据源是字符串数组，最常用的是（ ）。",
+        "options": [
+          "ArrayAdapter",
+          "SimpleAdapter",
+          "CursorAdapter",
+          "BaseAdapter"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "若自定义的适配器继承BaseAdapter类，下面哪个方法用于生成列表中每个item对应的View视图？（ ）",
+        "options": [
+          "getCount（）",
+          "getItem（）",
+          "getItemId（）",
+          "getView（）"
+        ],
+        "answer": 3
+      },
+      {
+        "question": "下面代码中，哪条语句用于设置RecyclerView控件中布局管理器？（ ）",
+        "options": [
+          "recyclerView.setLayoutManager(new LinearLayoutManager(this ))",
+          "recyclerView.setAdapter(recycleAdapter)",
+          "recyclerView.addItemDecoration( new DividerGridItemDecoration(this ))",
+          "recyclerView.setItemAnimator( new DefaultItemAnimator())"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "在listView控件中，使用setOnItemClickListener方法为该控件注册一个监听器对象，该监听器对象用来处理什么事件。（ ）",
+        "options": [
+          "列表项被选择事件",
+          "列表项被长按事件",
+          "列表项被点击事件",
+          "列表项被上下滑动事件"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "在recyclerView控件中，通过适配器加载显示数据，在自定义的适配器中，下面哪个方法用来实现将数据放入每个item中进行显示？（ ）",
+        "options": [
+          "适配器的构造方法",
+          "onCreateViewHolder（）",
+          "onBindViewHolder（）",
+          "getItemCount（）"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "菜单文件位于下面哪个目录中？（ ）",
+        "options": [
+          "res/values/",
+          "res/layout/",
+          "res/menu/",
+          "res/drawable/"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "方法registerForContextMenu()与下面哪个菜单有关？（ ）",
+        "options": [
+          "选项菜单",
+          "上下文菜单",
+          "弹出式菜单",
+          "ActionMode菜单"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "以下哪个方法用于显示 AlertDialog？（ ）",
+        "options": [
+          "show ()",
+          "display ()",
+          "showDialog ()",
+          "open ()"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "创建选项菜单时，需要重写Activity的哪个方法？（ ）",
+        "options": [
+          "onCreateContextMenu()",
+          "onCreateOptionsMenu()",
+          "onPrepareOptionsMenu()",
+          "onOptionsItemSelected()"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "关于 AlertDialog，以下描述正确的是（ ）。",
+        "options": [
+          "只能显示提示信息，不能设置按钮",
+          "创建时必须使用 AlertDialog.Builder",
+          "创建后必须调用 create() 方法，然后调用 build() 才能显示",
+          "不能自定义布局"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "单选对话框通常使用 AlertDialog.Builder 的哪个方法设置？（ ）",
+        "options": [
+          "setItems()",
+          "setMultiChoiceItems()",
+          "setSingleChoiceItems()",
+          "setAdapter()"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "要对选项菜单的单击事件进行处理，需要重写下面哪个方法（ ）",
+        "options": [
+          "onContextItemSelected（）",
+          "onOptionsItemSelected()",
+          "onMenuItemSelected()",
+          "onPopMenuItemSelected（）"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "用来给对话框添加一个表示肯定按钮，一般使用下面哪个方法（ ）",
+        "options": [
+          "setNegativeButton（）",
+          "setPositiveButton（）",
+          "setNeutralButton（）",
+          "setButton（）"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "创建自定义对话框，需要调用下面哪个方法?（ ）",
+        "options": [
+          "setSingleChoiceItems()",
+          "setItems()",
+          "setView()",
+          "setMultiChoiceItems()"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "下面代码是为Intent对象设置（ ） intent.setAction(\"com.example.smyh006intent01.MY_ACTION\");",
+        "options": [
+          "目标组件",
+          "动作",
+          "类别",
+          "数据"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "用于在 Intent 中传递键值对数据的方法是（ ）",
+        "options": [
+          "putData ()",
+          "putExtra ()",
+          "setData ()",
+          "addData ()"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "当使用 Intent 启动 Activity 并需要返回结果时，应调用的方法是（ ）",
+        "options": [
+          "startActivity ()",
+          "startForResult ()",
+          "startActivityForResult ()",
+          "launchActivity ()"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "创建Intent对象，从MainActivity跳转到SecondActivity，下面代码正确的是（ ）",
+        "options": [
+          "Intent intent = new Intent(MainActivity.this,SecondActivity.this); Intent intent = new Intent(MainActivity.class,SecondActivity.class)",
+          "Intent intent = new Intent(MainActivity.this,SecondActivity.class)",
+          "Intent intent = new Intent(SecondeActivity.this,MainActivity.class)"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "隐式 Intent 的匹配规则不包括（ ）",
+        "options": [
+          "Action",
+          "Category",
+          "Data",
+          "ComponentName"
+        ],
+        "answer": 3
+      },
+      {
+        "question": "隐式 Intent 与显式 Intent 的主要区别在于（ ）。",
+        "options": [
+          "是否指定了具体的包名",
+          "是否指定了具体的组件类名",
+          "是否携带了数据",
+          "是否设置了Action"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "在 Intent 中，用于指定要执行的动作（如 ACTION_VIEW、ACTION_DIAL）的部分是（ ）。",
+        "options": [
+          "Data",
+          "Category",
+          "Action",
+          "Type"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "以下代码的作用是（ ）。",
+        "options": [
+          "打开拨号界面",
+          "打开浏览器并访问百度",
+          "打开地图",
+          "打开相册"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "以下哪种 Service 的生命周期方法会在服务创建时调用，且仅调用一次？（ ）",
+        "options": [
+          "onStartCommand ()",
+          "onCreate ()",
+          "onBind ()",
+          "onDestroy ()"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "绑定 Service 后，与 Service 进行通信的核心是（ ）",
+        "options": [
+          "Intent",
+          "Bundle",
+          "IBinder",
+          "Messenger"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "通过 startService() 启动服务后，服务会执行哪个生命周期方法？（ ）",
+        "options": [
+          "onCreate() -> onBind()",
+          "onCreate() -> onStartCommand()",
+          "onStart() -> onStartCommand()",
+          "onCreate() -> onStart()"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "对于未绑定的服务，下面哪个方法用来启动它（ ）",
+        "options": [
+          "createService（）",
+          "startService（）",
+          "bindService（）",
+          "stopService()"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "unbindService(）方法用于结束一个绑定的服务，其参数为（ ）",
+        "options": [
+          "一个ServiceConnection对象",
+          "一个Intent对象。",
+          "无参数",
+          "一个Intent对象和一个ServiceConnection对象"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "绑定服务，调用bindService方法启动服务后，生命周期的方法调用顺序为（ ）",
+        "options": [
+          "onCreate（）-onStartCommand（）",
+          "onCreate（）-onBind（）",
+          "onBind()-onUnbind()",
+          "onCreate()--onDestroy()"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "以下哪种广播是系统在特定事件发生时发送的（如开机完成、网络状态变化）？（ ）",
+        "options": [
+          "有序广播",
+          "无序广播",
+          "系统广播",
+          "自定义广播"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "注册广播接收器的两种方式是（ ）",
+        "options": [
+          "静态注册和动态注册",
+          "显式注册和隐式注册",
+          "本地注册和远程注册",
+          "手动注册和自动注册"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "以下哪种广播的接收顺序可以被控制，且可以中断广播传递？（ ）",
+        "options": [
+          "无序广播",
+          "有序广播",
+          "粘性广播",
+          "系统广播"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "动态注册的广播接收器需要在哪个生命周期方法中解除注册？（ ）",
+        "options": [
+          "onCreate ()",
+          "onStart ()",
+          "onPause ()",
+          "onDestroy ()"
+        ],
+        "answer": 3
+      },
+      {
+        "question": "以下哪个不是 Android 的四大组件？（ ）",
+        "options": [
+          "Activity",
+          "Service",
+          "BroadcastReceiver",
+          "Intent"
+        ],
+        "answer": 3
+      },
+      {
+        "question": "关于广播接收者（BroadcastReceiver）的描述，错误的是（ ）。",
+        "options": [
+          "可以在 AndroidManifest.xml 中静态注册",
+          "可以在代码中通过 registerReceiver() 动态注册",
+          "在 onReceive() 方法中可以执行耗时超过10秒的操作",
+          "可以通过 sendBroadcast() 发送广播"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "如果希望发出的广播只有本应用程序内的 BroadcastReceiver 能接收到，应该使用（ ）。",
+        "options": [
+          "普通广播",
+          "有序广播",
+          "本地广播",
+          "粘性广播"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "静态注册广播时，需要在 AndroidManifest.xml 中为 <receiver> 标签添加（ ）。",
+        "options": [
+          "<intent-filter>",
+          "<action>",
+          "<data>",
+          "<meta-data>"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "SharedPreferences 用于存储哪种类型的数据？（ ）",
+        "options": [
+          "大量结构化数据",
+          "少量键值对数据",
+          "二进制文件",
+          "数据库数据"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "获取 SharedPreferences 实例的方法是（ ）",
+        "options": [
+          "getSharedPreferences ()",
+          "createSharedPreferences ()",
+          "new SharedPreferences ()",
+          "getPreferences ()"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "以下哪种方法用于向 SharedPreferences 写入数据？（ ）",
+        "options": [
+          "put ()",
+          "set ()",
+          "edit ()",
+          "write ()"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "SharedPreferences 存储的数据文件位于应用的哪个目录下？（ ）",
+        "options": [
+          "/data/data/ 包名 /files/",
+          "/data/data/ 包名 /shared_prefs/",
+          "/sdcard/ 应用名 /",
+          "/data/data/ 包名 /databases/"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "以下哪种数据类型不能通过 SharedPreferences 存储？（ ）",
+        "options": [
+          "Boolean",
+          "String",
+          "List",
+          "Float"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "通过 SharedPreferences 读取一个名为 “score” 的 int 值，如果不存在则返回0，正确的代码是（ ）。",
+        "options": [
+          "prefs.getInt(\"score\", 0)",
+          "prefs.getInt(\"score\", \"0\")",
+          "prefs.getString(\"score\", 0)",
+          "prefs.getInt(0, \"score\")"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "SharedPreferences 数据以（ ）格式保存在手机上。",
+        "options": [
+          "xml",
+          "txt",
+          "json",
+          "html"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Android 中用于操作 SQLite 数据库的核心类是（ ）",
+        "options": [
+          "SQLiteDatabase",
+          "DatabaseHelper",
+          "SQLiteOpenHelper",
+          "Cursor"
+        ],
+        "answer": 0
+      },
+      {
+        "question": "以下哪种方法用于执行查询 SQL 语句？（ ）",
+        "options": [
+          "execSQL ()",
+          "rawQuery ()",
+          "query ()",
+          "insert ()"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "SQLiteOpenHelper 的 onCreate () 方法会在（ ）时调用。",
+        "options": [
+          "每次打开数据库",
+          "数据库首次创建",
+          "数据库版本更新",
+          "数据库关闭"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "用于遍历查询结果的对象是（ ）。",
+        "options": [
+          "ResultSet",
+          "Cursor",
+          "DataSet",
+          "RecordSet"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "以下哪种 SQL 语句用于更新表中的数据？（ ）",
+        "options": [
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "SELECT"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "在 Android 中，管理 SQLite 数据库的辅助类是（ ）。",
+        "options": [
+          "SQLiteDatabase",
+          "SQLiteOpenHelper",
+          "Cursor",
+          "ContentValues"
+        ],
+        "answer": 1
+      },
+      {
+        "question": "关于 SQLiteOpenHelper 的 onCreate(SQLiteDatabase db) 方法，它会在什么时候被执行？（ ）",
+        "options": [
+          "每次获取数据库对象时",
+          "当数据库版本号升级时",
+          "当应用程序安装后第一次创建数据库时",
+          "当调用 close() 方法时"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "下列哪个方法用于执行无返回值的 SQL 语句，如 INSERT、UPDATE、DELETE？（ ）",
+        "options": [
+          "rawQuery()",
+          "query()",
+          "execSQL()",
+          "insert()"
+        ],
+        "answer": 2
+      },
+      {
+        "question": "查询数据库返回的结果集通常封装在哪个对象中？（ ）",
+        "options": [
+          "ArrayList",
+          "ContentValues",
+          "Cursor",
+          "SQLiteDatabase"
+        ],
+        "answer": 2
+      }
+    ],
+    "multiple": [
+      {
+        "question": "在ConstraintLayout布局中，用于将一个控件的左边与另一个控件的右边约束的属性是（ ）。",
+        "options": [
+          "app:layout_constraintLeft_toLeftOf",
+          "app:layout_constraintLeft_toRightOf",
+          "app:layout_constraintStart_toEndOf",
+          "app:layout_constraintStart_toStartOf"
+        ],
+        "answers": [
+          1,
+          2
+        ]
+      },
+      {
+        "question": "用于启动 Service 的方法是（ ）",
+        "options": [
+          "startService ()",
+          "bindService ()",
+          "launchService ()",
+          "runService ()"
+        ],
+        "answers": [
+          0,
+          1
+        ]
+      },
+      {
+        "question": "以下哪种 Service 在应用退出后仍可能继续运行？（ ）",
+        "options": [
+          "绑定服务",
+          "前台服务",
+          "后台服务",
+          "IntentService"
+        ],
+        "answers": [
+          1,
+          2
+        ]
+      }
+    ],
+    "tf": [
+      {
+        "question": "启动一个Activity，到该Activity完全显示并可以和用户进行交互，这个过程中，onRestart方法没有调用。",
+        "answer": true
+      },
+      {
+        "question": "启动一个新的activity，之前的activity会被销毁。",
+        "answer": false
+      },
+      {
+        "question": "android是以队列方式组织Activity的。",
+        "answer": false
+      },
+      {
+        "question": "如果启动activity，无论栈中是否存在该activity的实例，都会创建一个新的activity实例，这属于singletop启动模式。",
+        "answer": false
+      },
+      {
+        "question": "xml文件中，元素属性值必须用引号引起来。",
+        "answer": true
+      }
+    ],
+    "fill": [
+      {
+        "question": "Activity 的四种启动模式是通过____属性配置。",
+        "answer": "andrid:launchmode"
+      },
+      {
+        "question": "Activity 的四种启动模式分别是standard、singleTop、____、singleInstance 。",
+        "answer": "singletask"
+      },
+      {
+        "question": "当 Activity 处于____状态时，用户可以与界面进行交互，此时 Activity 位于任务栈顶端。",
+        "answer": "运行"
+      },
+      {
+        "question": "关闭activity时，最后调用的方法是____",
+        "answer": "ondestroy"
+      },
+      {
+        "question": "activity的____方法用于关闭当前的activity。",
+        "answer": "finish"
+      },
+      {
+        "question": "activity在AndroidManifest.xml文件中进行注册时，对应的标签为____.",
+        "answer": "<activity>"
+      },
+      {
+        "question": "将一个activity从栈中移走，它会变成____状态。",
+        "answer": "销毁"
+      },
+      {
+        "question": "布局文件默认存放于____目录下，文件名采用小写字母 + 下划线的命名规则。",
+        "answer": "layout"
+      },
+      {
+        "question": "ConstraintLayout 中，控件的位置通过____和____进行约束，实现灵活布局。",
+        "answer": "水平；垂直方向"
+      },
+      {
+        "question": "LinearLayout 中，android:layout____剩余空间________，当方向为垂直时，分配的是垂直方向的剩余空间。",
+        "answer": "weight属性用于分配"
+      },
+      {
+        "question": "为了适配不同屏幕尺寸，布局文件应尽量使用____单位，避免使用 px 单位。",
+        "answer": "dp"
+      },
+      {
+        "question": "所有布局的父类或基类是 ____。",
+        "answer": "VIewGroup"
+      },
+      {
+        "question": "TextView 的android:textSize属性用于设置字体大小，推荐使用____单位，以适配不同屏幕密度。",
+        "answer": "SP"
+      },
+      {
+        "question": "EditText 中，android:hint属性用于显示____，当用户输入内容后自动消失。",
+        "answer": "提示文本"
+      },
+      {
+        "question": "CheckBox 的选中状态改变时，会触发 ____ 监听器。",
+        "answer": "oncheckedChangeListener"
+      },
+      {
+        "question": "ImageView 的android:scaleType属性用于设置图片的____，常用值有 centerCrop、fitCenter 等。",
+        "answer": "缩放"
+      },
+      {
+        "question": "Switch 控件是一种开关按钮，通过____方法可以获取其当前的选中状态（true 为开启，false 为关闭）。",
+        "answer": "isChecked（）"
+      },
+      {
+        "question": "控件是否可见可以通过 android:visibility 属性设置，其值有：____、____和 gone。",
+        "answer": "visible；invisible"
+      },
+      {
+        "question": "RadioButton控件与____控件一起使用会实现单选效果。",
+        "answer": "RadioGroup"
+      },
+      {
+        "question": "RecyclerView 的核心组件包括____、____和 ViewHolder，分别负责数据适配、布局管理和视图缓存。",
+        "answer": "adapter；LayoutManager"
+      },
+      {
+        "question": "ListView 的优化方式主要有____和使用 ViewHolder 模式，减少 View 的创建和 findViewById 的调用次数。",
+        "answer": "复用converview"
+      },
+      {
+        "question": "为ListView控件绑定适配器的方法是____。",
+        "answer": "setAdapter（）"
+      },
+      {
+        "question": "当点击 ListView 中的某一项时，会触发 ____ 监听器。",
+        "answer": "onItemClickListener事件"
+      },
+      {
+        "question": "与 BaseAdapter 相关的四个核心方法是：getCount()、getItem()、____ 和 getView()。",
+        "answer": "getItemId （）"
+      },
+      {
+        "question": "提示对话框对应的类名为____。",
+        "answer": "AlertDialog"
+      },
+      {
+        "question": "使用____方法可以为对话框添加一个表示肯定的按钮。",
+        "answer": "setPositiveButton"
+      },
+      {
+        "question": "setSingleChoiceItems方法返回的类型是____",
+        "answer": "Builder"
+      },
+      {
+        "question": "在自定义对话框中，调用____方法可以将自定义的布局显示在对话框中。",
+        "answer": "setContentView"
+      },
+      {
+        "question": "要对选项菜单的单击事件进行处理，需要重写____方法",
+        "answer": "onOptionsItemSelected ()"
+      },
+      {
+        "question": "菜单文件位于res目录下的____目录中，每个菜单项对应的标签为____。",
+        "answer": "menu；<item >"
+      },
+      {
+        "question": "要获取菜单项的id，使用____方法。",
+        "answer": "getItemId ()"
+      },
+      {
+        "question": "Intent 的核心作用是____和传递数据，是组件之间通信的桥梁。",
+        "answer": "向其它组件请求操作"
+      },
+      {
+        "question": "在 AndroidManifest.xml 中配置 Activity 的过滤器时，<intent-filter> 下至少要包含一个 ____ 标签。",
+        "answer": "<action>"
+      },
+      {
+        "question": "从 Activity A 使用 startActivityForResult 启动 Activity B，在 B 中通过 setResult 返回数据后，A 中需要重写 ____ 方法来接收数据。",
+        "answer": "onActivityResult()"
+      },
+      {
+        "question": "隐式 Intent 匹配规则中，需要匹配 ____、data 和 category 三部分。",
+        "answer": "action"
+      },
+      {
+        "question": "当使用startActivityForResult()启动 Activity 时，需要通过____方法接收返回的结果数据。",
+        "answer": "onActivityResult ()"
+      },
+      {
+        "question": "隐式 Intent 中，setAction()方法用于设置____，addCategory()方法用于设置类别，系统根据这两个属性匹配对应的组件。",
+        "answer": "动作"
+      },
+      {
+        "question": "表明Activity是主Activity，是程序的第一个启动界面。需要在该activity的intent-filter设置____属性。",
+        "answer": "<action android:name=\"android.intent.action.MAIN\" />"
+      },
+      {
+        "question": "使用intent.putExtra(\"key\",\"value\");方法在intent对象中添加数据，对应的从intent对象中获取该数据的方法是____",
+        "answer": "getStringExtra(“key”)"
+      },
+      {
+        "question": "1、Service默认运行在应用的____线程中，因此耗时操作需手动创建子线程。",
+        "answer": "主（UI）"
+      },
+      {
+        "question": "2、启动和结束绑定服务，对应的方法分别是____、______________。",
+        "answer": "bindService（）unbindService()"
+      },
+      {
+        "question": "3、当调用startService()时，若Service未运行，会依次触发onCreate()和____方法。",
+        "answer": "onStartCommand()"
+      },
+      {
+        "question": "4、通过bindService()绑定Service时，需传入一个____对象，用于监听服务连接状态。",
+        "answer": "ServiceConnection"
+      },
+      {
+        "question": "5、定义的服务需要在AndroidManifest.xml文件中进行注册才可以使用，注册时对应的标签为____。",
+        "answer": "<service>"
+      },
+      {
+        "question": "6、创建一个自定义的服务，继承的父类为____，必须要实现的方法是____。",
+        "answer": "Service；onBind()"
+      },
+      {
+        "question": "7、Service被startService()启动，必须调用____方法停止该服务。",
+        "answer": "stopService()"
+      },
+      {
+        "question": "广播接收器（BroadcastReceiver）的核心方法是____，用于接收广播并处理事件。",
+        "answer": "onReceive()"
+      },
+      {
+        "question": "发送有序广播的方法是____，发送无序广播的方法是 sendBroadcast ()。",
+        "answer": "sendOrderedBroadcast()"
+      },
+      {
+        "question": "发送广播需要借助 ____ 类，通过调用 sendBroadcast()、sendOrderedBroadcast() 等方法发送。",
+        "answer": "Intent"
+      },
+      {
+        "question": "自定义广播接收器，继承的父类为____，需要重写该类中____方法。",
+        "answer": "BroadcastReceiver；onReceive()"
+      },
+      {
+        "question": "动态注册BroadcastReceiver时需要调用____方法，并在组件销毁时调用unregisterReceiver()避免内存泄漏。",
+        "answer": "registerReceiver()"
+      },
+      {
+        "question": "在BroadcastReceiver的onReceive()方法中，禁止执行____操作，否则可能导致ANR。",
+        "answer": "耗时"
+      },
+      {
+        "question": "静态注册BroadcastReceiver需在AndroidManifest.xml中使用____标签声明，并指定接收的广播Action。",
+        "answer": "<receiver>"
+      },
+      {
+        "question": "拦截有序广播，在广播接收器中调用____方法。",
+        "answer": "abortBroadcast()"
+      },
+      {
+        "question": "Android的文件存储方式，分为内部存储和____。",
+        "answer": "外部存储"
+      },
+      {
+        "question": "使用openFileInputStream方法返回是____流，对应类型是____。",
+        "answer": "字节输入流；FileInputStream"
+      },
+      {
+        "question": "SharedPreferences 的存储模式中，____PRIVATE _____模式表示该文件只能被本应用访问，是最常用的模式。",
+        "answer": "MODE"
+      },
+      {
+        "question": "向 SharedPreferences 写入数据时，需要通过____对象进行编辑，编辑完成后调用 commit () 或 apply () 方法提交。",
+        "answer": "Editor"
+      },
+      {
+        "question": "清除 SharedPreferences 中所有数据的方法是____，删除指定键对应的数据的方法是 remove ()。",
+        "answer": "clear()"
+      },
+      {
+        "question": "SQLiteOpenHelper 是一个抽象类，用于____和管理数据库版本，避免直接操作 SQLiteDatabase 带来的风险。",
+        "answer": "创建数据库"
+      },
+      {
+        "question": "Cursor 对象使用完毕后必须调用____方法关闭，否则会导致资源泄漏。",
+        "answer": "close()"
+      },
+      {
+        "question": "数据库文件默认存储在____目录下，文件名由开发者指定。",
+        "answer": "/data/data/包名/databases"
+      },
+      {
+        "question": "使用 SQLiteOpenHelper 获取可写的数据库对象，调用的是 ____ 方法。",
+        "answer": "getWritableDatabase()"
+      },
+      {
+        "question": "当数据库版本号增加时，SQLiteOpenHelper 的 ____ 方法会被调用，用于升级数据库结构。",
+        "answer": "onUpgrade()"
+      },
+      {
+        "question": "使用 ContentValues 对象存储键值对，配合 ____ 方法可以方便地插入一行数据。",
+        "answer": "insert()"
+      },
+      {
+        "question": "遍历 Cursor 时，首先要调用 ____ 方法将指针移动到第一行。",
+        "answer": "moveToFirst()"
+      }
+    ],
+    "short": [
+      {
+        "question": "简述 Android 系统的四大组件及其核心作用。",
+        "answer": "Android 四大组件如下：\n（1）Activity（活动）：负责与用户交互的界面，是应用的展示和操作入口，一个 Activity 代表一个屏幕。\n（2）Service（服务）：在后台执行长时间运行的操作，没有界面，如播放音乐、网络下载。\n（3）BroadcastReceiver（广播接收器）：接收并响应系统或应用发出的广播消息，实现组件间、应用间通信。\n（4）ContentProvider（内容提供者）：管理和共享应用数据，为不同应用提供统一的数据访问接口（如通讯录）。"
+      },
+      {
+        "question": "请说明搭建 Android 开发环境的主要步骤。",
+        "answer": "主要步骤：\n（1）安装 JDK 并配置环境变量（新版本 Android Studio 已内置 JDK）。\n（2）下载并安装 Android Studio。\n（3）首次启动通过 SDK Manager 下载 Android SDK（SDK Platform、Build-Tools、Platform-Tools 等）。\n（4）通过 AVD Manager 创建模拟器（AVD），或连接真机并开启 USB 调试。\n（5）新建项目并运行，验证开发环境是否搭建成功。"
+      },
+      {
+        "question": "什么是 AndroidManifest.xml 文件？写出其部分代码和作用。",
+        "answer": "AndroidManifest.xml 是 Android 应用的全局配置清单文件，位于项目主目录下，向系统描述应用的基本信息。作用包括：声明应用包名、注册四大组件（Activity、Service 等需在此注册）、申请权限、指定最低/目标 SDK 版本、声明应用图标与名称、指定程序入口 Activity 等。示例代码：\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\npackage=\"com.example.myapp\">\n<uses-permission android:name=\"android.permission.INTERNET\"/>\n<application\nandroid:icon=\"@mipmap/ic_launcher\"\nandroid:label=\"@string/app_name\">\n<activity android:name=\".MainActivity\">\n<intent-filter>\n<action android:name=\"android.intent.action.MAIN\"/>\n<category android:name=\"android.intent.category.LAUNCHER\"/>\n</intent-filter>\n</activity>\n</application>\n</manifest>\n上述代码声明了应用包名、网络访问权限、应用图标与名称，并将 MainActivity 注册为程序的启动入口。"
+      },
+      {
+        "question": "写出android app项目结构中常见的一些文件或文件夹的名称和作用。",
+        "answer": "常见文件/文件夹及作用：\napp/src/main/java：存放 Java/Kotlin 源代码。\napp/src/main/res：资源目录，下含 layout（布局文件）、drawable（图片）、mipmap（图标）、values（strings.xml、colors.xml、styles.xml 等）。\napp/src/main/AndroidManifest.xml：应用清单配置文件。\napp/build.gradle：模块级 Gradle 构建脚本，配置依赖、SDK 版本等。\nbuild.gradle（项目级）：项目全局构建配置。\ngradle/、gradlew：Gradle 包装器，用于统一构建环境。\nassets：原始资源文件，通过 AssetManager 访问。\nR.java（自动生成）：资源 ID 索引类，引用资源时使用。"
+      },
+      {
+        "question": "详细描述 Activity 的完整生命周期（从创建到销毁），并说明每个生命周期方法的调用时机。",
+        "answer": "Activity 生命周期的七个回调方法：\nonCreate()：Activity 首次创建时调用，进行初始化并通过 setContentView 加载布局。\nonStart()：Activity 可见但还不能交互时调用。\nonResume()：Activity 获得焦点、可与用户交互时调用，进入运行状态（位于栈顶）。\nonPause()：Activity 失去焦点、部分被遮挡时调用，应在此保存数据、释放资源。\nonStop()：Activity 完全不可见时调用。\nonRestart()：Activity 从停止状态重新可见前调用，之后再走 onStart()。\nonDestroy()：Activity 被销毁前调用，释放全部资源。\n调用顺序：创建 onCreate→onStart→onResume；退到后台 onPause→onStop；返回前台 onRestart→onStart→onResume；销毁 onPause→onStop→onDestroy。"
+      },
+      {
+        "question": "打开一个Activity,然后按下Home键。这个过程中，哪些方法被调用？",
+        "answer": "打开 Activity 时依次调用：onCreate() → onStart() → onResume()；按下 Home 键回到桌面时调用：onPause() → onStop()。此时 Activity 转入后台不可见，但并未销毁。"
+      },
+      {
+        "question": "简述 LinearLayout、FrameLayout、ConstraintLayout 三种布局的特点及适用场景。",
+        "answer": "LinearLayout 按水平或垂直方向顺序排列子控件，适合简单的一维界面；FrameLayout 以层叠方式摆放子控件，常用于单区域显示、遮罩或碎片容器；ConstraintLayout 通过约束关系定位控件，可减少布局嵌套，适合复杂且需要适配多屏幕的界面。"
+      },
+      {
+        "question": "思考：Android中的水平线性布局不会自动换行，当一行中控件的宽度超过了父容器的宽度时，超出部分不会显示，如果想以滚动条的形式显示超出的部分，应该如何做？",
+        "answer": "可以在 LinearLayout 外层嵌套 HorizontalScrollView，使内容超出屏幕宽度时通过水平滚动查看；如果需要垂直滚动，则使用 ScrollView 包裹垂直方向内容。"
+      },
+      {
+        "question": "简述 TextView、EditText、Button、ImageView 四种基本控件的核心功能及常用属性。",
+        "answer": "TextView：显示文本，不可编辑。常用属性：text、textSize、textColor、gravity。\nEditText：可编辑文本输入框，继承自 TextView。常用属性：hint（提示文字）、inputType（输入类型）、text。\nButton：按钮，继承自 TextView，可响应点击。常用属性：text、onClick、background。\nImageView：显示图片。常用属性：src（图片资源）、scaleType（缩放方式）、background。"
+      },
+      {
+        "question": "解释 wrap_content、match_parent（或 fill_parent）和固定dp值三种尺寸设置方式的区别。",
+        "answer": "wrap_content：控件大小刚好包裹其内容。\nmatch_parent（旧称 fill_parent）：控件大小填满父容器。\n固定 dp 值：指定具体尺寸，不随内容或父容器变化（dp 为密度无关像素，便于适配不同屏幕）。"
+      },
+      {
+        "question": "如何为 Button 设置点击事件？请说明三种实现方式的步骤及优缺点。",
+        "answer": "常见方式有三种：一是在代码中调用 setOnClickListener 创建匿名内部类或 Lambda，灵活直观；二是让 Activity 实现 View.OnClickListener 接口，适合多个按钮统一处理，但代码集中后需用 id 区分；三是在 XML 中配置 android:onClick 指向 Activity 中的公开方法，写法简洁，但耦合较高且不利于复杂逻辑维护。"
+      },
+      {
+        "question": "简述 RecyclerView 的使用步骤，并说明 ViewHolder 的作用。",
+        "answer": "使用步骤：\n（1）在 build.gradle 添加依赖，并在布局中放入 RecyclerView。\n（2）准备数据源（List）和 item 布局文件。\n（3）自定义 Adapter 继承 RecyclerView.Adapter，并定义内部 ViewHolder。\n（4）重写 onCreateViewHolder（创建 item 视图）、onBindViewHolder（绑定数据）、getItemCount。\n（5）为 RecyclerView 设置 LayoutManager（如 LinearLayoutManager）和 Adapter。\nViewHolder 作用：缓存 item 视图中各控件的引用，避免反复 findViewById，提升列表滚动性能。"
+      },
+      {
+        "question": "对比 ListView 和 RecyclerView 的异同点，说明为何推荐使用 RecyclerView 替代 ListView。",
+        "answer": "相同点：都用于展示可滚动的列表数据，都通过 Adapter 绑定数据。\n不同点：RecyclerView 强制使用 ViewHolder 模式（ListView 需手动优化）；通过 LayoutManager 灵活支持线性、网格、瀑布流布局；内置 item 复用机制更高效；提供 item 动画和分隔线（ItemDecoration）支持；解耦程度更高。因此 RecyclerView 更灵活、高效、可扩展，故推荐替代 ListView。"
+      },
+      {
+        "question": "简述AlertDialog对话框创建的一般步骤。",
+        "answer": "一般步骤：\n（1）创建 AlertDialog.Builder 对象。\n（2）通过 setTitle、setMessage、setIcon 设置标题、内容、图标。\n（3）通过 setPositiveButton、setNegativeButton（、setNeutralButton）设置按钮及监听。\n（4）调用 builder.create() 创建对话框。\n（5）调用 show() 显示对话框。"
+      },
+      {
+        "question": "简述上下文菜单的创建过程。",
+        "answer": "创建过程：\n（1）调用 registerForContextMenu(view) 为视图注册上下文菜单（长按触发）。\n（2）重写 onCreateContextMenu() 方法，用 menu.add() 或加载菜单资源添加菜单项。\n（3）重写 onContextItemSelected() 方法，根据 item.getItemId() 处理菜单项点击事件。"
+      },
+      {
+        "question": "简述显式 Intent 和隐式 Intent 的区别及使用场景。",
+        "answer": "显式 Intent：明确指定目标组件的类名（如 new Intent(this, B.class)），用于应用内部组件之间的跳转。\n隐式 Intent：不指定具体类，只声明 action、category、data 等，由系统根据 IntentFilter 匹配合适组件，常用于跨应用调用（如打开网页、拨号）。"
+      },
+      {
+        "question": "简述 Intent 在 Android 四大组件中的作用，并说明 Intent 是如何与 IntentFilter 进行匹配的。",
+        "answer": "作用：Intent 是组件间通信的\"信使\"，用于启动 Activity、启动/绑定 Service、发送广播，并可携带数据。\n匹配机制：隐式 Intent 通过与目标组件在 Manifest 中声明的 <intent-filter> 进行匹配，需同时满足 action（动作一致）、category（类别包含）、data（数据类型/URI 匹配）三方面，全部匹配后该组件才会被启动。"
+      },
+      {
+        "question": "简述 Service 的生命周期包含哪些阶段？涉及哪些方法？",
+        "answer": "主要生命周期方法：\nonCreate()：Service 首次创建时调用。\nonStartCommand()：每次 startService 启动时调用。\nonBind()：bindService 绑定时调用。\nonUnbind()：解绑时调用。\nonDestroy()：Service 销毁时调用。"
+      },
+      {
+        "question": "详细说明 startService 和 bindService 两种启动方式在生命周期上的区别。",
+        "answer": "startService：onCreate → onStartCommand →（运行）→ onDestroy。Service 独立运行，调用者退出后仍存活，需手动 stopService 或 stopSelf 停止。\nbindService：onCreate → onBind →（绑定）→ onUnbind → onDestroy。生命周期与调用者绑定，所有调用者解绑后 Service 自动销毁，调用者可通过 Binder 与 Service 通信。"
+      },
+      {
+        "question": "使用startService启动3次启动服务，再3次调用stopservice停止服务，按顺序写出服务生命周期中调用的相关方法。",
+        "answer": "调用顺序为：onCreate()（仅第一次创建）→ onStartCommand()（第 1 次）→ onStartCommand()（第 2 次）→ onStartCommand()（第 3 次）→ onDestroy()（仅一次）。即：onCreate() → onStartCommand()×3 → onDestroy()×1。多次 startService 只创建一次 Service，多次 stopService 也只销毁一次。"
+      },
+      {
+        "question": "简述广播机制的实现过程。",
+        "answer": "实现过程：\n（1）自定义类继承 BroadcastReceiver，重写 onReceive() 处理收到的广播。\n（2）注册广播接收器：静态注册（Manifest 中 <receiver> + <intent-filter>）或动态注册（代码中 registerReceiver 并指定 IntentFilter）。\n（3）发送广播：通过 sendBroadcast(intent)（无序）或 sendOrderedBroadcast()（有序）发送。\n（4）系统匹配 action 后，调用对应接收器的 onReceive() 方法。"
+      },
+      {
+        "question": "什么是有序广播和无序广播？它们的传递机制有何不同？",
+        "answer": "无序广播（sendBroadcast）：所有接收器几乎同时收到，无优先级，不能被拦截或修改，效率高。\n有序广播（sendOrderedBroadcast）：接收器按 priority 优先级依次接收，前一个接收器可通过 abortBroadcast() 中止传递，也可用 setResultData() 向下一个接收器传递数据。"
+      },
+      {
+        "question": "简述文件存储、sharedpreferences存储和sqlite数据库存储的特点。",
+        "answer": "文件存储适合保存文本、图片等原始文件，读写自由但需要自行组织格式；SharedPreferences 适合保存少量键值对配置，如登录状态、字体大小，使用简单；SQLite 数据库存储适合结构化、大量、需要增删改查的数据，支持 SQL 查询和事务。"
+      },
+      {
+        "question": "简述 SharedPreferences 的写入和读取步骤。",
+        "answer": "写入步骤：通过 getSharedPreferences 获取对象，调用 edit() 得到 Editor，使用 putString/putInt 等方法写入键值，最后调用 apply() 或 commit() 保存。读取步骤：再次获取 SharedPreferences 对象，调用 getString/getInt 等方法按键读取，并提供默认值。"
+      },
+      {
+        "question": "简述 SQLiteOpenHelper 的核心作用及使用步骤。",
+        "answer": "SQLiteOpenHelper 用于管理 SQLite 数据库的创建、打开和版本升级。使用时自定义类继承 SQLiteOpenHelper，重写 onCreate 创建表，重写 onUpgrade 处理升级；在代码中创建帮助类对象，通过 getWritableDatabase 或 getReadableDatabase 获取数据库，再执行增删改查。"
+      },
+      {
+        "question": "说明 SQLite 数据库的增删改查操作步骤，并对比 execSQL () 和 rawQuery () 方法与 insert ()、update () 等方法的区别。",
+        "answer": "基本步骤是获取 SQLiteDatabase 对象，准备 SQL 或 ContentValues，调用 insert、delete、update、query/rawQuery 等方法执行操作，最后根据需要关闭游标和数据库。execSQL() 主要执行无返回结果的 SQL，如建表、插入、更新、删除；rawQuery() 执行查询 SQL 并返回 Cursor；insert()、update()、delete()、query() 是封装好的便捷方法，参数化程度更高，可读性和安全性更好。"
+      }
+    ],
+    "code": [
+      {
+        "question": "实现两个 Activity（FirstActivity 和 SecondActivity）的跳转功能：FirstActivity 包含一个按钮，点击按钮跳转到 SecondActivity，并在logcat窗口显示“跳转到SecondActivity”信息。写出该按钮对应的单击事件代码和FirstActivity的注册代码。",
+        "answer": "按钮单击事件代码（FirstActivity 中）：\nbutton.setOnClickListener(new View.OnClickListener() {\n@Override\npublic void onClick(View v) {\nIntent intent = new Intent(FirstActivity.this, SecondActivity.class);\nstartActivity(intent);\nLog.i(\"TAG\", \"跳转到SecondActivity\");\n}\n});\nFirstActivity 的注册代码（AndroidManifest.xml 中，作为启动入口）：\n<activity android:name=\".FirstActivity\">\n<intent-filter>\n<action android:name=\"android.intent.action.MAIN\"/>\n<category android:name=\"android.intent.category.LAUNCHER\"/>\n</intent-filter>\n</activity>\n<activity android:name=\".SecondActivity\"/>"
+      },
+      {
+        "question": "实现一个线性布局的界面：上方是一个 TextView（显示 \"标题\"，居中），下方是两个按钮，要求两个按钮水平排列，宽度各占屏幕的 50%，高度一致。写出该布局文件中与布局有关的代码。",
+        "answer": "布局文件代码如下：\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\nandroid:layout_width=\"match_parent\"\nandroid:layout_height=\"match_parent\"\nandroid:orientation=\"vertical\">\n<TextView\nandroid:layout_width=\"match_parent\"\nandroid:layout_height=\"wrap_content\"\nandroid:gravity=\"center\"\nandroid:text=\"标题\"/>\n<LinearLayout\nandroid:layout_width=\"match_parent\"\nandroid:layout_height=\"wrap_content\"\nandroid:orientation=\"horizontal\">\n<Button\nandroid:layout_width=\"0dp\"\nandroid:layout_height=\"wrap_content\"\nandroid:layout_weight=\"1\"\nandroid:text=\"按钮1\"/>\n<Button\nandroid:layout_width=\"0dp\"\nandroid:layout_height=\"wrap_content\"\nandroid:layout_weight=\"1\"\nandroid:text=\"按钮2\"/>\n</LinearLayout>\n</LinearLayout>\n说明：两个按钮宽度设为 0dp、layout_weight 各为 1，即可平分屏幕宽度。"
+      },
+      {
+        "question": "点击一个按钮(id为btn1)，点击该按钮，在一个textview控件(id为tv1)中的显示1到100的累加和。写出该按钮的单击事件代码。",
+        "answer": "单击事件代码如下：\nbtn1.setOnClickListener(new View.OnClickListener() {\n@Override\npublic void onClick(View v) {\nint sum = 0;\nfor (int i = 1; i <= 100; i++) {\nsum += i;\n}\ntv1.setText(\"1到100的累加和为：\" + sum);\n}\n});"
+      },
+      {
+        "question": "编程，程序界面如下，点击不同的单选按钮，显示不同的鲜花图像。写出java文件中核心代码。相关控件的id自己定义。",
+        "answer": "核心代码（RadioGroup 监听）如下：\nradioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {\n@Override\npublic void onCheckedChanged(RadioGroup group, int checkedId) {\nif (checkedId == R.id.rb_rose) {\nimageView.setImageResource(R.drawable.rose);\n} else if (checkedId == R.id.rb_lily) {\nimageView.setImageResource(R.drawable.lily);\n} else if (checkedId == R.id.rb_tulip) {\nimageView.setImageResource(R.drawable.tulip);\n}\n}\n});"
+      },
+      {
+        "question": "创建一个选项菜单，包含两个菜单项：“关于”和“退出”。点击“退出”菜单项，弹出一个包含“是”、“否”按钮的对话框，点击“是”则调用 finish() 关闭 Activity，点击“否”则关闭对话框。写出对应的Java 代码。",
+        "answer": "代码如下：\n@Override\npublic boolean onCreateOptionsMenu(Menu menu) {\nmenu.add(0, 1, 0, \"关于\");\nmenu.add(0, 2, 1, \"退出\");\nreturn true;\n}\n@Override\npublic boolean onOptionsItemSelected(MenuItem item) {\nif (item.getItemId() == 2) {\nnew AlertDialog.Builder(this)\n.setTitle(\"提示\")\n.setMessage(\"确定要退出吗？\")\n.setPositiveButton(\"是\", new DialogInterface.OnClickListener() {\n@Override\npublic void onClick(DialogInterface dialog, int which) {\nfinish();\n}\n})\n.setNegativeButton(\"否\", new DialogInterface.OnClickListener() {\n@Override\npublic void onClick(DialogInterface dialog, int which) {\ndialog.dismiss();\n}\n})\n.show();\n}\nreturn super.onOptionsItemSelected(item);\n}"
+      },
+      {
+        "question": "写出使用intent将数据（姓名：tom，年龄：18）传到目标组件，并从中取出的核心代码。",
+        "answer": "核心代码如下：\n// 发送方\nIntent intent = new Intent(this, TargetActivity.class);\nintent.putExtra(\"name\", \"tom\");\nintent.putExtra(\"age\", 18);\nstartActivity(intent);\n// 接收方（TargetActivity 中）\nIntent intent = getIntent();\nString name = intent.getStringExtra(\"name\");\nint age = intent.getIntExtra(\"age\", 0);"
+      },
+      {
+        "question": "创建一个广播接收器，将接收到的广播中英文字符串全部变为大写，在Logcat窗口输出。广播接收器使用动态注册方法进行注册。写出创建广播接收器、动态注册和发生广播的核心代码。",
+        "answer": "核心代码如下：\n// 1. 创建广播接收器\npublic class MyReceiver extends BroadcastReceiver {\n@Override\npublic void onReceive(Context context, Intent intent) {\nString msg = intent.getStringExtra(\"msg\");\nLog.i(\"TAG\", msg.toUpperCase());\n}\n}\n// 2. 动态注册（在 onCreate 中）\nMyReceiver receiver = new MyReceiver();\nIntentFilter filter = new IntentFilter(\"com.example.MY_ACTION\");\nregisterReceiver(receiver, filter);\n// 3. 发送广播\nIntent intent = new Intent(\"com.example.MY_ACTION\");\nintent.putExtra(\"msg\", \"hello world\");\nsendBroadcast(intent);\n// 注意：在 onDestroy 中 unregisterReceiver(receiver);"
+      },
+      {
+        "question": "实现一个应用设置页面：一个 SeekBar（设置字体大小，范围 12-24sp,id为skbr1）、一个 \"保存设置\" 按钮（id为btn1）。点击 \"保存设置\" 时，字体大小存储到 SharedPreferences；应用启动时。写出Java 文件中保存设置的逻辑代码。",
+        "answer": "保存逻辑代码如下：\nbtn1.setOnClickListener(new View.OnClickListener() {\n@Override\npublic void onClick(View v) {\nint size = skbr1.getProgress() + 12;  // SeekBar 进度映射到 12-24\nSharedPreferences sp = getSharedPreferences(\"settings\", MODE_PRIVATE);\nSharedPreferences.Editor editor = sp.edit();\neditor.putInt(\"fontSize\", size);\neditor.apply();\n}\n});\n// 应用启动时读取：\n// int size = sp.getInt(\"fontSize\", 16);\nSQLite 数据库"
+      }
+    ]
+  }
+}

@@ -558,11 +558,31 @@ function getTotalCount(subject) {
 
 async function renderIndexPage() {
     const subjectCount = document.querySelector("#subjectCount");
+    const subjectList = document.querySelector("#subjectList");
     const mistakeCount = document.querySelector("#mistakeCount");
     const mistakeBookBtn = document.querySelector("#mistakeBookBtn");
+    const subjects = await getSubjects();
 
     if (subjectCount) {
-        subjectCount.textContent = "2";
+        subjectCount.textContent = String(subjects.length);
+    }
+
+    if (subjectList) {
+        subjectList.innerHTML = "";
+
+        subjects.forEach(subject => {
+            const card = document.createElement("a");
+            card.className = "subject-card";
+            card.href = `subject.html?subj=${encodeURIComponent(subject.id)}`;
+            card.innerHTML = `
+        <div>
+          <h3>📘 ${escapeHTML(subject.name)}</h3>
+          <p>点击进入科目</p>
+        </div>
+        <p>开始学习 →</p>
+      `;
+            subjectList.appendChild(card);
+        });
     }
 
     if (mistakeCount) {
