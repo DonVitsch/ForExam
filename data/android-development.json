@@ -647,7 +647,7 @@
           "addData ()"
         ],
         "answer": 1,
-        "explanation": "B 项“putExtra ()”能满足题干：SharedPreferences 保存键值对，适合登录状态、字体大小这类少量配置。"
+        "explanation": "putExtra() 专门把键值对附加到 Intent 中，例如 putExtra(\"name\", \"tom\")。setData() 设置 Uri 数据，不负责普通键值对。"
       },
       {
         "question": "当使用 Intent 启动 Activity 并需要返回结果时，应调用的方法是（ ）",
@@ -658,7 +658,7 @@
           "launchActivity ()"
         ],
         "answer": 2,
-        "explanation": "C 项“startActivityForResult ()”能满足题干：需要拿返回结果时不能只 startActivity()，要用 startActivityForResult() 或新版结果 API。"
+        "explanation": "需要启动另一个 Activity 并接收返回结果时，应调用 startActivityForResult()；普通 startActivity() 只负责跳转，不处理返回数据。"
       },
       {
         "question": "创建Intent对象，从MainActivity跳转到SecondActivity，下面代码正确的是（ ）",
@@ -680,7 +680,7 @@
           "ComponentName"
         ],
         "answer": 3,
-        "explanation": "D 项“ComponentName”就是题干要找的错误项：显式 Intent 直接点名目标组件；隐式 Intent 通过 action、category、data 让系统匹配。"
+        "explanation": "隐式 Intent 依靠 Action、Category、Data 等信息匹配组件；ComponentName 是显式指定组件时使用的内容，不属于隐式匹配规则。"
       },
       {
         "question": "隐式 Intent 与显式 Intent 的主要区别在于（ ）。",
@@ -702,7 +702,7 @@
           "Type"
         ],
         "answer": 2,
-        "explanation": "C 项“Action”能满足题干：题干关键词是“用于指定要执行的动作（如 ACTION_VIEW”，对应概念或固定写法就是“Action”。"
+        "explanation": "Action 描述 Intent 要执行的动作，例如 ACTION_VIEW 表示查看数据，ACTION_DIAL 表示拨号动作。"
       },
       {
         "question": "以下代码的作用是（ ）。\n\nIntent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(\"http://www.baidu.com\"));\nstartActivity(intent);",
