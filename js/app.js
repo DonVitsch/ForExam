@@ -720,8 +720,14 @@ async function renderExamPage() {
     const progress = $("#progress");
     const stage = $("#examStage");
     const backLink = $("#examBackLink");
+    const examShell = document.querySelector(".exam-shell");
 
     if (!progress || !stage || !backLink) return;
+
+    if (mode === "sequential") {
+        examShell?.classList.add("sequential-exam-shell");
+        stage.classList.add("sequential-exam-card");
+    }
 
     if (!ensureProtectedSubjectAccess(subjectId)) return;
 
@@ -848,11 +854,37 @@ function renderSequentialQuestion(state, question) {
     actions.classList.add("sequential-nav");
     actions.innerHTML = `
       <button class="previous-btn" type="button"${state.index === 0 ? " disabled" : ""}>上一题</button>
+      <div class="question-jump">
+        <label class="question-jump-label" for="questionJumpInput">题号</label>
+        <input
+          id="questionJumpInput"
+          class="question-jump-input"
+          type="number"
+          inputmode="numeric"
+          min="1"
+          max="${state.questions.length}"
+          value="${state.index + 1}"
+          aria-label="输入题号"
+        />
+        <button class="question-jump-btn" type="button">跳转</button>
+      </div>
       <button class="next-btn" type="button"${state.index === state.questions.length - 1 ? " disabled" : ""}>下一题</button>
     `;
 
     $(".previous-btn", actions).addEventListener("click", () => goPrevious(state));
     $(".next-btn", actions).addEventListener("click", () => goNext(state));
+
+    const jumpInput = $(".question-jump-input", actions);
+    const jumpBtn = $(".question-jump-btn", actions);
+    const jump = () => jumpToQuestion(state, jumpInput);
+
+    jumpBtn.addEventListener("click", jump);
+    jumpInput.addEventListener("keydown", event => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        jump();
+    });
+    jumpInput.addEventListener("focus", () => jumpInput.select());
 }
 
 function buildSequentialOptions(question) {
@@ -1197,6 +1229,7 @@ function goNext(state) {
 
     state.index += 1;
     renderCurrentQuestion(state);
+    resetQuestionScroll(state);
 }
 
 function goPrevious(state) {
@@ -1205,6 +1238,28 @@ function goPrevious(state) {
 
     state.index -= 1;
     renderCurrentQuestion(state);
+    resetQuestionScroll(state);
+}
+
+function jumpToQuestion(state, input) {
+    const questionNumber = Number.parseInt(input.value, 10);
+
+    if (!Number.isInteger(questionNumber) || questionNumber < 1 || questionNumber > state.questions.length) {
+        input.setCustomValidity(`请输入 1 到 ${state.questions.length} 之间的题号`);
+        input.reportValidity();
+        input.focus();
+        return;
+    }
+
+    input.setCustomValidity("");
+    state.index = questionNumber - 1;
+    renderCurrentQuestion(state);
+    resetQuestionScroll(state);
+}
+
+function resetQuestionScroll(state) {
+    if (state.mode !== "sequential") return;
+    window.scrollTo({ top: 0, behavior: "auto" });
 }
 
 function renderFinish(state) {
