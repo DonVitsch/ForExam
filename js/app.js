@@ -419,7 +419,7 @@ function initApp() {
         return;
     }
 
-    if ($("#subjectName") && $("#subjectMeta") && $("#typeList") && $("#finalTestBtn")) {
+    if ($("#subjectName") && $("#subjectMeta") && $("#typeList") && $("#finalTestBtn") && $("#sequentialStudyBtn")) {
         renderSubjectPage().catch(error => {
             console.error("科目详情页渲染失败", error);
         });
@@ -654,13 +654,15 @@ async function renderSubjectPage() {
     const subjectMeta = $("#subjectMeta");
     const typeList = $("#typeList");
     const finalTestBtn = $("#finalTestBtn");
+    const sequentialStudyBtn = $("#sequentialStudyBtn");
 
-    if (!subjectName || !subjectMeta || !typeList || !finalTestBtn) {
+    if (!subjectName || !subjectMeta || !typeList || !finalTestBtn || !sequentialStudyBtn) {
         console.error("科目详情页缺少必要元素", {
             subjectName: Boolean(subjectName),
             subjectMeta: Boolean(subjectMeta),
             typeList: Boolean(typeList),
-            finalTestBtn: Boolean(finalTestBtn)
+            finalTestBtn: Boolean(finalTestBtn),
+            sequentialStudyBtn: Boolean(sequentialStudyBtn)
         });
         return;
     }
@@ -671,6 +673,7 @@ async function renderSubjectPage() {
         subjectMeta.textContent = "请返回首页重新选择。";
         typeList.innerHTML = `<div class="empty-state">科目不存在。</div>`;
         finalTestBtn.disabled = true;
+        sequentialStudyBtn.disabled = true;
         return;
     }
 
@@ -702,12 +705,18 @@ async function renderSubjectPage() {
         if (getTotalCount(subject) <= 0) return;
         window.location.href = `exam.html?subj=${encodeURIComponent(subject.id)}&type=all`;
     });
+
+    sequentialStudyBtn.addEventListener("click", () => {
+        if (getTotalCount(subject) <= 0) return;
+        window.location.href = `exam.html?subj=${encodeURIComponent(subject.id)}&type=all&mode=sequential`;
+    });
 }
 
 async function renderExamPage() {
     const params = getParams();
     const subjectId = params.get("subj") || "";
     const type = params.get("type") || "all";
+    const mode = params.get("mode") || "practice";
     const progress = $("#progress");
     const stage = $("#examStage");
     const backLink = $("#examBackLink");
@@ -731,7 +740,9 @@ async function renderExamPage() {
         questions = collectQuestions(subject, type);
     }
 
-    questions = prepareQuestions(questions);
+    questions = mode === "sequential"
+        ? questions.map(question => deepClone(question))
+        : prepareQuestions(questions);
 
     if (questions.length === 0) {
         renderEmptyExam(stage, progress, type === "mistakes" ? "错题本为空。" : "当前题型暂无题目。");
@@ -742,6 +753,7 @@ async function renderExamPage() {
         subject,
         subjectId,
         type,
+        mode,
         questions,
         index: 0,
         locked: false,
@@ -801,12 +813,85 @@ function renderCurrentQuestion(state) {
     <div id="actions" class="actions"></div>
   `;
 
+    if (state.mode === "sequential") {
+        renderSequentialQuestion(state, question);
+        return;
+    }
+
     if (question.type === "choice") renderChoiceQuestion(state, question);
     else if (question.type === "multiple") renderMultipleQuestion(state, question);
     else if (question.type === "tf") renderTFQuestion(state, question);
     else if (question.type === "fill") renderFillQuestion(state, question);
     else if (question.type === "short" || question.type === "code") renderAnswerQuestion(state, question);
     else renderUnsupportedQuestion(state);
+}
+
+function renderSequentialQuestion(state, question) {
+    const body = $("#questionBody");
+    const actions = $("#actions");
+    const explanation = question.explanation || question.analysis || "暂无解析";
+
+    body.innerHTML = `
+      ${buildSequentialOptions(question)}
+      <div class="answer-box show sequential-answer-box">
+        <div class="answer-section answer-section-main">
+          <div class="answer-section-label">答案</div>
+          <div class="answer-section-content">${escapeHTML(getSequentialAnswerText(question))}</div>
+        </div>
+        <div class="answer-section answer-section-explanation">
+          <div class="answer-section-label">解析</div>
+          <div class="answer-section-content">${escapeHTML(explanation)}</div>
+        </div>
+      </div>
+    `;
+
+    actions.classList.add("sequential-nav");
+    actions.innerHTML = `
+      <button class="previous-btn" type="button"${state.index === 0 ? " disabled" : ""}>上一题</button>
+      <button class="next-btn" type="button"${state.index === state.questions.length - 1 ? " disabled" : ""}>下一题</button>
+    `;
+
+    $(".previous-btn", actions).addEventListener("click", () => goPrevious(state));
+    $(".next-btn", actions).addEventListener("click", () => goNext(state));
+}
+
+function buildSequentialOptions(question) {
+    if (!Array.isArray(question.options)) return "";
+
+    const correctIndexes = question.type === "multiple"
+        ? new Set(Array.isArray(question.answers) ? question.answers : [])
+        : new Set([question.answer]);
+
+    const options = question.options.map((option, index) => `
+      <div class="option-label sequential-option${correctIndexes.has(index) ? " correct" : ""}">
+        <span class="option-prefix">${String.fromCharCode(65 + index)}.</span>
+        <span>${escapeHTML(option)}</span>
+      </div>
+    `).join("");
+
+    return `<div class="options sequential-options">${options}</div>`;
+}
+
+function getSequentialAnswerText(question) {
+    if (question.type === "choice" && Array.isArray(question.options)) {
+        return formatOptionAnswer(question.answer, question.options);
+    }
+
+    if (question.type === "multiple" && Array.isArray(question.options)) {
+        const answers = Array.isArray(question.answers) ? question.answers : [];
+        return answers.map(index => formatOptionAnswer(index, question.options)).join("；") || "暂无参考答案";
+    }
+
+    if (question.type === "tf") {
+        return question.answer ? "对" : "错";
+    }
+
+    return String(question.answer || "暂无参考答案");
+}
+
+function formatOptionAnswer(index, options) {
+    if (!Number.isInteger(index) || !options[index]) return "暂无参考答案";
+    return `${String.fromCharCode(65 + index)}. ${options[index]}`;
 }
 
 function renderChoiceQuestion(state, question) {
@@ -1105,11 +1190,20 @@ function goNext(state) {
     clearTimeout(state.timer);
 
     if (state.index + 1 >= state.questions.length) {
+        if (state.mode === "sequential") return;
         renderFinish(state);
         return;
     }
 
     state.index += 1;
+    renderCurrentQuestion(state);
+}
+
+function goPrevious(state) {
+    clearTimeout(state.timer);
+    if (state.index <= 0) return;
+
+    state.index -= 1;
     renderCurrentQuestion(state);
 }
 
