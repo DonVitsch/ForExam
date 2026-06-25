@@ -766,6 +766,10 @@ async function renderExamPage() {
         timer: null
     };
 
+    if (mode === "sequential") {
+        bindSequentialKeyboardNavigation(state);
+    }
+
     renderCurrentQuestion(state);
 }
 
@@ -1260,6 +1264,28 @@ function jumpToQuestion(state, input) {
 function resetQuestionScroll(state) {
     if (state.mode !== "sequential") return;
     window.scrollTo({ top: 0, behavior: "auto" });
+}
+
+function bindSequentialKeyboardNavigation(state) {
+    document.addEventListener("keydown", event => {
+        if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+
+        const target = event.target;
+        const isEditing = target instanceof HTMLElement && (
+            target.matches("input, textarea, select") ||
+            target.isContentEditable
+        );
+
+        if (isEditing) return;
+
+        if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            goPrevious(state);
+        } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            goNext(state);
+        }
+    });
 }
 
 function renderFinish(state) {
