@@ -391,7 +391,7 @@ const TYPE_LABELS = {
 const TYPE_ORDER = ["choice", "multiple", "tf", "fill", "short", "code"];
 const STORAGE_KEY = "exam_self_test_mistakes_v1";
 const RETRY_KEY = "__mistake_retry__";
-const SUBJECT_INDEX_URL = "/data/subjects.json";
+const SUBJECT_INDEX_URL = "data/subjects.json";
 const PROTECTED_SUBJECT_ID = "unknown";
 const PROTECTED_PASSWORD_PREFIX = "8864";
 const PROTECTED_AUTH_KEY_PREFIX = "exam_self_test_unknown_auth_";
@@ -516,7 +516,7 @@ async function getSubjectById(id) {
     const file = meta.file || `${id}.json`;
 
     try {
-        const data = await fetchJSON(`/data/${file}`);
+        const data = await fetchJSON(`data/${file}`);
         const subject = normalizeSubjectData(data, id);
 
         if (!subject) {
