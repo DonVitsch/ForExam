@@ -455,7 +455,8 @@ function getParams() {
 }
 
 async function fetchJSON(url) {
-    const response = await fetch(url, { cache: "no-store" });
+    // 走标准 HTTP 缓存（由 _headers 控制），避免每次页面跳转重复全量下载题库
+    const response = await fetch(url);
 
     if (!response.ok) {
         throw new Error(`读取 JSON 失败：${url}，状态码：${response.status}`);
