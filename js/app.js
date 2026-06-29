@@ -621,7 +621,7 @@ async function renderIndexPage() {
             card.href = `subject.html?subj=${encodeURIComponent(subject.id)}`;
             card.innerHTML = `
         <div>
-          <h3>📘 ${escapeHTML(subject.name)}</h3>
+          <h3>${escapeHTML(subject.name)}</h3>
           <p>点击进入科目</p>
         </div>
         <p>开始学习 →</p>
@@ -693,7 +693,7 @@ async function renderSubjectPage() {
 
         card.innerHTML = `
       <div>
-        <h3>${getTypeEmoji(type)} ${TYPE_LABELS[type]}</h3>
+        <h3>${TYPE_LABELS[type]}</h3>
         <p>${count} 道题</p>
       </div>
       <p>${count > 0 ? "开始练习 →" : "暂无题目"}</p>
@@ -1061,8 +1061,8 @@ function renderTFQuestion(state, question) {
     const body = $("#questionBody");
     body.innerHTML = `
     <div class="tf-grid">
-      <button class="tf-btn" type="button" data-value="true" aria-label="对">✅</button>
-      <button class="tf-btn" type="button" data-value="false" aria-label="错">❌</button>
+      <button class="tf-btn" type="button" data-value="true" aria-label="对">对</button>
+      <button class="tf-btn" type="button" data-value="false" aria-label="错">错</button>
     </div>
   `;
 
