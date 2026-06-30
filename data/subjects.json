@@ -16,6 +16,11 @@
       "file": "android-development.json"
     },
     {
+      "id": "computer-organization",
+      "name": "计算机组成原理",
+      "file": "computer-organization.json"
+    },
+    {
       "id": "unknown",
       "name": "Unknown",
       "file": "unknown.json"
