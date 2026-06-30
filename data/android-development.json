@@ -217,11 +217,11 @@
         "options": [
           "android:layout_width",
           "android:layout_gravity",
-          "android:layout_margin",
+          "android:layout_weight",
           "android:layout_margin"
         ],
         "answer": 2,
-        "explanation": "C 项“android:layout_margin”能满足题干：按比例分配空间靠 layout_weight，通常配合 0dp 宽度使用。"
+        "explanation": "C 项“android:layout_weight”能满足题干：按比例分配空间靠 layout_weight，通常配合 0dp 宽度使用。"
       },
       {
         "question": "下面哪个控件可以用来显示并接受用户输入数据。（ ）",
