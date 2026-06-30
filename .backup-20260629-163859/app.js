@@ -391,7 +391,7 @@ const TYPE_LABELS = {
 const TYPE_ORDER = ["choice", "multiple", "tf", "fill", "short", "code"];
 const STORAGE_KEY = "exam_self_test_mistakes_v1";
 const RETRY_KEY = "__mistake_retry__";
-const SUBJECT_INDEX_URL = "data/subjects.json";
+const SUBJECT_INDEX_URL = "/data/subjects.json";
 const PROTECTED_SUBJECT_ID = "unknown";
 const PROTECTED_PASSWORD_PREFIX = "8864";
 const PROTECTED_AUTH_KEY_PREFIX = "exam_self_test_unknown_auth_";
@@ -455,8 +455,7 @@ function getParams() {
 }
 
 async function fetchJSON(url) {
-    // 走标准 HTTP 缓存（由 _headers 控制），避免每次页面跳转重复全量下载题库
-    const response = await fetch(url);
+    const response = await fetch(url, { cache: "no-store" });
 
     if (!response.ok) {
         throw new Error(`读取 JSON 失败：${url}，状态码：${response.status}`);
@@ -516,7 +515,7 @@ async function getSubjectById(id) {
     const file = meta.file || `${id}.json`;
 
     try {
-        const data = await fetchJSON(`data/${file}`);
+        const data = await fetchJSON(`/data/${file}`);
         const subject = normalizeSubjectData(data, id);
 
         if (!subject) {
@@ -622,7 +621,7 @@ async function renderIndexPage() {
             card.href = `subject.html?subj=${encodeURIComponent(subject.id)}`;
             card.innerHTML = `
         <div>
-          <h3>${escapeHTML(subject.name)}</h3>
+          <h3>📘 ${escapeHTML(subject.name)}</h3>
           <p>点击进入科目</p>
         </div>
         <p>开始学习 →</p>
@@ -694,7 +693,7 @@ async function renderSubjectPage() {
 
         card.innerHTML = `
       <div>
-        <h3>${TYPE_LABELS[type]}</h3>
+        <h3>${getTypeEmoji(type)} ${TYPE_LABELS[type]}</h3>
         <p>${count} 道题</p>
       </div>
       <p>${count > 0 ? "开始练习 →" : "暂无题目"}</p>
@@ -769,8 +768,6 @@ async function renderExamPage() {
 
     if (mode === "sequential") {
         bindSequentialKeyboardNavigation(state);
-    } else {
-        bindExamKeyboardNavigation(state);
     }
 
     renderCurrentQuestion(state);
@@ -1064,8 +1061,8 @@ function renderTFQuestion(state, question) {
     const body = $("#questionBody");
     body.innerHTML = `
     <div class="tf-grid">
-      <button class="tf-btn" type="button" data-value="true" aria-label="对">对</button>
-      <button class="tf-btn" type="button" data-value="false" aria-label="错">错</button>
+      <button class="tf-btn" type="button" data-value="true" aria-label="对">✅</button>
+      <button class="tf-btn" type="button" data-value="false" aria-label="错">❌</button>
     </div>
   `;
 
@@ -1285,25 +1282,6 @@ function bindSequentialKeyboardNavigation(state) {
             event.preventDefault();
             goPrevious(state);
         } else if (event.key === "ArrowRight") {
-            event.preventDefault();
-            goNext(state);
-        }
-    });
-}
-
-function bindExamKeyboardNavigation(state) {
-    document.addEventListener("keydown", event => {
-        if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
-
-        const target = event.target;
-        const isEditing = target instanceof HTMLElement && (
-            target.matches("input, textarea, select") ||
-            target.isContentEditable
-        );
-
-        if (isEditing) return;
-
-        if (event.key === "ArrowRight" && state.locked) {
             event.preventDefault();
             goNext(state);
         }
