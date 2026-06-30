@@ -519,21 +519,21 @@ a {
 }
 
 .option-label.correct {
-    background: var(--accent-soft);
+    background: #fffbeb;
     color: var(--text);
-    box-shadow: inset 4px 0 0 var(--accent);
+    font-weight: 700;
+    box-shadow: inset 5px 0 0 var(--text);
 }
 
 .option-label.correct::before {
-    color: var(--accent);
+    color: var(--text);
 }
 
-.option-label.wrong {
+.options:has(.option-label.correct) .option-label:not(.correct) {
     background: var(--paper);
     color: var(--muted);
-    text-decoration: line-through;
-    text-decoration-color: var(--faint);
     box-shadow: inset 4px 0 0 var(--faint);
+    opacity: 0.4;
 }
 
 /* ---- True / False ---- */
@@ -563,6 +563,23 @@ a {
 .tf-btn:hover {
     background: var(--text);
     color: #fff;
+}
+
+.tf-grid:has(.tf-btn.correct) .tf-btn.correct,
+.tf-grid:has(.tf-btn.correct) .tf-btn.correct:hover {
+    background: #fffbeb;
+    color: var(--text);
+    font-weight: 900;
+    box-shadow: inset 0 5px 0 var(--text);
+    cursor: default;
+}
+
+.tf-grid:has(.tf-btn.correct) .tf-btn.wrong,
+.tf-grid:has(.tf-btn.correct) .tf-btn.wrong:hover {
+    background: var(--paper);
+    color: var(--text);
+    opacity: 0.4;
+    cursor: default;
 }
 
 /* ---- Actions ---- */
@@ -725,8 +742,14 @@ a {
 
 .sequential-option.correct,
 .sequential-option.correct:hover {
-    background: var(--accent-soft);
-    box-shadow: inset 4px 0 0 var(--accent);
+    background: #fffbeb;
+    font-weight: 700;
+    box-shadow: inset 5px 0 0 var(--text);
+}
+
+.sequential-options:has(.sequential-option.correct) .sequential-option:not(.correct) {
+    color: var(--muted);
+    opacity: 0.4;
 }
 
 .option-prefix {

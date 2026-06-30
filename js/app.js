@@ -1085,6 +1085,9 @@ function submitTF(state, selectedValue) {
     state.locked = true;
     document.querySelectorAll(".tf-btn").forEach(btn => {
         btn.disabled = true;
+        const btnValue = btn.dataset.value === "true";
+        if (btnValue === question.answer) btn.classList.add("correct");
+        else btn.classList.add("wrong");
     });
 
     if (isCorrect) {
