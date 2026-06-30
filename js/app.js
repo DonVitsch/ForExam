@@ -738,6 +738,7 @@ async function renderExamPage() {
     if (type === "mistakes" || subjectId === RETRY_KEY) {
         questions = loadAllMistakeQuestions();
         backLink.href = "index.html";
+        renderMistakeSubjectFilter(stage, () => reloadMistakeExam(state));
     } else {
         if (!subject) {
             renderEmptyExam(stage, progress, "未找到科目，请返回首页重新选择。");
@@ -1479,11 +1480,12 @@ function countAllMistakes() {
     }, 0);
 }
 
-function loadAllMistakeQuestions() {
+function loadAllMistakeQuestions(filterSubjectId) {
     const data = readMistakes();
     const result = [];
 
     Object.keys(data).forEach(subjectId => {
+        if (filterSubjectId && subjectId !== filterSubjectId) return;
         const list = Array.isArray(data[subjectId]) ? data[subjectId] : [];
         list.forEach(item => {
             result.push({
@@ -1494,6 +1496,74 @@ function loadAllMistakeQuestions() {
     });
 
     return result;
+}
+
+function getMistakeSubjectIds() {
+    const data = readMistakes();
+    return Object.keys(data).filter(id => {
+        const list = data[id];
+        return Array.isArray(list) && list.length > 0;
+    });
+}
+
+async function getMistakeSubjectName(id) {
+    const subject = await getSubjectById(id);
+    return subject ? subject.name : id;
+}
+
+async function renderMistakeSubjectFilter(stage, onChange) {
+    const data = readMistakes();
+    const subjectIds = getMistakeSubjectIds();
+    if (subjectIds.length <= 1) return;
+
+    const totalCount = countAllMistakes();
+    const filterBar = document.createElement("div");
+    filterBar.className = "mistake-filter-bar";
+    filterBar.id = "mistakeFilterBar";
+
+    const allBtn = document.createElement("button");
+    allBtn.className = "mistake-filter-btn active";
+    allBtn.type = "button";
+    allBtn.dataset.subject = "";
+    allBtn.innerHTML = `全部<span class="mistake-filter-count">${totalCount}</span>`;
+    filterBar.appendChild(allBtn);
+
+    for (const id of subjectIds) {
+        const name = await getMistakeSubjectName(id);
+        const count = Array.isArray(data[id]) ? data[id].length : 0;
+        const btn = document.createElement("button");
+        btn.className = "mistake-filter-btn";
+        btn.type = "button";
+        btn.dataset.subject = id;
+        btn.innerHTML = `${escapeHTML(name)}<span class="mistake-filter-count">${count}</span>`;
+        filterBar.appendChild(btn);
+    }
+
+    filterBar.addEventListener("click", (e) => {
+        const btn = e.target.closest(".mistake-filter-btn");
+        if (!btn || btn.classList.contains("active")) return;
+        filterBar.querySelectorAll(".mistake-filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        onChange();
+    });
+
+    stage.parentNode.insertBefore(filterBar, stage);
+}
+
+function reloadMistakeExam(state) {
+    const activeBtn = document.querySelector("#mistakeFilterBar .mistake-filter-btn.active");
+    const filterSubjectId = activeBtn ? activeBtn.dataset.subject : "";
+    const questions = loadAllMistakeQuestions(filterSubjectId || undefined);
+
+    state.questions = prepareQuestions(questions);
+    state.index = 0;
+
+    if (state.questions.length === 0) {
+        renderEmptyExam($("#examStage"), $("#progress"), "该科目暂无错题。");
+        return;
+    }
+
+    renderCurrentQuestion(state);
 }
 
 function getTypeEmoji(type) {

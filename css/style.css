@@ -429,6 +429,83 @@ a {
     font-variant-numeric: tabular-nums;
 }
 
+/* ---- Mistake filter ---- */
+.mistake-filter-bar {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--text);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mistake-filter-btn {
+    flex: 1 0 auto;
+    min-height: 48px;
+    padding: 12px 20px;
+    border: 0;
+    border-right: 1px solid var(--text);
+    border-radius: 0;
+    background: var(--paper);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.16s ease, color 0.16s ease;
+}
+
+.mistake-filter-btn:last-child {
+    border-right: 0;
+}
+
+.mistake-filter-btn:hover {
+    background: #f6f6f6;
+}
+
+.mistake-filter-btn.active {
+    background: var(--text);
+    color: #fff;
+}
+
+.mistake-filter-btn.active:hover {
+    background: var(--accent);
+}
+
+.mistake-filter-btn .mistake-filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 18px;
+    padding: 0 6px;
+    margin-left: 8px;
+    border-radius: 999px;
+    background: var(--line);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    transition: background 0.16s ease, color 0.16s ease;
+}
+
+.mistake-filter-btn.active .mistake-filter-count {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+@media (max-width: 560px) {
+    .mistake-filter-bar {
+        margin: 0 -16px;
+        border-left: 0;
+        border-right: 0;
+    }
+}
+
 /* ---- Exam stage ---- */
 .exam-card {
     flex: 1;
