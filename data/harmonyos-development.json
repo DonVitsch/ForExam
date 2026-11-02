@@ -426,8 +426,8 @@
       },
       {
         "question": "页面栈是后进先出结构，最大容量为 30 个页面。",
-        "answer": true,
-        "explanation": "路由页面栈按后进先出工作，文档所述最大容量为 30。"
+        "answer": false,
+        "explanation": "答案：错。Router 页面栈按后进先出工作，最大支持 32 页，不是 30 页；此限制针对 router，不应与 Navigation 的 NavPathStack 混为一谈。"
       },
       {
         "question": "titleMode 设置为 NavigationTitleMode.Full 可显示完整标题栏。",
