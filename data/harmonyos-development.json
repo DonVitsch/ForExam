@@ -1,0 +1,710 @@
+{
+  "id": "harmonyos-development",
+  "name": "鸿蒙移动开发技术",
+  "types": {
+    "choice": [
+      {
+        "question": "鸿蒙应用的 UI 框架是（ ）。",
+        "answer": 2,
+        "explanation": "ArkUI 提供鸿蒙应用的界面组件和布局能力。",
+        "options": [
+          "ArkTS",
+          "ArkCompiler",
+          "ArkUI",
+          "DevEco Studio"
+        ]
+      },
+      {
+        "question": "下列不属于 ArkTS 数据类型的是（ ）。",
+        "answer": 2,
+        "explanation": "ArkTS 常用数字类型名称是 number，没有 integer 这一内置基本类型。",
+        "options": [
+          "number",
+          "boolean",
+          "integer",
+          "string"
+        ]
+      },
+      {
+        "question": "下列属于循环语句的是（ ）。",
+        "answer": 3,
+        "explanation": "for 用于重复执行循环体；其他选项是条件或分支语句。",
+        "options": [
+          "if 语句",
+          "switch 语句",
+          "if…else if…else 语句",
+          "for 语句"
+        ]
+      },
+      {
+        "question": "下列属于跳转语句的是（ ）。",
+        "answer": 2,
+        "explanation": "break 可立即结束当前循环或 switch 分支。",
+        "options": [
+          "while 语句",
+          "if…else 语句",
+          "break 语句",
+          "switch 语句"
+        ]
+      },
+      {
+        "question": "下列正确定义数组的是（ ）。",
+        "answer": 2,
+        "explanation": "ArkTS 可用 number[] 标注数字数组，变量声明格式为 let 名称: 类型。",
+        "options": [
+          "int arr = [1, 2, 3];",
+          "var arr = [1, 2, 3];",
+          "let arr: number[] = [1, 2, 3];",
+          "number[] arr = [1, 2, 3];"
+        ]
+      },
+      {
+        "question": "关于函数的说法错误的是（ ）。",
+        "answer": 1,
+        "explanation": "函数可以没有参数；其余选项描述了常见命名或返回规则。",
+        "options": [
+          "函数名不能以数字开头",
+          "一个函数至少要有一个参数",
+          "函数可以没有返回值",
+          "函数的返回值使用 return 关键字返回"
+        ]
+      },
+      {
+        "question": "用于获取月份中某一天的方法是（ ）。",
+        "answer": 1,
+        "explanation": "getDate() 返回一个月中的日期；getDay() 返回星期几。",
+        "options": [
+          "getFullYear()",
+          "getDate()",
+          "getDay()",
+          "getTime()"
+        ]
+      },
+      {
+        "question": "用于删除数组第一个元素的方法是（ ）。",
+        "answer": 1,
+        "explanation": "shift() 移除并返回数组首项。",
+        "options": [
+          "push()",
+          "shift()",
+          "pop()",
+          "unshift()"
+        ]
+      },
+      {
+        "question": "表示公有修饰符的是（ ）。",
+        "answer": 0,
+        "explanation": "public 表示成员可公开访问。",
+        "options": [
+          "public",
+          "protected",
+          "private",
+          "static"
+        ]
+      },
+      {
+        "question": "导出使用的关键字是（ ）。",
+        "answer": 2,
+        "explanation": "export 声明可供其他模块导入的内容。",
+        "options": [
+          "class",
+          "extends",
+          "export",
+          "import"
+        ]
+      },
+      {
+        "question": "关于导入的说法错误的是（ ）。",
+        "answer": 1,
+        "explanation": "默认导出通常不使用花括号，命名导出通常使用花括号，两者导入形式不同。",
+        "options": [
+          "导入使用 import",
+          "默认导出和命名导入方式相同",
+          "可使用 as 更改导入名称",
+          "导入代码必须写在其他代码前面"
+        ]
+      },
+      {
+        "question": "关于 Slider 属性的说法错误的是（ ）。",
+        "answer": 1,
+        "explanation": "Slider 的最小值默认值为 0，不是 1；其余说法符合常见默认设置。",
+        "options": [
+          "value 设置当前进度值",
+          "min 设置最小值，默认值为 1",
+          "step 设置步长，默认值为 1",
+          "max 设置最大值，默认值为 100"
+        ]
+      },
+      {
+        "question": "关于 Flex 属性的说法错误的是（ ）。",
+        "answer": 0,
+        "explanation": "direction 决定主轴方向，并非交叉轴方向；其他属性描述正确。",
+        "options": [
+          "direction 设置子组件排列方向，即交叉轴方向",
+          "wrap 设置换行方式",
+          "justifyContent 设置主轴对齐",
+          "alignItems 设置交叉轴对齐"
+        ]
+      },
+      {
+        "question": "关于 Grid 属性的说法正确的是（ ）。",
+        "answer": 0,
+        "explanation": "Grid 未设置列模板时默认两列；间距默认值并非题中所述的固定 10。",
+        "options": [
+          "columnsTemplate 设置列模板，不设置默认 2 列",
+          "rowsTemplate 设置行模板，不设置默认 1 行",
+          "columnsGap 设置列间距，默认 10",
+          "rowsGap 设置行间距，默认 10"
+        ]
+      },
+      {
+        "question": "调用 struct 内定义的自定义构建函数使用（ ）。",
+        "answer": 3,
+        "explanation": "组件成员方法通过 this.customBuilder() 调用；声明处使用 @Builder 修饰。",
+        "options": [
+          "@Builder function customBuilder() {}",
+          "@Builder customBuilder() {}",
+          "customBuilder()",
+          "this.customBuilder()"
+        ]
+      },
+      {
+        "question": "跳转新页面并替换当前页面的方法是（ ）。",
+        "answer": 2,
+        "explanation": "replaceUrl() 替换当前路由页面；pushUrl() 则压入新页面。",
+        "options": [
+          "length()",
+          "clear()",
+          "replaceUrl()",
+          "pushUrl()"
+        ]
+      },
+      {
+        "question": "跳转到命名路由的方法是（ ）。",
+        "answer": 1,
+        "explanation": "pushNamedRoute() 根据命名路由跳转。",
+        "options": [
+          "name()",
+          "pushNamedRoute()",
+          "back()",
+          "pushUrl()"
+        ]
+      },
+      {
+        "question": "用于保存页面路径信息的文件是（ ）。",
+        "answer": 2,
+        "explanation": "main_pages.json 配置页面路径信息。",
+        "options": [
+          "build-profile.json5",
+          "oh-package.json5",
+          "main_pages.json",
+          "oh-package-lock.json5"
+        ]
+      },
+      {
+        "question": "下列不属于 UIAbility 生命周期方法的是（ ）。",
+        "answer": 3,
+        "explanation": "onPageShow() 属于页面组件生命周期；UIAbility 使用 onCreate、onForeground 等方法。",
+        "options": [
+          "onCreate()",
+          "onForeground()",
+          "onDestroy()",
+          "onPageShow()"
+        ]
+      },
+      {
+        "question": "关于入口组件生命周期的说法错误的是（ ）。",
+        "answer": 3,
+        "explanation": "onBackPress 在用户触发返回操作时调用，不是页面隐藏回调。",
+        "options": [
+          "aboutToAppear 在组件创建时、build 前执行",
+          "aboutToDisappear 在组件销毁前执行",
+          "onPageShow 在页面每次显示时执行",
+          "onBackPress 在页面每次隐藏时执行"
+        ]
+      },
+      {
+        "question": "UIAbility 配置信息的说法错误的是（ ）。",
+        "answer": 1,
+        "explanation": "label 通常是 UIAbility 显示名称；图标由 icon 等字段配置。",
+        "options": [
+          "name 标识 UIAbility 名称",
+          "label 标识 UIAbility 界面上的图标",
+          "description 标识 UIAbility 描述信息",
+          "srcEntry 标识 UIAbility 入口文件路径"
+        ]
+      }
+    ],
+    "multiple": [
+      {
+        "question": "下列属于鸿蒙特点的有（多选）。",
+        "explanation": "此题为多选，选项 A、B、C 均体现鸿蒙的分布式、多设备适配和统一开发特点。",
+        "options": [
+          "分布式架构",
+          "多终端适配",
+          "统一开发平台",
+          "较高的资源占用"
+        ],
+        "answers": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "question": "安装模拟器需要开启的 Windows 功能有（多选）。",
+        "explanation": "模拟器依赖 Windows 的虚拟化能力，需启用 Hyper-V、Windows 虚拟机监控程序平台及虚拟机平台。",
+        "options": [
+          "Hyper-V",
+          "NFS 服务",
+          "Windows 虚拟机监控程序平台",
+          "虚拟机平台"
+        ],
+        "answers": [
+          0,
+          2,
+          3
+        ]
+      },
+      {
+        "question": "下列属于模拟器包含的设备有（多选）。",
+        "explanation": "模拟器提供手机、折叠屏、平板和 PC 等设备形态。",
+        "options": [
+          "Huawei_Phone",
+          "Huawei_Foldable",
+          "Huawei_Tablet",
+          "Huawei_PC"
+        ],
+        "answers": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "question": "关于 @BuilderParam 的正确说法有（多选）。",
+        "explanation": "@BuilderParam 接收自定义构建函数，可让父组件传入内容，形成类似插槽的复用方式；它不只限于入口组件。",
+        "options": [
+          "用于装饰值为自定义构建函数的属性",
+          "被装饰属性的值是自定义构建函数",
+          "只适用于入口组件",
+          "可以实现插槽效果"
+        ],
+        "answers": [
+          0,
+          1,
+          3
+        ]
+      }
+    ],
+    "tf": [
+      {
+        "question": "鸿蒙始终与 Android 保持兼容。",
+        "answer": false,
+        "explanation": "“始终兼容”说法过于绝对；鸿蒙系统及不同版本的应用生态和兼容能力并不等同于 Android。"
+      },
+      {
+        "question": "鸿蒙只能在智能手机和平板电脑上运行。",
+        "answer": false,
+        "explanation": "鸿蒙面向多种终端设备，包含手机、平板、智慧屏、穿戴设备等形态。"
+      },
+      {
+        "question": "应用的全局配置文件是 AppScope/app.json5。",
+        "answer": true,
+        "explanation": "AppScope/app.json5 用于配置应用级信息，例如应用名称、图标和版本等。"
+      },
+      {
+        "question": "ArkTS 是专为鸿蒙生态而设计的集成开发环境。",
+        "answer": false,
+        "explanation": "ArkTS 是编程语言；DevEco Studio 才是常用的鸿蒙应用集成开发环境。"
+      },
+      {
+        "question": "鸿蒙目前采用的模型是 Stage 模型。",
+        "answer": true,
+        "explanation": "当前鸿蒙应用开发主要采用 Stage 模型组织应用组件与生命周期。"
+      },
+      {
+        "question": "ArkTS 支持 TypeScript 的所有语法。",
+        "answer": false,
+        "explanation": "ArkTS 基于 TypeScript 并增加约束，不代表支持 TypeScript 的所有语法。"
+      },
+      {
+        "question": "定义变量时，变量的类型不能省略。",
+        "answer": false,
+        "explanation": "可根据上下文推导类型，因此类型标注并非每次都必须写。"
+      },
+      {
+        "question": "object 表示对象，是一种引用数据类型。",
+        "answer": true,
+        "explanation": "对象通过引用进行访问，变量保存的是对象引用。"
+      },
+      {
+        "question": "用于定义函数的关键字是 class。",
+        "answer": false,
+        "explanation": "class 用于定义类；函数可使用 function 声明，也可使用箭头函数。"
+      },
+      {
+        "question": "声明变量时类型不确定，可以使用 any 类型。",
+        "answer": true,
+        "explanation": "any 可表示不受严格类型检查的值，但初学时应尽量使用明确类型。"
+      },
+      {
+        "question": "定义类成员时，访问控制修饰符不能省略。",
+        "answer": false,
+        "explanation": "访问修饰符可以省略，成员会使用语言规定的默认可见性。"
+      },
+      {
+        "question": "Math 对象用于进行数学相关运算。",
+        "answer": true,
+        "explanation": "Math 提供取整、幂运算和随机数等数学方法。"
+      },
+      {
+        "question": "泛型是一种固定的类型。",
+        "answer": false,
+        "explanation": "泛型是类型参数，可让代码适用于多种类型并保留类型检查。"
+      },
+      {
+        "question": "一个类只能实现一个接口。",
+        "answer": false,
+        "explanation": "一个类可以通过 implements 实现多个接口。"
+      },
+      {
+        "question": "一个接口可以继承另一个接口。",
+        "answer": true,
+        "explanation": "接口可通过 extends 继承其他接口的成员约定。"
+      },
+      {
+        "question": "每个页面只能有一个 @Entry 装饰的组件。",
+        "answer": true,
+        "explanation": "一个页面文件通常定义一个入口组件作为页面入口。"
+      },
+      {
+        "question": "@State 变量变化时会触发所在组件 UI 重新渲染。",
+        "answer": true,
+        "explanation": "@State 将状态变化与组件刷新关联起来。"
+      },
+      {
+        "question": "build() 方法必须有内容。",
+        "answer": false,
+        "explanation": "空页面可使用空的 build() 方法，不一定要包含组件。"
+      },
+      {
+        "question": "Column 组件是一个自定义组件。",
+        "answer": false,
+        "explanation": "Column 是 ArkUI 内置容器组件，用于纵向排列子组件。"
+      },
+      {
+        "question": "Row 沿水平方向布局子组件。",
+        "answer": true,
+        "explanation": "Row 的主轴为水平方向，常用于横向布局。"
+      },
+      {
+        "question": "条件渲染可根据条件决定是否渲染组件。",
+        "answer": true,
+        "explanation": "条件渲染通常通过 if/else 根据状态选择要创建的组件。"
+      },
+      {
+        "question": "@Styles 只能装饰 struct 外定义的方法。",
+        "answer": true,
+        "explanation": "@Styles 用于 struct 外部定义的全局通用样式方法。"
+      },
+      {
+        "question": "@Extend 只能装饰 struct 内定义的方法。",
+        "answer": false,
+        "explanation": "@Extend 通常用于 struct 外定义的组件扩展方法。"
+      },
+      {
+        "question": "组件不支持默认导出。",
+        "answer": false,
+        "explanation": "组件可以使用 export default 默认导出，也可以命名导出。"
+      },
+      {
+        "question": "自定义构建函数的参数只能进行值传递。",
+        "answer": false,
+        "explanation": "@Builder 支持按值传递，也可通过引用方式传递状态以响应变化。"
+      },
+      {
+        "question": "页面栈是后进先出结构，最大容量为 30 个页面。",
+        "answer": true,
+        "explanation": "路由页面栈按后进先出工作，文档所述最大容量为 30。"
+      },
+      {
+        "question": "titleMode 设置为 NavigationTitleMode.Full 可显示完整标题栏。",
+        "answer": true,
+        "explanation": "Full 模式显示完整标题栏。"
+      },
+      {
+        "question": "Navigation 的 toolbarConfiguration 属性可以设置工具栏。",
+        "answer": true,
+        "explanation": "toolbarConfiguration 用于配置导航工具栏内容。"
+      },
+      {
+        "question": "包名可以从 AppScope/app.json5 获取。",
+        "answer": true,
+        "explanation": "应用级配置文件中的 bundleName 等信息用于标识应用包名。"
+      },
+      {
+        "question": "模块名可以从根目录 build-profile.json5 获取。",
+        "answer": false,
+        "explanation": "build-profile.json5 主要配置构建相关信息；模块配置应查看模块自身的配置文件。"
+      },
+      {
+        "question": "@Prop 只适用于入口组件，不适用于非入口组件。",
+        "answer": false,
+        "explanation": "@Prop 可用于非入口自定义组件接收父组件传入的数据。"
+      },
+      {
+        "question": "PersistentStorage 用于持久化存储指定数据。",
+        "answer": true,
+        "explanation": "PersistentStorage 将指定状态持久化，使应用重启后仍可恢复。"
+      },
+      {
+        "question": "@Watch 装饰器需要指定一个回调函数名。",
+        "answer": true,
+        "explanation": "@Watch(方法名) 指定状态变化后调用的回调方法。"
+      },
+      {
+        "question": "入口组件的页面隐藏生命周期方法是 onHide()。",
+        "answer": false,
+        "explanation": "onPageHide() 是页面隐藏相关的生命周期；onHide() 常指 UIAbility 生命周期名称。"
+      },
+      {
+        "question": "一个应用只能包含一个 UIAbility。",
+        "answer": false,
+        "explanation": "应用可以包含多个 UIAbility，以承载不同的交互入口或功能。"
+      }
+    ],
+    "fill": [
+      {
+        "question": "自主研发鸿蒙的公司是______。",
+        "answer": "华为",
+        "explanation": "鸿蒙由华为研发，题目考查系统的研发主体。"
+      },
+      {
+        "question": "entry/src/main 中存放应用资源文件的目录是______。",
+        "answer": "resources",
+        "explanation": "resources 目录集中存放图片、字符串、颜色等应用资源。"
+      },
+      {
+        "question": "用于存放 ArkTS 源码文件的目录是______。",
+        "answer": "ets",
+        "explanation": "Stage 模型项目通常将 ArkTS 源码放在 entry/src/main/ets。"
+      },
+      {
+        "question": "用于存放应用所依赖第三方库文件的目录是______。",
+        "answer": "libs",
+        "explanation": "libs 目录可用于存放模块依赖的本地库文件。"
+      },
+      {
+        "question": "鸿蒙秉持______的理念，鼓励开发者共同参与生态建设。",
+        "answer": "开放",
+        "explanation": "开放生态鼓励开发者共同参与应用和服务建设。"
+      },
+      {
+        "question": "定义变量时，数字类型使用______表示。",
+        "answer": "number",
+        "explanation": "ArkTS 使用 number 表示整数和浮点数。"
+      },
+      {
+        "question": "定义变量时，字符串类型使用______表示。",
+        "answer": "string",
+        "explanation": "字符串类型名称为 string。"
+      },
+      {
+        "question": "声明常量使用的关键字是______。",
+        "answer": "const",
+        "explanation": "const 声明后不能重新赋值。"
+      },
+      {
+        "question": "变量有多种可能类型时，用______分隔类型。",
+        "answer": "|",
+        "explanation": "联合类型使用竖线连接，例如 string | number。"
+      },
+      {
+        "question": "三元运算符包括______和______。",
+        "answer": "条件表达式 ? 表达式1 : 表达式2（? 和 :）",
+        "explanation": "三元表达式先判断条件，再在冒号两侧的结果中选择一个。"
+      },
+      {
+        "question": "定义接口的关键字是______。",
+        "answer": "interface",
+        "explanation": "interface 用于声明对象需要满足的属性和方法结构。"
+      },
+      {
+        "question": "定义类的关键字是______。",
+        "answer": "class",
+        "explanation": "class 用于定义类。"
+      },
+      {
+        "question": "通过类创建对象使用的关键字是______。",
+        "answer": "new",
+        "explanation": "new 会创建类的实例并调用构造方法。"
+      },
+      {
+        "question": "类中初始化成员的方法称为______方法。",
+        "answer": "构造（constructor）",
+        "explanation": "构造方法在创建实例时执行，通常用于初始化成员。"
+      },
+      {
+        "question": "子类继承父类使用的关键字是______。",
+        "answer": "extends",
+        "explanation": "extends 建立子类与父类的继承关系。"
+      },
+      {
+        "question": "ArkUI 为组件提供了______和事件。",
+        "answer": "属性",
+        "explanation": "组件属性用于设置外观和行为，事件用于响应用户操作。"
+      },
+      {
+        "question": "用于设置宽度的通用属性是______。",
+        "answer": "width",
+        "explanation": "width() 用于设置组件宽度。"
+      },
+      {
+        "question": "@Entry 用于将自定义组件装饰为页面的______。",
+        "answer": "入口",
+        "explanation": "入口组件是页面加载时显示的根组件。"
+      },
+      {
+        "question": "单行文本输入框组件是______。",
+        "answer": "TextInput",
+        "explanation": "TextInput 用于输入单行文本。"
+      },
+      {
+        "question": "______组件是以弹性方式布局子组件的容器。",
+        "answer": "Flex",
+        "explanation": "Flex 可按设定方向排列子组件，并支持换行、对齐等布局。"
+      },
+      {
+        "question": "循环渲染语句通过______函数实现。",
+        "answer": "ForEach",
+        "explanation": "ForEach 遍历数据数组并为每一项创建对应组件。"
+      },
+      {
+        "question": "组件导出使用的关键字是______。",
+        "answer": "export",
+        "explanation": "export 可将组件或其他声明提供给外部模块。"
+      },
+      {
+        "question": "用于复用通用属性和事件的方法使用______装饰器。",
+        "answer": "@Styles",
+        "explanation": "@Styles 定义可复用的通用样式方法。"
+      },
+      {
+        "question": "用于复用私有属性和私有事件的方法使用______装饰器。",
+        "answer": "@Extend",
+        "explanation": "@Extend 用于扩展指定组件并复用其专属属性或事件。"
+      },
+      {
+        "question": "用于装饰自定义构建函数的是______装饰器。",
+        "answer": "@Builder",
+        "explanation": "@Builder 标记可复用的自定义组件构建函数。"
+      },
+      {
+        "question": "路由提供了______实例模式，每次跳转新建目标页并压入栈顶。",
+        "answer": "standard",
+        "explanation": "standard 模式会为每次跳转创建新的页面实例。"
+      },
+      {
+        "question": "router 对象中实现页面返回的方法是______。",
+        "answer": "back()",
+        "explanation": "router.back() 返回上一个页面。"
+      },
+      {
+        "question": "设备屏幕宽度大于______时采用分栏模式。",
+        "answer": "600vp",
+        "explanation": "组件导航在宽屏设备上可使用分栏模式，常见阈值为 600vp。"
+      },
+      {
+        "question": "Navigation 中设置标题栏页面标题的属性是______。",
+        "answer": "title",
+        "explanation": "title 属性用于设置导航栏标题。"
+      },
+      {
+        "question": "Navigation 中设置导航显示模式的属性是______。",
+        "answer": "mode",
+        "explanation": "mode 可设置导航组件的显示模式。"
+      },
+      {
+        "question": "使用______装饰器实现子组件状态与父组件状态单向同步。",
+        "answer": "@Prop",
+        "explanation": "@Prop 接收父组件传入的值，子组件本地变化不会回写父组件。"
+      },
+      {
+        "question": "使用______装饰器实现子组件状态与父组件状态双向同步。",
+        "answer": "@Link",
+        "explanation": "@Link 建立父子组件间的双向状态关联。"
+      },
+      {
+        "question": "使用______和______装饰器实现跨级组件状态双向同步。",
+        "answer": "@Provide 和 @Consume",
+        "explanation": "祖先组件用 @Provide 提供状态，后代组件用 @Consume 获取并同步。"
+      },
+      {
+        "question": "______表示页面级 UI 状态存储。",
+        "answer": "LocalStorage",
+        "explanation": "LocalStorage 表示页面或 UIAbility 范围内的状态存储，可按需传递给组件树。"
+      },
+      {
+        "question": "______表示应用全局的 UI 状态存储。",
+        "answer": "AppStorage",
+        "explanation": "AppStorage 用于应用全局共享 UI 状态；PersistentStorage 可将选定状态持久化。题目原文空格换行位置容易混淆，此处按常见状态管理定义整理。"
+      }
+    ],
+    "short": [
+      {
+        "question": "请简述什么是 ArkTS 和 ArkUI。",
+        "answer": "ArkTS 是鸿蒙应用开发使用的编程语言，在 TypeScript 基础上增加类型约束等能力；ArkUI 是用于构建鸿蒙应用界面的 UI 框架，提供组件、布局和交互能力。",
+        "explanation": "两者分工不同：ArkTS 负责编写逻辑，ArkUI 负责声明和呈现界面，开发者通常使用 ArkTS 编写 ArkUI 组件。"
+      },
+      {
+        "question": "请简述 HAR 和 HSP 的区别。",
+        "answer": "HAR 是静态共享包，编译时可合入应用模块；HSP 是动态共享包，可在多个模块间共享，支持独立编译与运行时加载。",
+        "explanation": "两者都是模块化复用方式，主要区别在于打包和加载时机：HAR 偏静态合并，HSP 偏动态共享。"
+      },
+      {
+        "question": "请简述定时器的设置方法。",
+        "answer": "使用 setTimeout(回调, 毫秒数) 延迟执行一次；使用 setInterval(回调, 毫秒数) 重复执行。需要停止时分别调用 clearTimeout 或 clearInterval，并保存定时器编号。",
+        "explanation": "定时器间隔使用毫秒，停止重复任务时应清除 interval，避免页面退出后仍重复执行。"
+      },
+      {
+        "question": "请简述箭头函数的语法格式。",
+        "answer": "基本格式为 const 函数名 = (参数列表): 返回类型 => { 函数体 }。只有一个参数时括号可省略；函数体只有一个返回表达式时可写成简洁形式。",
+        "explanation": "箭头函数用 => 连接参数与函数体，适合回调；省略括号或大括号时应遵循对应语法规则。"
+      },
+      {
+        "question": "请简述如何在 ArkTS 中进行错误处理。",
+        "answer": "把可能出错的语句放在 try 代码块中，用 catch(error) 接收并处理异常；需要在处理后继续向上报告时可使用 throw。无论是否出错都要执行的清理操作可放在 finally。",
+        "explanation": "try、catch、finally 分别用于执行可能失败的代码、处理异常和执行收尾操作。"
+      },
+      {
+        "question": "请简述 async、await 关键字的作用。",
+        "answer": "async 用于声明异步函数，使其返回 Promise；await 用于等待 Promise 完成并取得结果，让异步代码按顺序书写。await 通常放在 async 函数内，异常可用 try/catch 处理。",
+        "explanation": "这两个关键字让异步流程更容易阅读；等待期间不会阻塞整个应用的事件循环。"
+      }
+    ],
+    "code": [
+      {
+        "question": "使用按钮、输入框和滑动条控制图像宽度（100～300，步进10）。",
+        "answer": "@Entry\n@Component\nstruct ImageWidthPage {\n  @State imageWidth: number = 120\n\n  build() {\n    Column({ space: 12 }) {\n      Image($r('app.media.icon')).width(this.imageWidth)\n      TextInput({ text: String(this.imageWidth) })\n        .type(InputType.Number)\n        .onChange(value => {\n          const width = Number(value)\n          if (width >= 100 && width <= 300) this.imageWidth = width\n        })\n      Row() {\n        Button('减小').onClick(() => this.imageWidth = Math.max(100, this.imageWidth - 10))\n        Button('增大').onClick(() => this.imageWidth = Math.min(300, this.imageWidth + 10))\n      }\n      Slider({ value: this.imageWidth, min: 100, max: 300, step: 10 })\n        .onChange(value => this.imageWidth = value)\n      Text(`当前宽度：${this.imageWidth}`)\n    }\n    .padding(20)\n  }\n}",
+        "explanation": "@State 保存当前宽度，输入框和滑动条变化时更新状态；Math.max/Math.min 限制按钮操作范围。Slider 设置最小值、最大值和步长。图片资源名称需替换为项目中实际存在的资源。"
+      },
+      {
+        "question": "使用循环渲染语句实现个人履历列表。",
+        "answer": "@Entry\n@Component\nstruct ResumePage {\n  private records: string[] = [\n    '2021-2022 学习基础课程',\n    '2022-2023 参加项目实践',\n    '2023-2024 完成专业学习'\n  ]\n\n  build() {\n    Column({ space: 12 }) {\n      Text('个人履历').fontSize(24)\n      ForEach(this.records, (item: string) => {\n        Text(item).width('100%').padding(12).backgroundColor('#F1F3F5')\n      }, (item: string) => item)\n    }\n    .padding(20)\n  }\n}",
+        "explanation": "用数组保存履历数据，ForEach 遍历数组并创建文本项。第三个参数提供稳定键，数据增删时有助于组件正确更新。"
+      },
+      {
+        "question": "使用组件导航实现登录、注册和个人中心页面跳转。",
+        "answer": "@Entry\n@Component\nstruct LoginFlow {\n  @State page: string = 'login'\n\n  build() {\n    Navigation() {\n      Column({ space: 12 }) {\n        if (this.page === 'login') {\n          TextInput({ placeholder: '用户名' })\n          TextInput({ placeholder: '密码' }).type(InputType.Password)\n          Button('登录').onClick(() => this.page = 'profile')\n          Button('去注册').onClick(() => this.page = 'register')\n        } else if (this.page === 'register') {\n          TextInput({ placeholder: '用户名' })\n          TextInput({ placeholder: '密码' }).type(InputType.Password)\n          TextInput({ placeholder: '确认密码' }).type(InputType.Password)\n          Button('注册').onClick(() => this.page = 'profile')\n          Button('去登录').onClick(() => this.page = 'login')\n        } else {\n          Text('当前您已登录')\n          Button('退出登录').onClick(() => this.page = 'login')\n        }\n      }\n      .padding(20)\n    }\n    .title('账户')\n  }\n}",
+        "explanation": "用状态变量 page 表示当前显示内容，按钮点击时修改状态完成页面切换。实际多页面应用也可用 Navigation 的 NavPathStack 管理路由栈；此示例聚焦组件导航中的条件展示与跳转关系。"
+      },
+      {
+        "question": "实现显示用户名、性别、年龄并持久化年龄，点击按钮加一。",
+        "answer": "PersistentStorage.persistProp('userAge', 20)\n\n@Entry\n@Component\nstruct UserInfoPage {\n  @StorageLink('userAge') age: number = 20\n  private userName: string = '小明'\n  private gender: string = '男'\n\n  build() {\n    Column({ space: 12 }) {\n      Text(`用户名：${this.userName}`)\n      Text(`性别：${this.gender}`)\n      Text(`年龄：${this.age}`)\n      Button('年龄+').onClick(() => this.age += 1)\n    }\n    .padding(20)\n  }\n}",
+        "explanation": "PersistentStorage.persistProp 将初始年龄保存为持久化属性，@StorageLink 将页面状态与存储项双向关联。点击按钮递增后，更新会写入持久化状态，应用重新启动后恢复。实际工程应在首次初始化时避免覆盖已有存储值。"
+      }
+    ]
+  }
+}

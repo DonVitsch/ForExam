@@ -1,0 +1,719 @@
+{
+  "id": "professional-english",
+  "name": "专业英语",
+  "types": {
+    "choice": [],
+    "multiple": [],
+    "tf": [],
+    "fill": [
+      {
+        "question": "词汇构词：根据“correction（校正（名词））”写出练习册给出的目标词。",
+        "answer": "autocorrection",
+        "explanation": "auto-表示自动，autocorrection为自动校正。"
+      },
+      {
+        "question": "词汇构词：根据“biography（传记）”写出练习册给出的目标词。",
+        "answer": "autobiography",
+        "explanation": "auto-表示自身，自传。"
+      },
+      {
+        "question": "词汇构词：根据“exist（存在）”写出练习册给出的目标词。",
+        "answer": "coexist",
+        "explanation": "co-表示共同，coexist为共存。"
+      },
+      {
+        "question": "词汇构词：根据“author（作家）”写出练习册给出的目标词。",
+        "answer": "coauthor",
+        "explanation": "co-表示共同作者。"
+      },
+      {
+        "question": "词汇构词：根据“tell（告诉）”写出练习册给出的目标词。",
+        "answer": "foretell",
+        "explanation": "fore-表示预先，foretell为预言。"
+      },
+      {
+        "question": "词汇构词：根据“father（父亲）”写出练习册给出的目标词。",
+        "answer": "forefather",
+        "explanation": "fore-表示前代，forefather为祖先。"
+      },
+      {
+        "question": "词汇构词：根据“waiter（男服务员）”写出练习册给出的目标词。",
+        "answer": "waitress",
+        "explanation": "-ess构成女性名词。"
+      },
+      {
+        "question": "词汇构词：根据“host（主人）”写出练习册给出的目标词。",
+        "answer": "hostess",
+        "explanation": "-ess构成女性名词。"
+      },
+      {
+        "question": "词汇构词：根据“train（训练）”写出练习册给出的目标词。",
+        "answer": "trainee",
+        "explanation": "-ee表示接受动作的人。"
+      },
+      {
+        "question": "词汇构词：根据“pay（支付/薪水）”写出练习册给出的目标词。",
+        "answer": "payee",
+        "explanation": "-ee表示收款人。"
+      },
+      {
+        "question": "词汇构词：根据“byte（字节）”写出练习册给出的目标词。",
+        "answer": "kilobyte",
+        "explanation": "kilo-表示约一千，kilobyte为千字节。"
+      },
+      {
+        "question": "词汇构词：根据“bit（位）”写出练习册给出的目标词。",
+        "answer": "kilobit",
+        "explanation": "kilo-表示千，kilobit为千比特。"
+      },
+      {
+        "question": "词汇构词：根据“way（路）”写出练习册给出的目标词。",
+        "answer": "subway",
+        "explanation": "sub-表示地下，subway为地铁。"
+      },
+      {
+        "question": "词汇构词：根据“punish（惩罚）”写出练习册给出的目标词。",
+        "answer": "punishment",
+        "explanation": "-ment构成名词。"
+      },
+      {
+        "question": "词汇构词：根据“argue（争论）”写出练习册给出的目标词。",
+        "answer": "argument",
+        "explanation": "-ment构成名词。"
+      },
+      {
+        "question": "词汇构词：根据“large（大的）”写出练习册给出的目标词。",
+        "answer": "enlarge",
+        "explanation": "en-表示使……，enlarge为扩大。"
+      },
+      {
+        "question": "词汇构词：根据“danger（危险）”写出练习册给出的目标词。",
+        "answer": "endanger",
+        "explanation": "en-表示使处于某状态。"
+      },
+      {
+        "question": "词汇构词：根据“develop（发展）”写出练习册给出的目标词。",
+        "answer": "development",
+        "explanation": "-ment构成名词。"
+      },
+      {
+        "question": "词汇构词：根据“equip（装备）”写出练习册给出的目标词。",
+        "answer": "equipment",
+        "explanation": "-ment构成名词。"
+      },
+      {
+        "question": "词汇构词：根据“grow（生长）”写出练习册给出的目标词。",
+        "answer": "growth",
+        "explanation": "-th构成名词。"
+      },
+      {
+        "question": "词汇构词：根据“expand（扩展）”写出练习册给出的目标词。",
+        "answer": "expansion",
+        "explanation": "-sion构成名词。"
+      },
+      {
+        "question": "词汇构词：根据“geometry（几何学）”写出练习册给出的目标词。",
+        "answer": "geometrical",
+        "explanation": "-al构成形容词。"
+      },
+      {
+        "question": "词汇构词：根据“repeat（重复）”写出练习册给出的目标词。",
+        "answer": "repeater",
+        "explanation": "-er表示执行动作的设备或人。"
+      },
+      {
+        "question": "词汇构词：根据“route（路线）”写出练习册给出的目标词。",
+        "answer": "router",
+        "explanation": "-er构成设备名路由器。"
+      },
+      {
+        "question": "词汇构词：根据“power（能力）”写出练习册给出的目标词。",
+        "answer": "powerful",
+        "explanation": "-ful表示充满……的。"
+      },
+      {
+        "question": "词汇构词：根据“flex（弯曲）”写出练习册给出的目标词。",
+        "answer": "flexure",
+        "explanation": "-ure构成名词。"
+      },
+      {
+        "question": "词汇构词：根据“essence（本质）”写出练习册给出的目标词。",
+        "answer": "essential",
+        "explanation": "-ial构成形容词。"
+      },
+      {
+        "question": "词汇构词：根据“magnetism（磁力）”写出练习册给出的目标词。",
+        "answer": "electromagnetism",
+        "explanation": "electro-表示电，电磁学。"
+      },
+      {
+        "question": "词汇构词：根据“tire（疲倦）”写出练习册给出的目标词。",
+        "answer": "tireless",
+        "explanation": "-less表示没有……的。"
+      },
+      {
+        "question": "词汇构词：根据“home（家）”写出练习册给出的目标词。",
+        "answer": "homeless",
+        "explanation": "-less表示无家可归的。"
+      },
+      {
+        "question": "词汇构词：根据“color（颜色）”写出练习册给出的目标词。",
+        "answer": "colorless",
+        "explanation": "-less表示无色的。"
+      },
+      {
+        "question": "词汇构词：根据“partial（有偏见的）”写出练习册给出的目标词。",
+        "answer": "impartial",
+        "explanation": "im-表示否定，公正的。"
+      },
+      {
+        "question": "词汇构词：根据“mortal（不能永生的）”写出练习册给出的目标词。",
+        "answer": "immortal",
+        "explanation": "im-表示否定，不朽的。"
+      },
+      {
+        "question": "词汇构词：根据“passionate（有激情的）”写出练习册给出的目标词。",
+        "answer": "dispassionate",
+        "explanation": "dis-表示相反，冷静客观的。"
+      },
+      {
+        "question": "词汇构词：根据“appear（出现）”写出练习册给出的目标词。",
+        "answer": "disappear",
+        "explanation": "dis-表示相反，消失。"
+      },
+      {
+        "question": "词汇构词：根据“arm（武装）”写出练习册给出的目标词。",
+        "answer": "disarm",
+        "explanation": "dis-表示解除，解除武装。"
+      },
+      {
+        "question": "词汇构词：根据“cover（盖/覆盖）”写出练习册给出的目标词。",
+        "answer": "discover",
+        "explanation": "练习册给定词形；discover意为发现。"
+      },
+      {
+        "question": "词汇构词：根据“care（照顾）”写出练习册给出的目标词。",
+        "answer": "careful",
+        "explanation": "-ful表示充满关心的/小心的。"
+      },
+      {
+        "question": "词汇构词：根据“wonder（惊讶）”写出练习册给出的目标词。",
+        "answer": "wonderful",
+        "explanation": "-ful构成形容词，精彩的。"
+      },
+      {
+        "question": "词汇构词：根据“color（颜色）”写出练习册给出的目标词。",
+        "answer": "colorful",
+        "explanation": "-ful表示多彩的。"
+      },
+      {
+        "question": "词汇构词：根据“national（国家的）”写出练习册给出的目标词。",
+        "answer": "international",
+        "explanation": "inter-表示相互/国际间。"
+      },
+      {
+        "question": "词汇构词：根据“media（媒体）”写出练习册给出的目标词。",
+        "answer": "hypermedia",
+        "explanation": "hyper-表示超媒体。"
+      },
+      {
+        "question": "词汇构词：根据“install（安装）”写出练习册给出的目标词。",
+        "answer": "uninstall",
+        "explanation": "un-表示相反，卸载。"
+      },
+      {
+        "question": "词汇构词：根据“repository（仓库）”写出练习册给出的目标词。",
+        "answer": "repost",
+        "explanation": "原文给出此对应，但repost意为再次发布，与repository并非正常派生关系。"
+      },
+      {
+        "question": "词汇构词：根据“unprecedented（前所未有的）”写出练习册给出的目标词。",
+        "answer": "precedence",
+        "explanation": "原文给出此对应；precedence意为优先/先例，与unprecedented不是同义派生词。"
+      },
+      {
+        "question": "词汇构词：根据“retailer（零售商）”写出练习册给出的目标词。",
+        "answer": "retail",
+        "explanation": "retail表示零售。"
+      },
+      {
+        "question": "词汇构词：根据“notification（通知）”写出练习册给出的目标词。",
+        "answer": "notify",
+        "explanation": "-fy表示使……，notify为通知。"
+      },
+      {
+        "question": "词汇构词：根据“norm（标准）”写出练习册给出的目标词。",
+        "answer": "normal",
+        "explanation": "-al构成形容词，正常的。"
+      },
+      {
+        "question": "词汇构词：根据“skimp（节俭）”写出练习册给出的目标词。",
+        "answer": "skimpiness",
+        "explanation": "-ness构成名词，吝啬/节俭。"
+      },
+      {
+        "question": "词汇构词：根据“graphic（图形的）”写出练习册给出的目标词。",
+        "answer": "graph",
+        "explanation": "graph表示图/图形。"
+      },
+      {
+        "question": "词汇构词：根据“value（价值）”写出练习册给出的目标词。",
+        "answer": "devalue",
+        "explanation": "de-表示降低价值。"
+      },
+      {
+        "question": "词汇构词：根据“press（按压）”写出练习册给出的目标词。",
+        "answer": "depress",
+        "explanation": "de-表示向下，压下/使沮丧。"
+      },
+      {
+        "question": "词汇构词：根据“port（港口）”写出练习册给出的目标词。",
+        "answer": "export",
+        "explanation": "ex-表示向外，出口。"
+      },
+      {
+        "question": "词汇构词：根据“tract（拖/拉）”写出练习册给出的目标词。",
+        "answer": "extract",
+        "explanation": "ex-表示向外，抽取。"
+      },
+      {
+        "question": "词汇构词：根据“husband（丈夫）”写出练习册给出的目标词。",
+        "answer": "ex-husband",
+        "explanation": "ex-表示前任。"
+      },
+      {
+        "question": "词汇构词：根据“frequency（频率）”写出练习册给出的目标词。",
+        "answer": "frequent",
+        "explanation": "名词转形容词，频繁的。"
+      },
+      {
+        "question": "词汇构词：根据“organ（组织/器官）”写出练习册给出的目标词。",
+        "answer": "organize",
+        "explanation": "-ize表示使组织起来。"
+      },
+      {
+        "question": "词汇构词：根据“obey（服从）”写出练习册给出的目标词。",
+        "answer": "obedient",
+        "explanation": "-ent构成形容词，顺从的。"
+      },
+      {
+        "question": "词汇构词：根据“computer（计算机）”写出练习册给出的目标词。",
+        "answer": "supercomputer",
+        "explanation": "super-表示超大型/超级。"
+      },
+      {
+        "question": "词汇构词：根据“computer（计算机）”写出练习册给出的目标词。",
+        "answer": "microcomputer",
+        "explanation": "micro-表示微型。"
+      },
+      {
+        "question": "词汇构词：根据“number（数字）”写出练习册给出的目标词。",
+        "answer": "numerical",
+        "explanation": "-ical构成形容词，数值的。"
+      },
+      {
+        "question": "词汇构词：根据“add（加）”写出练习册给出的目标词。",
+        "answer": "adder",
+        "explanation": "-er构成执行加法的加法器。"
+      },
+      {
+        "question": "词汇构词：根据“multiply（乘）”写出练习册给出的目标词。",
+        "answer": "multiplier",
+        "explanation": "-er构成乘数/乘法器。"
+      },
+      {
+        "question": "词汇构词：根据“divide（除）”写出练习册给出的目标词。",
+        "answer": "divider",
+        "explanation": "-er构成除数/分隔器。"
+      },
+      {
+        "question": "词汇构词：根据“flex（折曲）”写出练习册给出的目标词。",
+        "answer": "flexible",
+        "explanation": "-ible表示能够……的，灵活的。"
+      },
+      {
+        "question": "词汇构词：根据“rely（依靠）”写出练习册给出的目标词。",
+        "answer": "reliable",
+        "explanation": "-able表示可……的，可靠的。"
+      },
+      {
+        "question": "专业词汇翻译：Processor",
+        "answer": "处理器",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：插座",
+        "answer": "socket",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Microprocessor",
+        "answer": "微处理器",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：寄存器",
+        "answer": "register",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Operation code",
+        "answer": "操作码",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：开关",
+        "answer": "switch",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Main frequency",
+        "answer": "主频",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：脉冲",
+        "answer": "pulse",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Operand",
+        "answer": "操作数",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Version",
+        "answer": "版本",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：应用软件",
+        "answer": "application software",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Wearable",
+        "answer": "可穿戴设备",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：文件",
+        "answer": "file",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Paste",
+        "answer": "粘贴",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：网页",
+        "answer": "web page",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Data processing",
+        "answer": "数据处理",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：办公自动化",
+        "answer": "office automation",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：XML",
+        "answer": "可扩展标记语言",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Ethernet",
+        "answer": "以太网",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：客户/服务器",
+        "answer": "client/server",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：FDDI",
+        "answer": "光纤分布式数据接口",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：对等网络",
+        "answer": "peer-to-peer network",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Topology",
+        "answer": "拓扑结构",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：电缆",
+        "answer": "cable",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Mesh network",
+        "answer": "网状网络",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：城域网",
+        "answer": "metropolitan area network (MAN)",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Ring network",
+        "answer": "环形网络",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Processor",
+        "answer": "处理器",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：插座",
+        "answer": "socket",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Microprocessor",
+        "answer": "微处理器",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：寄存器",
+        "answer": "register",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Operation code",
+        "answer": "操作码",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：开关",
+        "answer": "switch",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Main frequency",
+        "answer": "主频",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：脉冲",
+        "answer": "pulse",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Operand",
+        "answer": "操作数",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Cloud computing",
+        "answer": "云计算",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：大数据",
+        "answer": "big data",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Enterprise cloud",
+        "answer": "企业云",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：速度",
+        "answer": "velocity",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Public cloud",
+        "answer": "公有云",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：网页",
+        "answer": "web page",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Variety",
+        "answer": "多样性",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：混合云",
+        "answer": "hybrid cloud",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Virtualize",
+        "answer": "虚拟化",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：database",
+        "answer": "数据库",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：关系型数据库",
+        "answer": "relational database",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Model",
+        "answer": "模型",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：数据库管理系统",
+        "answer": "database management system (DBMS)",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：update",
+        "answer": "更新",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：对象型数据库",
+        "answer": "object-oriented database",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Data layering",
+        "answer": "数据分层",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：防火墙",
+        "answer": "firewall",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Modification",
+        "answer": "修改",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：缓冲",
+        "answer": "buffer",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Restricting access",
+        "answer": "限制访问",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：备份数据",
+        "answer": "back up data",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Online",
+        "answer": "在线",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：零售商",
+        "answer": "retailer",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：BTB",
+        "answer": "原文如此；通常写作B2B，企业对企业",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：银行汇款",
+        "answer": "bank transfer",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：E-commerce",
+        "answer": "电子商务",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：电子数据交换",
+        "answer": "electronic data interchange (EDI)",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：Main frequency",
+        "answer": "主频",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：注册",
+        "answer": "registration",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：obedient",
+        "answer": "顺从的",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：创新的",
+        "answer": "innovative",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      },
+      {
+        "question": "专业词汇翻译：devalue",
+        "answer": "贬值",
+        "explanation": "按计算机与网络专业语境翻译；原练习表格将英文词和中文提示交错排版，已逐项展开为双向词汇卡。"
+      }
+    ],
+    "short": [
+      {
+        "question": "Project 1 Ex3：Choose the best answer from P26.",
+        "answer": "原材料只保留“从第26页选择最佳答案”的页码提示，没有题干和选项；无法确定答案。",
+        "explanation": "原材料只保留“从第26页选择最佳答案”的页码提示，没有题干和选项；无法确定答案。"
+      },
+      {
+        "question": "Project 2 Ex3：Choose the best answer from P47.",
+        "answer": "原材料只保留“从第47页选择最佳答案”的页码提示，没有题干和选项；无法确定答案。",
+        "explanation": "原材料只保留“从第47页选择最佳答案”的页码提示，没有题干和选项；无法确定答案。"
+      },
+      {
+        "question": "Project 7 Ex3：Choose the best answer from P26.",
+        "answer": "原材料只保留“从第26页选择最佳答案”的页码提示，没有题干和选项；无法确定答案。",
+        "explanation": "原材料只保留“从第26页选择最佳答案”的页码提示，没有题干和选项；无法确定答案。"
+      },
+      {
+        "question": "Project 4 Ex3：How many types of network are there? What are they?",
+        "answer": "常按覆盖范围分为三类：局域网（LAN）、城域网（MAN）和广域网（WAN）。",
+        "explanation": "网络类型可按覆盖范围划分，局域网范围较小，城域网覆盖城市，广域网跨越更大地域。"
+      },
+      {
+        "question": "Project 5 Ex3：What are the characteristics of big data?",
+        "answer": "常概括为5V：Volume（规模）、Velocity（速度）、Variety（多样性）、Veracity（真实性）和Value（价值）。",
+        "explanation": "5V是大数据的常见概括方式，不同教材可能采用4V或扩展版本。"
+      },
+      {
+        "question": "Project 6 Ex3：What is a database?",
+        "answer": "数据库是按一定结构组织、长期存储并可共享的数据集合，通常由数据库管理系统负责定义、查询、更新和控制访问。",
+        "explanation": "数据库保存结构化且可共享的数据，由DBMS管理其定义、查询、更新与访问控制。"
+      },
+      {
+        "question": "Project 8 Ex2：What is online shopping? How often do you use it?",
+        "answer": "Online shopping means buying goods or services over the Internet. Sample: I use it once or twice a week. 可按个人实际频率替换。",
+        "explanation": "题目包含个人频率，可用示例句作答并按自身情况调整。"
+      }
+    ],
+    "code": []
+  }
+}

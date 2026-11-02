@@ -3,20 +3,27 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>开始刷题</title>
-    <link rel="stylesheet" href="css/style.css?v=20260630-4" />
+    <link rel="stylesheet" href="css/style.css?v=20260716-3" />
+  <link rel="stylesheet" href="css/oil.css?v=20261102-4" />
 </head>
 <body>
-<main class="app-shell exam-shell">
-    <nav class="topbar">
-        <a id="examBackLink" class="back-link" href="index.html">← 返回</a>
-        <div id="progress" class="progress">0 / 0</div>
-    </nav>
+<div class="scene" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+</div>
 
+<nav class="topbar floating-bar">
+    <a id="examBackLink" class="back-link" href="index.html"><span class="chevron">‹</span> 返回</a>
+    <div id="progress" class="progress">0 / 0</div>
+</nav>
+
+<main class="app-shell exam-shell">
     <section id="examStage" class="exam-card"></section>
 </main>
 
-<script src="js/app.js?v=20260630-4"></script>
+<script src="js/app.js?v=20261102-3"></script>
 </body>
 </html>

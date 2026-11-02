@@ -602,6 +602,19 @@ function ensureProtectedSubjectAccess(subjectId) {
     return false;
 }
 
+const SUBJECT_MARKS = {
+    "web-crawler": '<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M7 24h34M24 7c-6 5-9 11-9 17s3 12 9 17M24 7c6 5 9 11 9 17s-3 12-9 17"/></svg>',
+    "java": '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M26 4c-8 7 5 8-2 15M31 9c-6 5 4 7-2 12M10 27h25c0 8-4 12-12 12s-13-4-13-12ZM35 29h2c6 0 5 7-2 7M9 43h29"/></svg>',
+    "android-development": '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 20a11 11 0 0 1 22 0v12H13ZM16 10l-3-4M32 10l3-4M8 22v10M40 22v10M18 32v7M30 32v7"/><circle cx="19" cy="17" r="1"/><circle cx="29" cy="17" r="1"/></svg>',
+    "computer-organization": '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="12" width="24" height="24" rx="3"/><rect x="18" y="18" width="12" height="12" rx="1"/><path d="M18 6v6M24 6v6M30 6v6M18 36v6M24 36v6M30 36v6M6 18h6M6 24h6M6 30h6M36 18h6M36 24h6M36 30h6"/></svg>',
+    "unknown": '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 9h22v30H13zM17 9V6h14v3M19 19a5 5 0 1 1 7 5c-2 1-2 2-2 4M24 33h.1"/></svg>',
+    "harmonyos-development": '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12v24M40 12v24M8 24h32M18 35c3 4 9 4 12 0"/></svg>'
+};
+SUBJECT_MARKS["java"] = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 128 128\"><path fill=\"#0074BD\" d=\"M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969zm-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336z\"/><path fill=\"#EA2D2E\" d=\"M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187z\"/><path fill=\"#0074BD\" d=\"M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468zM49.912 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643zm40.697 22.747c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0-.002.359-.327.468-.617z\"/><path fill=\"#EA2D2E\" d=\"M76.491 1.587S89.459 14.563 64.188 34.51c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587z\"/><path fill=\"#0074BD\" d=\"M52.214 126.021c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 .001 2.875 2.381 17.647 3.331z\"/></svg>";
+SUBJECT_MARKS["android-development"] = '<img src="assets/logos/android.svg" alt="">';
+SUBJECT_MARKS["harmonyos-development"] = '<img class="harmony-logo" src="assets/logos/harmonyos.svg" alt="">';
+const DEFAULT_SUBJECT_MARK = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h14c3 0 5 2 5 5v25c0-3-2-5-5-5H8ZM40 10H26M40 10v25H27"/></svg>';
+
 async function renderIndexPage() {
     const subjectCount = document.querySelector("#subjectCount");
     const subjectList = document.querySelector("#subjectList");
@@ -619,13 +632,12 @@ async function renderIndexPage() {
         subjects.forEach(subject => {
             const card = document.createElement("a");
             card.className = "subject-card";
+            card.dataset.subject = subject.id;
             card.href = `subject.html?subj=${encodeURIComponent(subject.id)}`;
             card.innerHTML = `
-        <div>
-          <h3>${escapeHTML(subject.name)}</h3>
-          <p>点击进入科目</p>
-        </div>
-        <p>开始学习 →</p>
+        <span class="subject-mark">${SUBJECT_MARKS[subject.id] || DEFAULT_SUBJECT_MARK}</span>
+        <div class="subject-card-name"><h3>${escapeHTML(subject.name)}</h3></div>
+        <p aria-hidden="true">→</p>
       `;
             subjectList.appendChild(card);
         });
