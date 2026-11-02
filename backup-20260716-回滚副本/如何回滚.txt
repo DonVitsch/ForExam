@@ -1,0 +1,9 @@
+回滚方法（恢复到 2026-07-16 重设计之前的版本）:
+
+在终端执行:
+  cd /Users/don/Documents/ForExam/ForExam
+  cp "backup-20260716-回滚副本/index.html" "backup-20260716-回滚副本/subject.html" "backup-20260716-回滚副本/exam.html" .
+  cp "backup-20260716-回滚副本/css/style.css" css/
+  cp "backup-20260716-回滚副本/js/app.js" js/
+
+然后强制刷新浏览器 (Cmd+Shift+R) 即可。
