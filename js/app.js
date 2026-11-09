@@ -614,6 +614,7 @@ SUBJECT_MARKS["java"] = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0
 SUBJECT_MARKS["android-development"] = '<img src="assets/logos/android.svg" alt="">';
 SUBJECT_MARKS["harmonyos-development"] = '<img class="harmony-logo" src="assets/logos/harmonyos.svg" alt="">';
 SUBJECT_MARKS["operating-systems"] = '<img src="assets/logos/operating-systems.svg" alt="">';
+SUBJECT_MARKS["operating-systems-review"] = '<img src="assets/logos/operating-systems-review.svg" alt="">';
 SUBJECT_MARKS["professional-english"] = '<img src="assets/logos/professional-english.svg" alt="">';
 SUBJECT_MARKS["software-project-management"] = '<img src="assets/logos/software-project-management.svg" alt="">';
 const DEFAULT_SUBJECT_MARK = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 10h14c3 0 5 2 5 5v25c0-3-2-5-5-5H8ZM40 10H26M40 10v25H27"/></svg>';

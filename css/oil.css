@@ -127,3 +127,5 @@ body { background: #f5f2e9; color: var(--ink); }
 .subject-card[data-subject="operating-systems"] .subject-mark { color: #47779b; }
 .subject-card[data-subject="professional-english"] .subject-mark { color: #4e789e; }
 .subject-card[data-subject="software-project-management"] .subject-mark { color: #718164; }
+.subject-card[data-subject="operating-systems-review"]::before { background-image: linear-gradient(to bottom, #faf8f1 0%, rgba(250,248,241,.22) 85%), url('../assets/art-operating-systems-review.png'); background-position: center 56%; }
+.subject-card[data-subject="operating-systems-review"] .subject-mark { color: #738263; }

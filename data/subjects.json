@@ -11,6 +11,11 @@
       "file": "operating-systems.json"
     },
     {
+      "id": "operating-systems-review",
+      "name": "操作系统题库答案与解析",
+      "file": "operating-systems-review.json"
+    },
+    {
       "id": "professional-english",
       "name": "专业英语",
       "file": "professional-english.json"
