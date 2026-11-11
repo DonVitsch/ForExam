@@ -122,6 +122,7 @@ body { background: #f5f2e9; color: var(--ink); }
 .subject-card[data-subject="harmonyos-development"] { --subject-art: url('../assets/art-harmony.png'); }
 .subject-card::before { background-image: linear-gradient(to bottom, #faf8f1 0%, rgba(250,248,241,.1) 80%), var(--subject-art, url('../assets/art-interior.png')); }
 .subject-card[data-subject="operating-systems"] { --subject-art: url('../assets/art-operating-systems.jpg'); }
+.subject-card[data-subject="operating-systems-booklet"] { --subject-art: url('../assets/art-operating-systems.jpg'); }
 .subject-card[data-subject="professional-english"] { --subject-art: url('../assets/art-professional-english.jpg'); }
 .subject-card[data-subject="software-project-management"] { --subject-art: url('../assets/art-software-project-management.jpg'); }
 .subject-card[data-subject="operating-systems"] .subject-mark { color: #47779b; }
