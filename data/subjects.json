@@ -11,11 +11,6 @@
       "file": "operating-systems.json"
     },
     {
-      "id": "operating-systems-booklet",
-      "name": "操作册子",
-      "file": "operating-systems-booklet.json"
-    },
-    {
       "id": "operating-systems-review",
       "name": "操作系统题库答案与解析",
       "file": "operating-systems-review.json"
